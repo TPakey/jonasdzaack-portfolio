@@ -33,6 +33,7 @@ body {
   background: radial-gradient(circle at top right, var(--accent-soft), var(--bg));
   color: var(--text);
   -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
 }
 
 /* Layout helpers */
@@ -130,6 +131,7 @@ section {
   opacity: 0.9;
   pointer-events: none;
   z-index: -1;
+  will-change: transform;
 }
 
 .hero-grid {
@@ -231,6 +233,7 @@ section {
   padding: 10px;
   background: radial-gradient(circle at top left, var(--accent-soft), #ffffff);
   box-shadow: var(--shadow-soft);
+  will-change: transform;   /* <--- NEU */
 }
 
 .portrait-inner {
