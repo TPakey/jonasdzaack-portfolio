@@ -2,37 +2,118 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
+  <title>Off Track – Jonas Dzaack</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WOW Site</title>
-  <meta name="description" content="Jonas' visuelle Demo-Site mit 3D, Scroll-Effekten und Transitions." />
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="preconnect" href="https://unpkg.com">
-  <script defer src="https://unpkg.com/swup@4"></script>
-  <link rel="stylesheet" href="https://unpkg.com/atropos/atropos.css" />
-  <script defer src="https://unpkg.com/atropos"></script>
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"
+  ></script>
   <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
   <script defer src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script defer src="https://unpkg.com/@studio-freight/lenis@1.0.41/bundled/lenis.min.js"></script>
   <script defer src="js/main.js"></script>
 </head>
 <body>
   <header class="site-header">
-    <nav class="nav">
-      <a href="index.html" data-swup-preload>Home</a>
-      <a href="on-track.html" data-swup-preload>OnTrack</a>
-      <a href="off-track.html" data-swup-preload>OffTrack</a>
-      <a href="calendar.html" data-swup-preload>Calendar</a>
-    </nav>
+    <div class="wrap header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">JD</span>
+        <span class="logo-text">Jonas&nbsp;Dzaack</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html#about">Über mich</a>
+        <a href="index.html#projects">Projekte</a>
+        <a href="index.html#timeline">Timeline</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="on-track.html" class="nav-pill">On&nbsp;Track</a>
+      </nav>
+    </div>
   </header>
 
-  <main id="swup" class="transition-fade">
-    <section class="page">
-      <h1 class="reveal">Off Track</h1>
-      <p class="reveal">Was nicht läuft – ehrlich dokumentieren und verbessern.</p>
+  <main>
+    <section class="section reveal">
+      <div class="wrap section-grid">
+        <div>
+          <h2>Off Track</h2>
+          <p>
+            Dinge, die (noch) nicht so laufen, wie ich will. Statt sie zu
+            verstecken, liste ich sie hier – damit ich sie später abhaken kann.
+          </p>
+          <p>
+            Das ist keine „Failure Wall“, sondern eine ehrliche Roadmap von
+            Baustellen, an denen ich arbeite.
+          </p>
+        </div>
+        <div class="keypoints">
+          <div class="keypoint">
+            <span class="kp-label">Balance</span>
+            <p>
+              Studium, eigene Projekte und Arbeit in Communities unter einen
+              Hut zu bringen, ist laufend eine Herausforderung.
+            </p>
+          </div>
+          <div class="keypoint">
+            <span class="kp-label">Produkt-Shippen</span>
+            <p>
+              Viele Ideen für Apps & Tools – aber nicht alle sind schon als
+              echte, nutzbare Produkte draußen.
+            </p>
+          </div>
+          <div class="keypoint">
+            <span class="kp-label">Struktur</span>
+            <p>
+              Systeme für Content, Deep Work und Erholung sind in Arbeit –
+              Ziel: weniger Chaos, mehr Klarheit.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
-    <footer class="site-footer">
-      <small>© 2025 Jonas</small>
-    </footer>
+
+    <section class="section section-alt reveal">
+      <div class="wrap">
+        <header class="section-header">
+          <h3>Was ich daraus lerne</h3>
+          <p>
+            Off Track ist für mich keine Scham-Liste, sondern ein Reminder,
+            wo die größten Hebel für die nächsten Monate liegen.
+          </p>
+        </header>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-label">Fokus</span>
+              <h4>Weniger Projekte gleichzeitig</h4>
+              <p>
+                Projekte konsequenter priorisieren und nicht alles parallel
+                fahren – vor allem während Prüfungsphasen.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-label">Output</span>
+              <h4>Mehr Dinge shippen</h4>
+              <p>
+                Weniger Perfektionismus, mehr Dinge veröffentlichen – auch
+                wenn sie noch nicht „final“ sind.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>© 2025 Jonas Dzaack</span>
+      <span class="footer-dots">Off Track · Learnings · Progress</span>
+    </div>
+  </footer>
 </body>
 </html>
