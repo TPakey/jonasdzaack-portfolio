@@ -2,243 +2,368 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  />
-  <title>Off Track – Life, F1 & Experiments – Jonas Dzaack</title>
+  <title>Off Track · Jonas Dzaack · Life, F1 & Experiments</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Off Track: F1, gaming, travel and experiments that recharge Jonas outside of deep focus work."
+    content="Off Track – where Jonas Dzaack keeps everything that fuels the work: F1, gaming, trips, experiments and side projects."
   />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css" />
 
-  <!-- Animation libs -->
-  <link rel="preconnect" href="https://unpkg.com" />
-  <script
-    defer
-    src="https://unpkg.com/gsap@3/dist/gsap.min.js"
-  ></script>
-  <script
-    defer
-    src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"
-  ></script>
+  <!-- Effects / Libraries -->
   <script
     defer
     src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"
   ></script>
+  <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script defer src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
   <script
     defer
     src="https://unpkg.com/@studio-freight/lenis@1.0.41/bundled/lenis.min.js"
   ></script>
-
-  <!-- Main JS -->
   <script defer src="js/main.js"></script>
 </head>
-
-<body class="page-offtrack">
+<body data-page="off-track">
   <!-- Global loader / curtain -->
   <div class="loader-overlay">
     <div class="loader-inner">
       <div class="loader-logo">
         <span class="loader-logo-mark">JD</span>
-        <span class="loader-logo-text">Jonas Dzaack</span>
+        <span class="loader-logo-text">Off Track</span>
       </div>
-      <p class="loader-sub">Loading focus…</p>
+      <p class="loader-sub">Loading chill mode…</p>
     </div>
   </div>
+
+  <!-- Scroll progress bar -->
   <div class="scroll-progress"></div>
 
+  <!-- Site header / nav -->
   <header class="site-header">
     <div class="wrap header-inner">
-      <a href="index.html" class="brand">
-        <span class="brand-mark">JD</span>
-        <span class="brand-text">
-          <span class="brand-name">Jonas Dzaack</span>
-          <span class="brand-tagline">On / Off Track</span>
-        </span>
+      <a href="index.html" class="logo">
+        <span class="logo-mark">JD</span>
+        <span class="logo-text">Jonas&nbsp;Dzaack</span>
       </a>
 
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="on-track.html">On&nbsp;Track</a>
-        <a href="off-track.html" class="is-active">Off&nbsp;Track</a>
+        <a href="off-track.html" class="nav-pill is-active">Off&nbsp;Track</a>
         <a href="calendar.html">Calendar</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero hero-offtrack">
-      <div class="hero-bg-gradient"></div>
-      <div class="hero-ghost-word">OFF TRACK</div>
-
-      <div class="wrap hero-grid hero-grid-offtrack">
-        <div class="hero-content">
-          <p class="eyebrow">OFF TRACK · LIFE</p>
-          <h1 class="hero-title">
-            Everything that keeps<br />
-            me sane between races.
+    <!-- ============================
+         OFF TRACK HERO
+         ============================ -->
+    <section class="section offtrack-hero-section reveal" id="top">
+      <div class="wrap offtrack-hero-grid">
+        <div class="offtrack-hero-copy">
+          <div class="eyebrow">OFF TRACK · LIFE</div>
+          <h1 class="offtrack-hero-title">
+            Life, F1 and experiments<br />
+            between races.
           </h1>
-          <p class="hero-text">
-            Off Track is where F1, gaming, travel and random experiments live.
-            The things that refill the tank so On Track can stay sharp.
+          <p class="offtrack-hero-lead">
+            On Track is where the systems live. Off Track is the rest of my
+            world: F1, gaming, trips, perfumes, cooking and random ideas that
+            might become products later – or just stay fun.
           </p>
+          <p class="offtrack-hero-note">
+            I don’t believe in “hustle 24/7”. Focus needs recovery, and this
+            is where that recovery happens.
+          </p>
+
+          <div class="offtrack-hero-pills">
+            <span class="meta-chip">F1 &amp; Lando-inspired design</span>
+            <span class="meta-chip">Gaming &amp; everyday</span>
+            <span class="meta-chip">Side experiments</span>
+          </div>
         </div>
 
-        <div class="hero-visual hero-visual-offtrack">
-          <div class="hero-portrait-card small js-tilt">
-            <div class="hero-portrait-bg hero-portrait-bg-soft"></div>
-            <div class="hero-portrait-inner">
-              <div class="hero-mini-header">
-                <span class="mini-label">OFF TRACK MODES</span>
-                <span class="mini-value">Mix of chill &amp; chaos</span>
-              </div>
+        <div class="offtrack-hero-card js-tilt">
+          <div class="offtrack-hero-bg">
+            <div class="offtrack-blob offtrack-blob--purple"></div>
+            <div class="offtrack-blob offtrack-blob--yellow"></div>
+            <div class="offtrack-lines"></div>
+          </div>
 
-              <ul class="hero-mini-list">
-                <li>
-                  <span class="mini-tag">F1 &amp; Norris</span>
-                  <span class="mini-note">Visual inspiration, not cosplay.</span>
-                </li>
-                <li>
-                  <span class="mini-tag">Gaming</span>
-                  <span class="mini-note">Relax mode after long build days.</span>
-                </li>
-                <li>
-                  <span class="mini-tag">Travel &amp; North Sea</span>
-                  <span class="mini-note">Short trips > endless doomscrolling.</span>
-                </li>
-                <li>
-                  <span class="mini-tag">Experiments</span>
-                  <span class="mini-note">AI video origin ideas, side projects.</span>
-                </li>
-              </ul>
-            </div>
-            <div class="hero-orbit hero-orbit-secondary"></div>
+          <div class="offtrack-hero-inner">
+            <h2 class="offtrack-hero-mini-title">What lives off track</h2>
+            <ul class="offtrack-hero-list">
+              <li>
+                <span class="offtrack-dot"></span>
+                <span>
+                  <strong>F1 &amp; Lando</strong> – design inspiration,
+                  race weekends, 3D-helmet nerding.
+                </span>
+              </li>
+              <li>
+                <span class="offtrack-dot"></span>
+                <span>
+                  <strong>Chill &amp; everyday</strong> – gaming, gym,
+                  perfumes, cooking, hanging out.
+                </span>
+              </li>
+              <li>
+                <span class="offtrack-dot"></span>
+                <span>
+                  <strong>Experiments</strong> – AI video origin detector,
+                  small prototypes, design tests.
+                </span>
+              </li>
+            </ul>
+
+            <p class="offtrack-hero-mini-note">
+              These things don’t have to “justify themselves” – but they do
+              feed how I design and operate systems.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STACKED SOCIAL MOMENTS -->
-    <section class="section section-light">
+    <!-- ============================
+         F1 & LANDO – DESIGN INSPIRATION
+         ============================ -->
+    <section class="section section-alt reveal" id="f1">
       <div class="wrap">
         <header class="section-header">
-          <p class="eyebrow">SOCIAL MOMENTS</p>
-          <h2>Snapshots from off track.</h2>
-          <p class="section-intro">
-            A few fictional placeholders for now – later you can plug in
-            real images from your setup, trips and everyday life.
+          <h2>F1 &amp; Lando as a design language</h2>
+          <p>
+            I don’t want to be Lando. But his site set the bar for how playful,
+            high-end and smooth a personal website can feel.
           </p>
         </header>
 
-        <div class="social-stack">
-          <article class="social-card js-tilt-sm">
-            <div class="social-media-bar">
-              <span class="social-handle">@jonas.offtrack</span>
-              <span class="social-meta">Race weekend vibes</span>
-            </div>
-            <div class="social-image-placeholder social-image-f1">
-              <!-- Replace with real image later -->
-              <span class="social-image-label">F1 weekend placeholder</span>
-            </div>
-            <div class="social-body">
-              <p>
-                Track on screen, Notion on the side. Yes, I’m the guy who watches F1
-                and still takes notes about camera moves and website motion.
-              </p>
-            </div>
+        <div class="offtrack-f1-grid">
+          <article class="offtrack-f1-main js-tilt-sm">
+            <div class="pill">F1 &amp; Web</div>
+            <h3>Taking the vibe, not the code.</h3>
+            <p>
+              The Lando Norris site by It’s Off Brand is full of depth maps,
+              3D helmets and custom scroll logic. This portfolio isn’t
+              copying it – it translates the vibe into my world: focus,
+              communities and apps.
+            </p>
+            <ul class="bullet-list">
+              <li>Visual overload, but controlled and performance-aware</li>
+              <li>Scroll as a story, not just a way to move down</li>
+              <li>Subtle 3D / tilt instead of heavy WebGL everywhere</li>
+            </ul>
+            <p class="offtrack-f1-note">
+              My rule: inspiration is allowed, clones are not.
+            </p>
           </article>
 
-          <article class="social-card js-tilt-sm">
-            <div class="social-media-bar">
-              <span class="social-handle">@jonas.offtrack</span>
-              <span class="social-meta">Desk setup</span>
-            </div>
-            <div class="social-image-placeholder social-image-setup">
-              <span class="social-image-label">Desk setup placeholder</span>
-            </div>
-            <div class="social-body">
+          <div class="offtrack-f1-side">
+            <article class="card js-tilt-sm">
+              <h3>Motorsport metaphors</h3>
               <p>
-                MacBook, external screens, way too many tabs and a calendar that runs
-                like a race schedule. Chill lighting, serious work.
+                On Track vs Off Track, seasons, sprints, race weekends, pit
+                stops – it’s not a gimmick. It’s how I structure my work
+                and recovery.
               </p>
-            </div>
+            </article>
+
+            <article class="card js-tilt-sm">
+              <h3>Motion as a feature</h3>
+              <p>
+                Hover text, tilt cards, subtle loaders – motion should feel
+                like feedback, not like an obstacle between you and the
+                content.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         LIFESTYLE – EVERYDAY THINGS
+         ============================ -->
+    <section class="section reveal" id="lifestyle">
+      <div class="wrap">
+        <header class="section-header">
+          <h2>Off track lifestyle: small things that add up</h2>
+          <p>
+            None of this is a “niche” or product. It’s just my normal life –
+            but it shapes how I think about focus and energy.
+          </p>
+        </header>
+
+        <div class="offtrack-lifestyle-grid">
+          <article class="lifestyle-card js-tilt-sm">
+            <div class="pill">Perfumes</div>
+            <h3>Smelling good as a tiny life buff.</h3>
+            <p>
+              I like good scents – from Replica vibes to heavier, darker
+              notes. It’s a small ritual that makes studying, calls and
+              building feel more intentional.
+            </p>
           </article>
 
-          <article class="social-card js-tilt-sm">
-            <div class="social-media-bar">
-              <span class="social-handle">@jonas.offtrack</span>
-              <span class="social-meta">North Sea break</span>
-            </div>
-            <div class="social-image-placeholder social-image-trip">
-              <span class="social-image-label">Trip placeholder</span>
-            </div>
-            <div class="social-body">
-              <p>
-                Short trips to the North Sea > endless scrolling. Good reminder that
-                being off track on purpose is part of staying on track for the long run.
-              </p>
-            </div>
+          <article class="lifestyle-card js-tilt-sm">
+            <div class="pill">Cooking &amp; baking</div>
+            <h3>Waffles, lasagne &amp; slow evenings.</h3>
+            <p>
+              Cooking is one of the few things where I can’t doomscroll at
+              the same time. It forces me off-screen and into a different
+              pace.
+            </p>
+          </article>
+
+          <article class="lifestyle-card js-tilt-sm">
+            <div class="pill">Gym</div>
+            <h3>Maintaining, not min-maxing.</h3>
+            <p>
+              Right now the gym is less about PRs and more about keeping a
+              baseline. Strong enough to handle study + projects without
+              burning out.
+            </p>
+          </article>
+
+          <article class="lifestyle-card js-tilt-sm">
+            <div class="pill">Trips</div>
+            <h3>Day trips &amp; future long-hauls.</h3>
+            <p>
+              From quick Nord-/Ostsee days to thinking about US or South
+              America trips – changing the environment always resets my
+              focus.
+            </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIMENTS -->
-    <section class="section section-dark">
-      <div class="wrap section-grid">
-        <div>
-          <header class="section-header section-header-tight">
-            <p class="eyebrow">EXPERIMENTS</p>
-            <h2>Side projects that may or may not ship.</h2>
-          </header>
-          <p class="section-text">
-            Not everything has to be polished. Some things just need to be tested,
-            broken and rebuilt. That’s what this corner is for.
+    <!-- ============================
+         GAMING & CHILL
+         ============================ -->
+    <section class="section section-alt reveal" id="gaming">
+      <div class="wrap">
+        <header class="section-header">
+          <h2>Gaming &amp; chill: controlled escapism</h2>
+          <p>
+            I like games the same way I like social media: in the right
+            dose, with some boundaries. No shame, just design.
           </p>
+        </header>
+
+        <div class="offtrack-gaming-row">
+          <article class="offtrack-gaming-main js-tilt-sm">
+            <h3>Games as a conscious break.</h3>
+            <p>
+              I use games as a way to switch off my “operator brain” for a
+              bit. No productivity hack, just play – but with time limits
+              and some awareness so it doesn’t bleed into study time.
+            </p>
+            <p>
+              The same logic that goes into FocusLimit goes into how I think
+              about gaming and scroll time: you can’t remove it, but you can
+              put rails around it.
+            </p>
+          </article>
+
+          <div class="offtrack-gaming-side">
+            <article class="chip-card js-tilt-sm">
+              <h3>Short sessions</h3>
+              <p>Most sessions are sprints, not marathons.</p>
+            </article>
+            <article class="chip-card js-tilt-sm">
+              <h3>Clear cut-offs</h3>
+              <p>Timers &amp; alarms before it eats a whole evening.</p>
+            </article>
+            <article class="chip-card js-tilt-sm">
+              <h3>Friends &amp; fun</h3>
+              <p>Games as a way to connect, not hide.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SIDE EXPERIMENTS
+         ============================ -->
+    <section class="section reveal" id="experiments">
+      <div class="wrap">
+        <header class="section-header">
+          <h2>Side experiments that may go On Track later</h2>
+          <p>
+            Not every idea deserves a full product. But some need a sandbox.
+            That’s what Off Track is for.
+          </p>
+        </header>
+
+        <div class="offtrack-experiments-grid">
+          <!-- AI video origin detector -->
+          <article class="experiment-card js-tilt-sm">
+            <div class="pill pill--dark">AI video origin detector</div>
+            <h3>Is this video AI-generated or not?</h3>
+            <p>
+              Early idea for a tool that scans short-form videos and tries to
+              detect if they’re AI-generated. The goal: more transparency for
+              scrolling humans, less confusion.
+            </p>
+            <ul class="bullet-list">
+              <li>Focus on short-form, not long YouTube docs</li>
+              <li>Simple UI, clear yes/maybe/no feedback</li>
+              <li>
+                Built as a learning project on my Mac / Windows setup first
+              </li>
+            </ul>
+            <p class="experiment-note">
+              If it becomes useful and stable, it might move On Track as a
+              real tool.
+            </p>
+          </article>
+
+          <!-- Design experiments -->
+          <article class="experiment-card js-tilt-sm">
+            <div class="pill pill--dark">Design &amp; motion tests</div>
+            <h3>Trying things before shipping them.</h3>
+            <p>
+              Small experiments with motion, loaders, tilt effects and UI
+              layouts – often inspired by high-end sites like Lando’s or
+              Apple, but implemented in my own stack.
+            </p>
+            <p>
+              Some of these end up in this site, in Skool communities or
+              inside apps. Others stay as unfinished playgrounds, which is
+              fine.
+            </p>
+          </article>
+
+          <!-- Future wildcards -->
+          <article class="experiment-card js-tilt-sm">
+            <div class="pill pill--dark">Future wildcards</div>
+            <h3>Ideas with no category yet.</h3>
+            <p>
+              Some notes don’t fit into “Skool”, “apps” or “uni” yet: maybe
+              travel content, maybe different types of communities, maybe
+              something completely offline.
+            </p>
+            <p>
+              Off Track keeps them visible without forcing them into a
+              business case too early.
+            </p>
+          </article>
         </div>
 
-        <div class="card-grid">
-          <article class="card">
-            <p class="card-label">AI video origin detector</p>
-            <h3 class="card-title">Is this video AI-generated or real?</h3>
-            <p class="card-text">
-              Early idea for a tool that flags AI-generated videos. It’s not production
-              ready, but the questions behind it are interesting enough to explore.
-            </p>
-            <p class="card-meta">
-              Status: idea &amp; setup notes. Might evolve into something, might just inform other projects.
-            </p>
-          </article>
-
-          <article class="card">
-            <p class="card-label">Micro-builds</p>
-            <h3 class="card-title">Tiny scripts, tools &amp; experiments.</h3>
-            <p class="card-text">
-              Little utilities, console experiments and UI prototypes that never make
-              it to a big launch – but keep the skills sharp.
-            </p>
-            <p class="card-meta">
-              Status: ongoing. This section will get way more concrete as more experiments ship.
-            </p>
-          </article>
+        <div class="section-cta">
+          <a href="on-track.html" class="btn btn-ghost">
+            See what actually ships On Track
+          </a>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <span>© 2025 Jonas Dzaack</span>
