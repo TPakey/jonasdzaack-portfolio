@@ -2,37 +2,98 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
+  <title>On Track – Jonas Dzaack</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WOW Site</title>
-  <meta name="description" content="Jonas' visuelle Demo-Site mit 3D, Scroll-Effekten und Transitions." />
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="preconnect" href="https://unpkg.com">
-  <script defer src="https://unpkg.com/swup@4"></script>
-  <link rel="stylesheet" href="https://unpkg.com/atropos/atropos.css" />
-  <script defer src="https://unpkg.com/atropos"></script>
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"
+  ></script>
   <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
   <script defer src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script defer src="https://unpkg.com/@studio-freight/lenis@1.0.41/bundled/lenis.min.js"></script>
   <script defer src="js/main.js"></script>
 </head>
 <body>
   <header class="site-header">
-    <nav class="nav">
-      <a href="index.html" data-swup-preload>Home</a>
-      <a href="on-track.html" data-swup-preload>OnTrack</a>
-      <a href="off-track.html" data-swup-preload>OffTrack</a>
-      <a href="calendar.html" data-swup-preload>Calendar</a>
-    </nav>
+    <div class="wrap header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">JD</span>
+        <span class="logo-text">Jonas&nbsp;Dzaack</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html#about">Über mich</a>
+        <a href="index.html#projects">Projekte</a>
+        <a href="index.html#timeline">Timeline</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="on-track.html" class="nav-pill">On&nbsp;Track</a>
+      </nav>
+    </div>
   </header>
 
-  <main id="swup" class="transition-fade">
-    <section class="page">
-      <h1 class="reveal">On Track</h1>
-      <p class="reveal">Alles, was gut läuft – hier kannst du deine Highlights sammeln.</p>
+  <main>
+    <section class="section section-alt reveal">
+      <div class="wrap">
+        <header class="section-header">
+          <h2>On Track</h2>
+          <p>
+            Dinge, die aktuell gut laufen – Communities, Strukturen und
+            Experimente, bei denen ich ein klares „Weiter so“ sehe.
+          </p>
+        </header>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="pill">Community</div>
+            <h3>Skool-Communities, die stabil laufen</h3>
+            <p>
+              Strukturierte Onboarding-Flows, regelmäßige Calls und klare
+              Content-Systeme sorgen dafür, dass Mitglieder aktiv bleiben.
+            </p>
+            <ul>
+              <li>Saubere Welcome-Sequenzen & Auto-DMs</li>
+              <li>Events & Challenges zur Aktivierung</li>
+              <li>Messbare KPIs für Engagement & Churn</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="pill">Operator-Rolle</div>
+            <h3>Growth als Dienstleistung</h3>
+            <p>
+              Unterstützung für Creator, die sich auf Content konzentrieren
+              wollen, während ich die Community-Infrastruktur halte.
+            </p>
+            <ul>
+              <li>Onboarding-Optimierung</li>
+              <li>Free-to-Paid Konvertierung</li>
+              <li>Retention & Upsell-Prozesse</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="pill">Systeme</div>
+            <h3>Eigene Lern- & Fokusstruktur</h3>
+            <p>
+              Kombination aus Study-Routine, To-Do-System und digitalen
+              Experimenten (Apps, Notion, Automationen).
+            </p>
+            <ul>
+              <li>Studium & Projekte gleichzeitig managen</li>
+              <li>Erste Vorlagen & Templates für andere</li>
+              <li>Dokumentation, was funktioniert</li>
+            </ul>
+          </article>
+        </div>
+      </div>
     </section>
-    <footer class="site-footer">
-      <small>© 2025 Jonas</small>
-    </footer>
   </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>© 2025 Jonas Dzaack</span>
+      <span class="footer-dots">On Track · Fokus · Systeme</span>
+    </div>
+  </footer>
 </body>
 </html>
