@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WOW Site</title>
+  <meta name="description" content="Jonas' visuelle Demo-Site mit 3D, Scroll-Effekten und Transitions." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://unpkg.com">
+  <script defer src="https://unpkg.com/swup@4"></script>
+  <link rel="stylesheet" href="https://unpkg.com/atropos/atropos.css" />
+  <script defer src="https://unpkg.com/atropos"></script>
+  <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script defer src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/@studio-freight/lenis@1.0.41/bundled/lenis.min.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" data-swup-preload>Home</a>
+      <a href="on-track.html" data-swup-preload>OnTrack</a>
+      <a href="off-track.html" data-swup-preload>OffTrack</a>
+      <a href="calendar.html" data-swup-preload>Calendar</a>
+    </nav>
+  </header>
+
+  <main id="swup" class="transition-fade">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="atropos my-face" id="faceCard">
+          <div class="atropos-scale">
+            <div class="atropos-rotate">
+              <div class="atropos-inner">
+                <img src="assets/face.png" alt="Mein Gesicht" data-atropos-offset="6" />
+                <h1 data-atropos-offset="12">Jonas Dzaack</h1>
+                <p data-atropos-offset="10">Student · Entrepreneur</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="spline-wrap reveal">
+          <!-- Replace the src with your Spline embed link for true 3D -->
+          <iframe title="3D Scene" src="" loading="lazy"></iframe>
+        </div>
+      </div>
+      <a href="#flow" class="cta reveal">Zum Flow ↓</a>
+    </section>
+
+    <section id="flow" class="flow-grid">
+      <article class="flow-card reveal"><h2>Speed</h2><p>Sanfte Scroll-Physik mit Lenis.</p></article>
+      <article class="flow-card reveal"><h2>3D</h2><p>Echtes 3D via Spline-Embed – kein Build nötig.</p></article>
+      <article class="flow-card reveal"><h2>Transitions</h2><p>Swup für Seitenwechsel ohne Full Reload.</p></article>
+      <article class="flow-card reveal"><h2>Motion</h2><p>GSAP + ScrollTrigger für scrolldynamische Effekte.</p></article>
+    </section>
+
+    <section class="panel panel-a">
+      <div class="panel-inner">
+        <h2 class="pin">Sticky Panel A</h2>
+        <p>Scroll runter – Parallax und Reveal greifen automatisch.</p>
+      </div>
+    </section>
+
+    <section class="panel panel-b">
+      <div class="panel-inner">
+        <h2 class="pin">Sticky Panel B</h2>
+        <p>Visual Overload – aber performant und statisch hostbar.</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <small>© 2025 Jonas – Free GitHub Pages Demo</small>
+    </footer>
+  </main>
+</body>
+</html>

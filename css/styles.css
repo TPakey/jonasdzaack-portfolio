@@ -1,0 +1,53 @@
+
+:root{
+  --bg: #0b0e14;
+  --fg: #e6e9ef;
+  --muted: #9aa3b2;
+  --glow: rgba(64, 132, 255, .35);
+  --card: rgba(255,255,255,.04);
+  --blur: 12px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+body{margin:0; background: radial-gradient(1200px 600px at 10% -10%, var(--glow), transparent 60%), var(--bg); color:var(--fg); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;}
+
+.site-header{position:sticky; top:0; z-index:50; backdrop-filter: blur(var(--blur)); background: rgba(11,14,20,.5); border-bottom:1px solid rgba(255,255,255,.06)}
+.nav{display:flex; gap:1rem; padding:1rem; max-width:1100px; margin:0 auto}
+.nav a{color:var(--fg); text-decoration:none; opacity:.85}
+.nav a:hover{opacity:1}
+
+main{min-height:100vh}
+
+.transition-fade{opacity:1; transition:opacity .35s ease}
+html.is-animating .transition-fade{opacity:0}
+
+.hero{min-height:90vh; display:grid; place-items:center; padding: clamp(24px, 4vw, 48px)}
+.hero-inner{display:grid; gap:32px; width:min(1100px, 100%); grid-template-columns: 1fr 1fr; align-items:center}
+@media (max-width: 900px){ .hero-inner{grid-template-columns:1fr} }
+
+.my-face{width: clamp(260px, 40vw, 420px); margin-inline:auto}
+.my-face img{width:100%; height:auto; border-radius:24px; box-shadow: 0 10px 40px var(--glow)}
+
+.spline-wrap{aspect-ratio: 16/9; width: 100%; border-radius: 20px; overflow:hidden; backdrop-filter: blur(var(--blur)); background: var(--card); border:1px solid rgba(255,255,255,.06)}
+.spline-wrap iframe{width:100%; height:100%; border:0;}
+
+.cta{display:inline-block; margin-top:8px; color:var(--fg); text-decoration:none; padding:.75rem 1rem; border:1px solid rgba(255,255,255,.12); border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); box-shadow: 0 10px 30px var(--glow)}
+
+.flow-grid{display:grid; grid-template-columns: repeat(4, 1fr); gap:16px; width:min(1100px, 100%); margin:40px auto; padding:0 24px}
+@media (max-width: 900px){ .flow-grid{grid-template-columns:1fr 1fr} }
+@media (max-width: 600px){ .flow-grid{grid-template-columns:1fr} }
+
+.flow-card{padding:20px; border-radius:16px; background: var(--card); border:1px solid rgba(255,255,255,.06); min-height:140px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);}
+
+.panel{height:120vh; display:grid; place-items:center; background: radial-gradient(800px 400px at 90% -10%, var(--glow), transparent 60%)}
+.panel .panel-inner{width:min(1000px, 100%); padding: 0 24px; text-align:center}
+.pin{font-size: clamp(28px, 6vw, 56px); margin:0 0 8px}
+
+.page{min-height:70vh; display:grid; place-items:center; padding:48px; text-align:center}
+
+.site-footer{display:grid; place-items:center; padding:24px; color:var(--muted)}
+
+/* reveal effect */
+.reveal{opacity:0; transform: translateY(18px);}
+.reveal.is-in{opacity:1; transform:none; transition: .6s cubic-bezier(.22,1,.36,1)}
