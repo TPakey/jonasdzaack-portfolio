@@ -2,51 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  />
-  <title>Home – Jonas On / Off Track</title>
+  <title>Jonas Dzaack · Focus, Skool & Apps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Portfolio & playground of Jonas Dzaack – student, Skool community operator and focus app builder."
+    content="Jonas Dzaack – student in business informatics, Skool community operator and builder of focus-first apps like FocusLimit and Habit Garden."
   />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css" />
 
-  <!-- Animation libs -->
-  <link rel="preconnect" href="https://unpkg.com" />
-  <script
-    defer
-    src="https://unpkg.com/gsap@3/dist/gsap.min.js"
-  ></script>
-  <script
-    defer
-    src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"
-  ></script>
+  <!-- Effects / Libraries -->
   <script
     defer
     src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"
   ></script>
+  <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script defer src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
   <script
     defer
     src="https://unpkg.com/@studio-freight/lenis@1.0.41/bundled/lenis.min.js"
   ></script>
-
-  <!-- Main JS -->
   <script defer src="js/main.js"></script>
 </head>
-
-<body class="page-home">
+<body>
   <!-- Global loader / curtain -->
   <div class="loader-overlay">
     <div class="loader-inner">
@@ -57,23 +35,23 @@
       <p class="loader-sub">Loading focus…</p>
     </div>
   </div>
-  <!-- Scroll progress bar -->
+
+  <!-- Scroll progress bar (used by main.js) -->
   <div class="scroll-progress"></div>
 
-  <!-- Global header -->
+  <!-- Site header / nav -->
   <header class="site-header">
     <div class="wrap header-inner">
-      <a href="index.html" class="brand">
-        <span class="brand-mark">JD</span>
-        <span class="brand-text">
-          <span class="brand-name">Jonas Dzaack</span>
-          <span class="brand-tagline">On / Off Track</span>
-        </span>
+      <a href="index.html" class="logo">
+        <span class="logo-mark">JD</span>
+        <span class="logo-text">Jonas&nbsp;Dzaack</span>
       </a>
 
       <nav class="nav">
-        <a href="index.html" class="is-active">Home</a>
-        <a href="on-track.html">On&nbsp;Track</a>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#experiments">Experiments</a>
+        <a href="on-track.html" class="nav-pill">On&nbsp;Track</a>
         <a href="off-track.html">Off&nbsp;Track</a>
         <a href="calendar.html">Calendar</a>
       </nav>
@@ -81,186 +59,224 @@
   </header>
 
   <main>
-    <!-- HERO: Jonas Focus Head -->
-    <section class="hero hero-home">
-      <div class="hero-bg-gradient"></div>
-      <div class="hero-ghost-word">FOCUS</div>
-
+    <!-- ============================
+         HERO – Focus Head / Intro
+         ============================ -->
+    <section class="section hero-section reveal" id="top">
       <div class="wrap hero-grid">
-        <div class="hero-content">
-          <p class="eyebrow">STUDENT · SKOOL OPERATOR · APP BUILDER</p>
+        <!-- Left column: Copy -->
+        <div class="hero-copy">
+          <div class="hero-label">FOCUS · COMMUNITY · APPS</div>
+
           <h1 class="hero-title">
             Always bringing<br />
             the focus.
           </h1>
-          <p class="hero-text">
-            I’m Jonas, a business informatics student from Hamburg,
-            building <strong>Skool communities</strong>, <strong>focus tools</strong> and
-            systems that keep people <span class="inline-highlight">on track</span> instead of doomscrolling.
+
+          <p class="hero-lead">
+            I’m Jonas – student in Business Informatics at Uni Hamburg and
+            Skool community operator. I build <strong>focus-first systems</strong>:
+            communities, funnels and apps that help people stay on track
+            instead of doomscrolling.
           </p>
 
-          <div class="hero-actions">
+          <div class="hero-buttons">
             <a href="on-track.html" class="btn btn-primary">
               See what’s on track
             </a>
             <a href="off-track.html" class="btn btn-ghost">
-              Off track energy
+              See what’s off track
             </a>
           </div>
 
-          <div class="hero-chips">
-            <div class="chip">
-              <span class="chip-label">Skool Games</span>
-              <span class="chip-value">Winner</span>
-            </div>
-            <div class="chip">
-              <span class="chip-label">Communities</span>
-              <span class="chip-value">5+ built &amp; scaled</span>
-            </div>
-            <div class="chip">
-              <span class="chip-label">Focus Apps</span>
-              <span class="chip-value">FocusLimit · Habit Garden</span>
-            </div>
+          <div class="hero-meta-chips">
+            <span class="meta-chip">Student @ Uni Hamburg</span>
+            <span class="meta-chip">Skool Growth Operator</span>
+            <span class="meta-chip">Building FocusLimit</span>
           </div>
         </div>
 
+        <!-- Right column: Visual / "Focus Head" -->
         <div class="hero-visual">
-          <!-- Tilt card for portrait -->
           <div class="hero-portrait-card js-tilt">
-            <div class="hero-portrait-bg"></div>
-            <div class="hero-portrait-inner">
-              <!-- TODO: replace src with your real portrait -->
+            <div class="hero-bg-layer">
+              <div class="hero-bg-ring hero-bg-ring--1"></div>
+              <div class="hero-bg-ring hero-bg-ring--2"></div>
+              <div class="hero-bg-orbit"></div>
+              <div class="hero-topo hero-topo--1"></div>
+              <div class="hero-topo hero-topo--2"></div>
+            </div>
+
+            <div class="hero-portrait-card-inner">
               <img
-              src="assets/img/jonas-portrait.jpeg"
-              alt="Portrait of Jonas Dzaack"
-              class="hero-portrait-img"
+                src="assets/img/jonas-portrait.jpg"
+                alt="Portrait of Jonas Dzaack"
+                class="hero-portrait-img"
               />
-
-              <div class="hero-portrait-badge">
-                <span class="badge-label">Portfolio</span>
-                <span class="badge-value">v1.0</span>
-              </div>
-
-              <div class="hero-portrait-tag">
-                <span>Built as a focus experiment</span>
-              </div>
             </div>
 
-            <div class="hero-orbit hero-orbit-primary"></div>
-            <div class="hero-orbit hero-orbit-secondary"></div>
-          </div>
-
-          <div class="hero-mini-stats">
-            <div class="stat-card js-tilt-sm">
-              <span class="stat-label">Free → Paid</span>
-              <span class="stat-value">$18k in 21 days</span>
-              <span class="stat-meta">with Maureen · Meta ads + Skool</span>
+            <!-- Stats bubbles -->
+            <div class="hero-stat-bubble hero-stat-bubble--top js-tilt-sm">
+              <span class="hero-stat-label">Skool</span>
+              <span class="hero-stat-value">4+ active communities</span>
             </div>
-            <div class="stat-card js-tilt-sm">
-              <span class="stat-label">Study mode</span>
-              <span class="stat-value">B.Sc. WiInf</span>
-              <span class="stat-meta">University of Hamburg · 2025 →</span>
+
+            <div class="hero-stat-bubble hero-stat-bubble--right js-tilt-sm">
+              <span class="hero-stat-label">Apps</span>
+              <span class="hero-stat-value">FocusLimit · Habit Garden</span>
+            </div>
+
+            <div class="hero-stat-bubble hero-stat-bubble--bottom js-tilt-sm">
+              <span class="hero-stat-label">Study</span>
+              <span class="hero-stat-value">Business Informatics, Uni HH</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ON / OFF SPLIT PREVIEW -->
-    <section class="section section-light section-split">
+    <!-- ============================
+         ABOUT / STORY
+         ============================ -->
+    <section class="section section-alt reveal" id="about">
       <div class="wrap">
         <header class="section-header">
-          <p class="eyebrow">ON / OFF TRACK</p>
-          <h2>Two modes. One Jonas.</h2>
-          <p class="section-intro">
-            On Track is my headspace for <strong>systems, communities and apps</strong>.
-            Off Track is everything that keeps me charged: F1, gaming, trips and experiments.
+          <h2>Who I am when I’m on track</h2>
+          <p>
+            I split my time between university, Skool communities and building
+            focus tools. No random hustle, just deliberate seasons.
           </p>
         </header>
 
-        <div class="split-grid">
-          <article class="pill-card pill-ontrack js-tilt-sm">
-            <p class="pill-label">ON TRACK</p>
-            <h3>Systems, communities &amp; apps.</h3>
+        <div class="two-col">
+          <div>
+            <h3>Student & builder at the same time</h3>
             <p>
-              Skool communities, focus tools, study systems. Everything that runs,
-              scales and ships.
+              I study Business Informatics at Universität Hamburg – maths,
+              BWL, informatics and human-computer interaction. At the same
+              time, I work with creators and operators inside
+              <strong>Skool communities</strong>, helping them grow, convert
+              and retain members.
             </p>
-            <ul class="pill-list">
-              <li>Skool growth &amp; Free-to-Paid funnels</li>
-              <li>FocusLimit &amp; Habit Garden</li>
-              <li>Business informatics &amp; math</li>
+            <p>
+              Everything I build – funnels, onboarding, apps – is meant to
+              create less chaos, not more. Focus instead of dopamine loops.
+            </p>
+          </div>
+          <div>
+            <h3>What I actually do</h3>
+            <ul class="bullet-list">
+              <li>Designing free-to-paid funnels for Skool creators</li>
+              <li>Reducing churn with calendars, routines & accountability</li>
+              <li>Planning and building focus-first apps like FocusLimit</li>
+              <li>Testing ideas in small experiments before going all in</li>
             </ul>
-            <a href="on-track.html" class="pill-link">
-              Enter On Track →
-            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         WORK PREVIEW
+         ============================ -->
+    <section class="section reveal" id="work">
+      <div class="wrap">
+        <header class="section-header">
+          <h2>On track: communities & results</h2>
+          <p>
+            A few highlights from Skool projects and growth work. Full stats
+            and breakdowns live on the On Track page.
+          </p>
+        </header>
+
+        <div class="project-grid">
+          <article class="project-card js-tilt-sm">
+            <div class="pill">Skool Games</div>
+            <h3>Winning the December round</h3>
+            <p>
+              Built funnels and engagement systems that won the Skool Games
+              December round – combining community design, DM flows and data.
+            </p>
+            <a href="on-track.html" class="project-link">View details</a>
           </article>
 
-          <article class="pill-card pill-offtrack js-tilt-sm">
-            <p class="pill-label">OFF TRACK</p>
-            <h3>Life, F1 &amp; experiments.</h3>
+          <article class="project-card js-tilt-sm">
+            <div class="pill">Client&nbsp;Revenue</div>
+            <h3>18k in 21 days (PassivAI)</h3>
             <p>
-              F1 weekends, gaming, travel and little experiments that don’t have to be perfect,
-              just interesting.
+              With Maureen Erokwu &amp; Shane Swick: Meta Ads + Skool funnel +
+              clear onboarding. Fast but honest revenue, not hype.
             </p>
-            <ul class="pill-list">
-              <li>F1 &amp; Lando-inspired visuals</li>
-              <li>AI video origin ideas</li>
-              <li>Everyday life around Hamburg</li>
-            </ul>
-            <a href="off-track.html" class="pill-link">
-              Enter Off Track →
-            </a>
+            <a href="on-track.html" class="project-link">See more cases</a>
+          </article>
+
+          <article class="project-card js-tilt-sm">
+            <div class="pill">Focus&nbsp;Apps</div>
+            <h3>FocusLimit concept</h3>
+            <p>
+              App concept to limit short-form content by counting reels and
+              shorts instead of pretending you will never open them again.
+            </p>
+            <a href="on-track.html#apps" class="project-link">Explore apps</a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- SIMPLE ABOUT SECTION -->
-    <section class="section section-dark">
-      <div class="wrap section-grid">
-        <div>
-          <header class="section-header section-header-tight">
-            <p class="eyebrow">ABOUT</p>
-            <h2>Student brain. Operator mindset.</h2>
-          </header>
-          <p class="section-text">
-            I study business informatics, but most of what I learn comes from building:
-            <strong>Skool communities</strong>, <strong>apps</strong> and
-            <strong>systems that reduce friction</strong>.
+    <!-- ============================
+         EXPERIMENTS / OFF-TRACK PREVIEW
+         ============================ -->
+    <section class="section section-alt reveal" id="experiments">
+      <div class="wrap">
+        <header class="section-header">
+          <h2>Off track: experiments & life</h2>
+          <p>
+            F1, gaming, side projects and random ideas that might turn into
+            real products later – or just stay fun.
           </p>
-          <p class="section-text">
-            I like honest numbers, clean UX and motion that feels intentional – not just
-            effects for the sake of it.
-          </p>
+        </header>
+
+        <div class="card-row">
+          <article class="card">
+            <h3>F1 &amp; Lando-inspired design</h3>
+            <p>
+              I’m heavily inspired by Lando’s website, but this portfolio is
+              fully my own code and structure. Visual overload, but controlled.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Habit Garden universe</h3>
+            <p>
+              Long-term project: a 3D habit garden built with Unity, stylised
+              assets and a focus on long-term consistency instead of streak
+              anxiety.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>AI video origin detector</h3>
+            <p>
+              Early-stage idea: detect whether a short-form video is AI
+              generated. Less confusion, more transparency for people scrolling.
+            </p>
+          </article>
         </div>
 
-        <div class="section-facts">
-          <div class="fact">
-            <span class="fact-label">Skool</span>
-            <span class="fact-value">Growth operator for multiple creators</span>
-            <span class="fact-meta">Free-to-paid, retention, engagement.</span>
-          </div>
-          <div class="fact">
-            <span class="fact-label">Apps</span>
-            <span class="fact-value">FocusLimit · Habit Garden</span>
-            <span class="fact-meta">Anti-doomscrolling &amp; gamified habits.</span>
-          </div>
-          <div class="fact">
-            <span class="fact-label">Season</span>
-            <span class="fact-value">Study + build</span>
-            <span class="fact-meta">Planning the year like an F1 calendar.</span>
-          </div>
+        <div class="section-cta">
+          <a href="off-track.html" class="btn btn-ghost">
+            Dive deeper into Off Track
+          </a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Global footer -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <span>© 2025 Jonas Dzaack</span>
-      <span class="footer-dots">On Track · Focus · Systems</span>
+      <span class="footer-dots">Focus · Communities · Apps</span>
     </div>
   </footer>
 </body>
