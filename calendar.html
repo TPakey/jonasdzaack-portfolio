@@ -1,28 +1,31 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Calendar & Roadmap – Jonas Dzaack</title>
+  <title>Calendar – Focus Seasons · Jonas Dzaack</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="css/styles.css" />
 
-<!-- Effekte -->
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"
-></script>
-<script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-<script defer src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-<script
-  defer
-  src="https://unpkg.com/@studio-freight/lenis@1.0.41/bundled/lenis.min.js"
-></script>
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
 
-<!-- dein eigenes JS -->
-<script defer src="js/main.js"></script>
+  <!-- Effects / Libraries -->
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"
+  ></script>
+  <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script defer src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script
+    defer
+    src="https://unpkg.com/@studio-freight/lenis@1.0.41/bundled/lenis.min.js"
+  ></script>
+  <script defer src="js/main.js"></script>
 </head>
 <body>
+  <!-- Scroll progress bar (used by main.js) -->
   <div class="scroll-progress"></div>
+
+  <!-- Site header / nav -->
   <header class="site-header">
     <div class="wrap header-inner">
       <a href="index.html" class="logo">
@@ -31,80 +34,270 @@
       </a>
 
       <nav class="nav">
-        <a href="index.html#about">Über mich</a>
-        <a href="index.html#projects">Projekte</a>
-        <a href="index.html#timeline">Timeline</a>
-        <a href="calendar.html">Calendar</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#experiments">Experiments</a>
         <a href="on-track.html" class="nav-pill">On&nbsp;Track</a>
+        <a href="off-track.html">Off&nbsp;Track</a>
+        <a href="calendar.html" aria-current="page">Calendar</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="section reveal">
+    <!-- HERO: Season mindset -->
+    <section class="section section-alt reveal" id="season-hero">
       <div class="wrap">
         <header class="section-header">
-          <h2>Calendar & Roadmap</h2>
+          <h2>Season Calendar</h2>
           <p>
-            Kein klassischer Kalender, sondern eine grobe Roadmap, wie Studium,
-            Communities und Produkt-Experimente in den nächsten Monaten
-            zusammenspielen.
+            Not a boring grid of dates. More like an F1 season for my brain:
+            focus blocks for uni, Skool communities and app experiments – all
+            planned like races, not random tasks.
+          </p>
+        </header>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="meta-pills hero-meta">
+              <span class="meta-pill">Focus&nbsp;Blocks</span>
+              <span class="meta-pill">Study&nbsp;Season</span>
+              <span class="meta-pill">Launch&nbsp;Windows</span>
+            </div>
+
+            <h3>Always racing the long season, not one single sprint.</h3>
+
+            <p>
+              The calendar here is high level on purpose. It shows when I’m in
+              <strong>study mode</strong>, when I’m pushing
+              <strong>Skool communities</strong>, and when I open up space for
+              <strong>apps and experiments</strong> like FocusLimit or Habit
+              Garden.
+            </p>
+            <p>
+              If you want to work with me, it also tells you one thing:
+              <strong>when I’m actually on</strong> and not in exam tunnel
+              vision.
+            </p>
+          </div>
+
+          <div class="hero-stack js-tilt">
+            <div class="stack-card">
+              <div class="pill">Now</div>
+              <h4>Student & Operator</h4>
+              <p>
+                Wirtschaftsinformatik at Uni Hamburg during the day, Skool
+                growth & product tinkering in carefully protected focus blocks.
+              </p>
+            </div>
+            <div class="stack-card">
+              <div class="pill pill-subtle">Modes</div>
+              <ul class="stack-list">
+                <li><strong>Study Weeks:</strong> lectures, math, projects</li>
+                <li><strong>Community Weeks:</strong> Skool funnels & launches</li>
+                <li><strong>Build Weeks:</strong> Focus apps, prototypes, dev</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEASON SCHEDULE GRID -->
+    <section class="section reveal" id="season-grid">
+      <div class="wrap">
+        <header class="section-header">
+          <h2>Season overview</h2>
+          <p>
+            Rough “season map” instead of fixed dates. Think in quarters and
+            focus themes, not in scattered todos.
           </p>
         </header>
 
         <div class="project-grid">
           <article class="project-card">
-            <div class="pill">Q1</div>
-            <h3>Fundament & Setup</h3>
+            <div class="pill">Pre-Season</div>
+            <h3>Foundation & Setup</h3>
             <p>
-              Semesterstart, Uni-Struktur aufbauen, bestehende Communities
-              stabil halten und erste Versionen der Fokus-Tools testen.
+              Getting uni structure under control, setting up systems, and
+              stabilising existing Skool communities. Low chaos, high clarity.
             </p>
           </article>
 
           <article class="project-card">
-            <div class="pill">Q2</div>
-            <h3>Experimente & Feedback</h3>
+            <div class="pill">Race&nbsp;Season</div>
+            <h3>Launches & Funnels</h3>
             <p>
-              Mehr Nutzerfeedback, kleine Launches, erste Iterationen von
-              Features und Routinen für regelmäßigen Output.
+              Strong pushes for Skool communities, optimising free-to-paid and
+              building new funnels. Most collabs and experiments live here.
             </p>
           </article>
 
           <article class="project-card">
-            <div class="pill">Q3+</div>
-            <h3>Skalieren & Vertiefen</h3>
+            <div class="pill">Study&nbsp;Push</div>
+            <h3>Exam Blocks</h3>
             <p>
-              Was funktioniert, wird verdoppelt. Nicht funktionierende
-              Experimente werden ehrlich geparkt oder beendet.
+              Focus on maths, BWL and informatics. Nearly no calls, fewer
+              projects. If I take on work here, it’s async and very scoped.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <div class="pill">Build&nbsp;Blocks</div>
+            <h3>Apps & Tools</h3>
+            <p>
+              FocusLimit, Habit Garden, AI video detection project. Smaller
+              sprints to ship prototypes instead of endless “one day” ideas.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <div class="pill">Community</div>
+            <h3>Retention & Deep Work</h3>
+            <p>
+              Less new stuff, more depth: improving onboarding, reducing churn,
+              tracking data and creating better experiences for existing
+              members.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <div class="pill">Off-Season</div>
+            <h3>Reset & Travel</h3>
+            <p>
+              Time for travel, F1 weekends, gym and life. Also where most
+              ideas quietly appear in the background and get noted for next
+              season.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt reveal">
+    <!-- FOCUS BLOCKS TIMELINE -->
+    <section class="section section-alt reveal" id="focus-blocks">
       <div class="wrap">
         <header class="section-header">
-          <h3>Später: echter Kalender</h3>
+          <h2>Focus blocks like races</h2>
           <p>
-            Hier könnte später eine echte Integration mit Google Calendar,
-            Notion oder einem eigenen Scheduling-Tool stehen.
+            Instead of micro-managing every day, I group work into focus
+            blocks. Each block has one clear priority and a “win condition”.
           </p>
         </header>
-        <p>
-          Für diese Version reicht eine visuelle Roadmap. Sie zeigt, dass ich
-          Studium, Projekte und Experimente nicht zufällig, sondern bewusst
-          plane.
-        </p>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <h3 class="tl-title">Study Block · Exam prep</h3>
+              <p class="tl-meta">
+                3–4 weeks · heavy focus on maths, informatics & BWL
+              </p>
+              <p>
+                Deep work for uni: lectures, exercises, proofs, projects. Skool
+                and products go into “maintenance mode” here to avoid context
+                switching.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <h3 class="tl-title">Community Block · Skool growth</h3>
+              <p class="tl-meta">
+                2–3 weeks · funnels, launches, retention
+              </p>
+              <p>
+                Designing or optimising free-to-paid funnels, onboarding flows,
+                leaderboards, DM-scripts and tracking. Usually where revenue
+                jumps happen.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <h3 class="tl-title">Build Block · Apps & Tools</h3>
+              <p class="tl-meta">
+                1–2 weeks · product sprints
+              </p>
+              <p>
+                Shipping small but real pieces of FocusLimit, Habit Garden or
+                new tools. Clear scope, clear done-definition, no endless
+                refactors.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <h3 class="tl-title">Light Block · Off-Track</h3>
+              <p class="tl-meta">
+                1+ week · travel, F1, recharge
+              </p>
+              <p>
+                Gym, races, friends, maybe a trip. I still capture ideas and
+                tighten systems, but output is intentionally lower so the next
+                Race Season can be full send again.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPCOMING HIGHLIGHTS / EXPECTATIONS -->
+    <section class="section reveal" id="upcoming-highlights">
+      <div class="wrap">
+        <header class="section-header">
+          <h2>What this calendar actually tells you</h2>
+          <p>
+            I’m a student and an operator at the same time. This calendar is my
+            way of not lying to myself (or to you) about focus and availability.
+          </p>
+        </header>
+
+        <div class="callout-grid">
+          <div class="callout-card">
+            <h3>Best time to reach out</h3>
+            <p>
+              If you want help with Skool communities or funnels, the best
+              timing is during <strong>Race Season</strong> or
+              <strong>Community Blocks</strong> – that’s when I actively build
+              and optimise.
+            </p>
+          </div>
+
+          <div class="callout-card">
+            <h3>Exam & deep study phases</h3>
+            <p>
+              During <strong>Study Blocks</strong> my response time is slower.
+              I still show up, but async and without long calls. Think of it as
+              “safety car” instead of full race pace.
+            </p>
+          </div>
+
+          <div class="callout-card">
+            <h3>Future: real integrations</h3>
+            <p>
+              Later this page might sync with Google Calendar or a custom
+              focus-planning tool. For now, it’s a clear high-level map of how
+              I protect focus and keep things on track.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <span>© 2025 Jonas Dzaack</span>
-      <span class="footer-dots">Calendar · Roadmap · Focus</span>
+      <span class="footer-dots">Calendar · Seasons · Focus</span>
     </div>
   </footer>
 </body>
