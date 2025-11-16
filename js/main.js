@@ -183,8 +183,31 @@ function initGsapAnimations() {
   });
 }
 
+function initScrollProgress(lenis) {
+  const bar = document.querySelector(".scroll-progress");
+  if (!bar) return;
+
+  const update = () => {
+    const scroll =
+      lenis && typeof lenis.scroll === "number" ? lenis.scroll : window.scrollY;
+    const docHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? scroll / docHeight : 0;
+    bar.style.transform = `scaleX(${progress})`;
+  };
+
+  if (lenis && lenis.on) {
+    lenis.on("scroll", update);
+  } else {
+    window.addEventListener("scroll", update);
+  }
+
+  update();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const lenis = initLenis(); // Smooth Scroll
   initTilt();                // Fake-3D Portrait
   initGsapAnimations();      // Scroll & Parallax
+  initScrollProgress(lenis); // Scroll-Bar
 });
