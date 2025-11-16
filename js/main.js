@@ -1,226 +1,306 @@
 // main.js
-// Jonas Portfolio – Loader, Page Transitions, Smooth Scroll, Hero Motion
+// Global motion, loader, page transitions, tilt & text hover effects
 
-// ======================
-// Loader / curtain
-// ======================
-function initLoader() {
-  const loader = document.querySelector(".loader-overlay");
-  if (!loader) return;
+(function () {
+  // =======================================
+  // DOM READY
+  // =======================================
+  document.addEventListener('DOMContentLoaded', function () {
+    const loader = document.querySelector('.loader-overlay');
+    const progressBar = document.querySelector('.scroll-progress');
+    const loadStart = performance.now();
+    const MIN_LOADER_TIME = 650; // ms – minimum visible loader time
 
-  // Warten, bis wirklich alle Assets geladen sind
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      loader.classList.add("is-hidden");
-    }, 800); // Gefühlte "Curtain"-Zeit
-  });
-}
+    // ---------------------------------------
+    // Loader hide after window fully loaded
+    // ---------------------------------------
+    window.addEventListener('load', function () {
+      const elapsed = performance.now() - loadStart;
+      const delay = Math.max(0, MIN_LOADER_TIME - elapsed);
 
-// ======================
-// Page transitions (Curtain between pages)
-// ======================
-function initPageTransitions() {
-  const loader = document.querySelector(".loader-overlay");
-  const links = document.querySelectorAll("a[href]");
+      setTimeout(function () {
+        hideLoader(loader);
+      }, delay);
+    });
 
-  if (!links.length) return;
+    // Fallback: wenn aus irgendeinem Grund "load" nie fired,
+    // nach 3s trotzdem schließen, damit Seite nie hängen bleibt.
+    setTimeout(function () {
+      if (!loader) return;
+      if (!loader.classList.contains('is-hidden')) {
+        hideLoader(loader);
+      }
+    }, 3000);
 
-  links.forEach((link) => {
-    const href = link.getAttribute("href");
-    if (!href) return;
-
-    // Externe Links / Anker / Downloads einfach durchlassen
-    if (
-      href.startsWith("http") ||
-      href.startsWith("#") ||
-      href.startsWith("mailto:") ||
-      href.startsWith("tel:")
-    ) {
-      return;
+    // ---------------------------------------
+    // Scroll progress bar
+    // ---------------------------------------
+    function updateScrollProgress() {
+      if (!progressBar) return;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+      progressBar.style.transform = 'scaleX(' + progress + ')';
     }
 
-    link.addEventListener("click", (event) => {
-      // Cmd+Click / Strg+Click / neues Tab nicht kaputt machen
-      if (
-        event.metaKey ||
-        event.ctrlKey ||
-        event.shiftKey ||
-        event.altKey ||
-        link.target === "_blank"
-      ) {
-        return;
-      }
+    updateScrollProgress();
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
 
-      event.preventDefault();
+    // ---------------------------------------
+    // Page transitions – intercept internal links
+    // ---------------------------------------
+    setupPageTransitions(loader);
 
-      if (!loader) {
-        window.location.href = href;
-        return;
-      }
+    // ---------------------------------------
+    // Tilt effects (VanillaTilt)
+    // ---------------------------------------
+    setupTilt();
 
-      // Loader wieder einblenden
-      loader.classList.remove("is-hidden");
+    // ---------------------------------------
+    // GSAP animations (hero idle + section reveals)
+    // ---------------------------------------
+    setupGsapMotion();
 
-      // Mini-Delay, damit CSS-Transition greifen kann
-      void loader.offsetHeight;
-
-      setTimeout(() => {
-        window.location.href = href;
-      }, 500);
-    });
-  });
-}
-
-// ======================
-// Lenis smooth scroll
-// ======================
-let lenis;
-
-function initLenis() {
-  if (!window.Lenis) return;
-
-  lenis = new Lenis({
-    smooth: true,
-    lerp: 0.1, // Wie stark "nachzieht"
+    // ---------------------------------------
+    // Text hover letter-by-letter
+    // ---------------------------------------
+    setupTextHoverEffects();
   });
 
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
+  // =======================================
+  // Loader helpers
+  // =======================================
+
+  function hideLoader(loader) {
+    if (!loader) return;
+    if (loader.classList.contains('is-hidden')) return;
+
+    loader.classList.add('is-leaving');
+    // Zeit muss zu deiner CSS-Animation passen (exit-duration)
+    setTimeout(function () {
+      loader.classList.add('is-hidden');
+      loader.classList.remove('is-leaving');
+      loader.classList.remove('is-active');
+    }, 500);
   }
 
-  requestAnimationFrame(raf);
-}
+  function showLoader(loader) {
+    if (!loader) return;
+    loader.classList.remove('is-hidden');
+    loader.classList.remove('is-leaving');
+    // reflow, damit Transition sauber triggert
+    void loader.offsetWidth;
+    loader.classList.add('is-active');
+  }
 
-// ======================
-// Scroll progress bar
-// ======================
-function initScrollProgress() {
-  const bar = document.querySelector(".scroll-progress");
-  if (!bar) return;
+  // =======================================
+  // Page transitions
+  // =======================================
 
-  const update = () => {
-    const scrollTop =
-      window.scrollY || document.documentElement.scrollTop || 0;
-    const docHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
-    const ratio = docHeight > 0 ? scrollTop / docHeight : 0;
-    bar.style.width = `${ratio * 100}%`;
-  };
+  function setupPageTransitions(loader) {
+    const links = document.querySelectorAll('a[href]');
+    const currentOrigin = window.location.origin;
 
-  window.addEventListener("scroll", update, { passive: true });
-  update();
-}
+    links.forEach(function (link) {
+      const href = link.getAttribute('href');
+      if (!href) return;
 
-// ======================
-// Reveal-on-scroll mit GSAP
-// ======================
-function initRevealOnScroll() {
-  if (!window.gsap || !window.ScrollTrigger) return;
+      // Anker-Links ignorieren
+      if (href.startsWith('#')) return;
 
-  gsap.registerPlugin(ScrollTrigger);
+      // Externe Links ignorieren
+      const isAbsolute = /^https?:\/\//i.test(href);
+      if (isAbsolute && !href.startsWith(currentOrigin)) return;
 
-  const sections = document.querySelectorAll(".reveal");
-  sections.forEach((section) => {
-    gsap.fromTo(
-      section,
-      { autoAlpha: 0, y: 40 },
-      {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-        },
-      }
-    );
-  });
-}
+      link.addEventListener('click', function (event) {
+        // Neue Tabs etc. nicht abfangen
+        if (
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey ||
+          event.button !== 0
+        ) {
+          return;
+        }
 
-// ======================
-// Hero Motion (Tilt + Idle Animation)
-// ======================
-function initHeroMotion() {
-  const heroCard = document.querySelector(".hero-portrait-card");
-  const smallTiltEls = document.querySelectorAll(".js-tilt-sm");
+        event.preventDefault();
+        const url = link.href;
 
-  // VanillaTilt – Fake 3D
-  if (window.VanillaTilt) {
-    if (heroCard) {
-      VanillaTilt.init(heroCard, {
-        max: 10,
-        speed: 400,
+        if (!loader) {
+          window.location.href = url;
+          return;
+        }
+
+        showLoader(loader);
+
+        // kurze Curtain-Zeit, bevor wir wirklich navigieren
+        setTimeout(function () {
+          window.location.href = url;
+        }, 450);
+      });
+    });
+  }
+
+  // =======================================
+  // Tilt Effects
+  // =======================================
+
+  function setupTilt() {
+    if (!window.VanillaTilt) return;
+
+    var tiltEls = document.querySelectorAll('.js-tilt');
+    if (tiltEls.length) {
+      window.VanillaTilt.init(tiltEls, {
+        max: 13,
+        speed: 800,
+        scale: 1.03,
         glare: true,
-        "max-glare": 0.15,
-        gyroscope: true,
+        'max-glare': 0.18,
       });
     }
 
-    if (smallTiltEls.length) {
-      VanillaTilt.init(smallTiltEls, {
-        max: 12,
-        speed: 500,
-        scale: 1.03,
+    var tiltSmEls = document.querySelectorAll('.js-tilt-sm');
+    if (tiltSmEls.length) {
+      window.VanillaTilt.init(tiltSmEls, {
+        max: 8,
+        speed: 600,
+        scale: 1.02,
         glare: false,
       });
     }
   }
 
-  // GSAP Idle Motion
-  if (!window.gsap) return;
+  // =======================================
+  // GSAP + ScrollTrigger
+  // =======================================
 
-  const tl = gsap.timeline({
-    repeat: -1,
-    yoyo: true,
-  });
+  function setupGsapMotion() {
+    if (!window.gsap) return;
 
-  if (heroCard) {
-    tl.to(
-      heroCard,
-      {
+    var gsap = window.gsap;
+    var ScrollTrigger = window.ScrollTrigger;
+
+    if (ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+
+    // Hero idle motion (Home Hero – Focus Head)
+    var heroCard = document.querySelector('.hero-portrait-card');
+    if (heroCard) {
+      gsap.to(heroCard, {
         y: -12,
-        duration: 3,
-        ease: "sine.inOut",
-      },
-      0
-    );
-  }
+        duration: 5,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1,
+      });
 
-  const rings = document.querySelectorAll(".hero-bg-ring");
-  rings.forEach((ring, index) => {
-    tl.to(
-      ring,
-      {
-        scale: 1.03 + index * 0.03,
-        opacity: 0.7,
-        duration: 3 + index,
-        ease: "sine.inOut",
-      },
-      0
-    );
-  });
+      var rings = document.querySelectorAll('.hero-bg-ring');
+      if (rings.length) {
+        gsap.to(rings, {
+          scale: 1.08,
+          duration: 4,
+          ease: 'sine.inOut',
+          yoyo: true,
+          repeat: -1,
+          stagger: 0.15,
+        });
+      }
+    }
 
-  const orbit = document.querySelector(".hero-bg-orbit");
-  if (orbit) {
-    gsap.to(orbit, {
-      rotate: 360,
-      duration: 18,
-      ease: "none",
-      repeat: -1,
+    if (!ScrollTrigger) return;
+
+    // Sections mit .section.reveal leicht einblenden / sliden
+    gsap.utils.toArray('.section.reveal').forEach(function (section) {
+      var yOffset = section.classList.contains('section-alt') ? 40 : 60;
+
+      gsap.from(section, {
+        opacity: 0,
+        y: yOffset,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse',
+        },
+      });
+
+      // Cards / Rows im Inneren: kleine Stagger-Animation
+      var cards = section.querySelectorAll(
+        '.project-card, .season-row, .highlight-card, .card, .onoff-card, .hero-portrait-card'
+      );
+
+      if (cards.length) {
+        gsap.from(cards, {
+          opacity: 0,
+          y: 30,
+          duration: 0.7,
+          ease: 'power3.out',
+          stagger: 0.08,
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 78%',
+            toggleActions: 'play none none reverse',
+          },
+        });
+      }
     });
   }
-}
 
-// ======================
-// Init
-// ======================
-document.addEventListener("DOMContentLoaded", () => {
-  initLoader();
-  initPageTransitions();
-  initLenis();
-  initScrollProgress();
-  initRevealOnScroll();
-  initHeroMotion();
-});
+  // =======================================
+  // Text Hover Letter-by-Letter
+  // =======================================
+
+  function setupTextHoverEffects() {
+    // Ziel-Elemente: Nav, Buttons, Logo-Text, große Hero-Headline
+    var targets = document.querySelectorAll(
+      '.nav a, .btn, .logo-text, .hero-title'
+    );
+
+    targets.forEach(function (el) {
+      // Bereits gesplittet?
+      if (el.dataset.split === 'chars') return;
+
+      var text = el.textContent;
+      if (!text || !text.trim()) return;
+
+      // Inhalt leeren & in Spans pro Zeichen aufteilen
+      el.textContent = '';
+      el.classList.add('hover-split');
+
+      var chars = [];
+      for (var i = 0; i < text.length; i++) {
+        var span = document.createElement('span');
+        span.className = 'char';
+        span.textContent = text[i];
+
+        if (text[i] === ' ') {
+          span.classList.add('char-space');
+        }
+
+        el.appendChild(span);
+        chars.push(span);
+      }
+
+      el.dataset.split = 'chars';
+
+      // Hover-Animation: Buchstaben mit kleinem Delay nach oben schieben
+      el.addEventListener('mouseenter', function () {
+        chars.forEach(function (char, index) {
+          char.style.transitionDelay = index * 0.02 + 's';
+          char.style.transform = 'translateY(-100%)';
+        });
+      });
+
+      el.addEventListener('mouseleave', function () {
+        chars.forEach(function (char, index) {
+          char.style.transitionDelay = index * 0.015 + 's';
+          char.style.transform = 'translateY(0)';
+        });
+      });
+    });
+  }
+})();
