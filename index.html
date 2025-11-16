@@ -2,75 +2,292 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
+  <title>Jonas Dzaack – Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WOW Site</title>
-  <meta name="description" content="Jonas' visuelle Demo-Site mit 3D, Scroll-Effekten und Transitions." />
+  <meta
+    name="description"
+    content="Jonas Dzaack – Student & Entrepreneur. Ich baue Communities, Tools und Projekte rund um Skool, Fokus & digitale Produkte."
+  />
+
+  <!-- Favicon könntest du später ergänzen -->
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="preconnect" href="https://unpkg.com">
-  <script defer src="https://unpkg.com/swup@4"></script>
-  <link rel="stylesheet" href="https://unpkg.com/atropos/atropos.css" />
-  <script defer src="https://unpkg.com/atropos"></script>
+
+  <!-- externe Libraries für Effekte -->
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"
+  ></script>
   <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
   <script defer src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script defer src="https://unpkg.com/@studio-freight/lenis@1.0.41/bundled/lenis.min.js"></script>
+
+  <!-- dein eigenes JS -->
   <script defer src="js/main.js"></script>
 </head>
 <body>
   <header class="site-header">
-    <nav class="nav">
-      <a href="index.html" data-swup-preload>Home</a>
-      <a href="on-track.html" data-swup-preload>OnTrack</a>
-      <a href="off-track.html" data-swup-preload>OffTrack</a>
-      <a href="calendar.html" data-swup-preload>Calendar</a>
-    </nav>
+    <div class="wrap header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">JD</span>
+        <span class="logo-text">Jonas&nbsp;Dzaack</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#about">Über mich</a>
+        <a href="#projects">Projekte</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#contact">Kontakt</a>
+        <a href="on-track.html" class="nav-pill">On&nbsp;Track</a>
+      </nav>
+    </div>
   </header>
 
-  <main id="swup" class="transition-fade">
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="atropos my-face" id="faceCard">
-          <div class="atropos-scale">
-            <div class="atropos-rotate">
-              <div class="atropos-inner">
-                <img src="assets/face.png" alt="Mein Gesicht" data-atropos-offset="6" />
-                <h1 data-atropos-offset="12">Jonas Dzaack</h1>
-                <p data-atropos-offset="10">Student · Entrepreneur</p>
-              </div>
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-gradient"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Student · Entrepreneur · Community Operator</p>
+          <h1>
+            Ich baue digitale Räume,<br />
+            in denen Menschen wirklich vorankommen.
+          </h1>
+          <p class="hero-text">
+            Communities, Fokus-Tools und Education rund um Skool & Co. –
+            datengetrieben, menschlich und mit klaren Ergebnissen.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn primary">Zu meinen Projekten</a>
+            <a href="off-track.html" class="btn ghost">Was (noch) off track ist</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="meta-pill">Uni Hamburg – Wirtschaftsinformatik</div>
+            <div class="meta-pill">Skool Growth & Community Building</div>
+            <div class="meta-pill">No-Code & AI Tools</div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <!-- Fake-3D Card mit deinem Gesicht -->
+          <div class="portrait-card js-tilt">
+            <div class="portrait-inner">
+              <img
+                src="assets/face.png"
+                alt="Portrait von Jonas Dzaack"
+                class="portrait-img"
+              />
+              <div class="portrait-badge">2025</div>
+              <div class="portrait-tag">Portfolio v1</div>
+            </div>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-label">Communities</span>
+              <span class="stat-value">5+</span>
+              <span class="stat-note">Skool Projekte aufgebaut & optimiert</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Revenue</span>
+              <span class="stat-value">xx.xxx€</span>
+              <span class="stat-note">für Creator & Kunden mitgeneriert</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Fokus</span>
+              <span class="stat-value">Apps</span>
+              <span class="stat-note">erste Prototypen für Fokus & Habits</span>
             </div>
           </div>
         </div>
-        <div class="spline-wrap reveal">
-          <!-- Replace the src with your Spline embed link for true 3D -->
-          <iframe title="3D Scene" src="" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section reveal" id="about">
+      <div class="wrap section-grid">
+        <div>
+          <h2>Wer ich bin</h2>
+          <p>
+            Ich heiße Jonas Dzaack, studiere Wirtschaftsinformatik in Hamburg
+            und baue neben dem Studium Communities und digitale Produkte.
+          </p>
+          <p>
+            Mein Fokus: Menschen dabei helfen, ihre Ziele schneller und
+            nachhaltiger zu erreichen – mit klaren Strukturen, spielerischen
+            Elementen und datenbasierten Entscheidungen.
+          </p>
+        </div>
+        <div class="keypoints">
+          <div class="keypoint">
+            <span class="kp-label">Community</span>
+            <p>
+              Erfahrung mit Skool-Communities von 0 bis mehrere hundert
+              Mitglieder – von Onboarding bis Churn-Reduktion.
+            </p>
+          </div>
+          <div class="keypoint">
+            <span class="kp-label">Produkt</span>
+            <p>
+              Tools und Experimente im Bereich Fokus, Habits und AI-Unterstützung
+              für Creator & Entrepreneure.
+            </p>
+          </div>
+          <div class="keypoint">
+            <span class="kp-label">Mindset</span>
+            <p>
+              Build in public, viel testen, schnell lernen – und alles so
+              dokumentieren, dass andere davon profitieren können.
+            </p>
+          </div>
         </div>
       </div>
-      <a href="#flow" class="cta reveal">Zum Flow ↓</a>
     </section>
 
-    <section id="flow" class="flow-grid">
-      <article class="flow-card reveal"><h2>Speed</h2><p>Sanfte Scroll-Physik mit Lenis.</p></article>
-      <article class="flow-card reveal"><h2>3D</h2><p>Echtes 3D via Spline-Embed – kein Build nötig.</p></article>
-      <article class="flow-card reveal"><h2>Transitions</h2><p>Swup für Seitenwechsel ohne Full Reload.</p></article>
-      <article class="flow-card reveal"><h2>Motion</h2><p>GSAP + ScrollTrigger für scrolldynamische Effekte.</p></article>
-    </section>
+    <!-- PROJECTS -->
+    <section class="section section-alt reveal" id="projects">
+      <div class="wrap">
+        <header class="section-header">
+          <h2>Ausgewählte Projekte</h2>
+          <p>
+            Ein kleiner Überblick über Dinge, an denen ich gearbeitet habe oder
+            aktuell arbeite.
+          </p>
+        </header>
 
-    <section class="panel panel-a">
-      <div class="panel-inner">
-        <h2 class="pin">Sticky Panel A</h2>
-        <p>Scroll runter – Parallax und Reveal greifen automatisch.</p>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="pill">Community</div>
+            <h3>Skool Growth & Operator</h3>
+            <p>
+              Aufbau und Optimierung von Skool-Communities: Free-to-Paid
+              Funnels, Onboarding-Flows, Leaderboards, Events und mehr.
+            </p>
+            <ul>
+              <li>Engagement-Strategien & Content-Struktur</li>
+              <li>Datenbasierte Entscheidungen anhand von Metriken</li>
+              <li>Retention & Upsell-Mechaniken</li>
+            </ul>
+            <a href="on-track.html" class="project-link">On-Track Übersicht</a>
+          </article>
+
+          <article class="project-card">
+            <div class="pill">Produkt</div>
+            <h3>Fokus / Anti-Doomscrolling App</h3>
+            <p>
+              Mobile App-Konzept, die Shortform-Konsum begrenzt, Fortschritt
+              trackt und Fokus belohnt, statt zu bestrafen.
+            </p>
+            <ul>
+              <li>Konzept, UX-Flows & technische Architektur</li>
+              <li>Integration von Screen-Time / Accessibility APIs</li>
+              <li>Gamification-Ansätze für langfristen Fokus</li>
+            </ul>
+            <span class="project-status">Status: in Arbeit</span>
+          </article>
+
+          <article class="project-card">
+            <div class="pill">Experimente</div>
+            <h3>Personal Website & Visual Experiments</h3>
+            <p>
+              Diese Seite selbst ist ein Spielplatz für neue UI-Ideen,
+              Animations und 3D-Effekte – inspiriert von modernen F1-Brandings.
+            </p>
+            <ul>
+              <li>Fake-3D Portrait Card</li>
+              <li>Scroll-basierte Animations</li>
+              <li>Experimentelle Layouts & Micro-Interactions</li>
+            </ul>
+            <span class="project-status">Status: always evolving</span>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="panel panel-b">
-      <div class="panel-inner">
-        <h2 class="pin">Sticky Panel B</h2>
-        <p>Visual Overload – aber performant und statisch hostbar.</p>
+    <!-- TIMELINE -->
+    <section class="section reveal" id="timeline">
+      <div class="wrap">
+        <header class="section-header">
+          <h2>Timeline & Fokus</h2>
+          <p>
+            Grob, was in den nächsten Monaten auf meinem Radar steht –
+            Studium, Communities und Produkt-Experimente.
+          </p>
+        </header>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-label">Jetzt</span>
+              <h3>Fundament & Systeme</h3>
+              <p>
+                Studium, stabile Lern-Struktur, klare Routinen. Bestehende
+                Communities weiter optimieren und Prozesse dokumentieren.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-label">Nächste 6–12 Monate</span>
+              <h3>Fokus-Tools & Experimente</h3>
+              <p>
+                Weiterentwicklung der Fokus-App, Testing mit echten Nutzern,
+                Verknüpfung mit Communities & Accountability-Mechaniken.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-label">Long Game</span>
+              <h3>Ökosystem rund um Lernen & Fokus</h3>
+              <p>
+                Kombination aus Communities, Kursen und Tools, die Menschen
+                helfen, langfristig auf Kurs zu bleiben – ohne Bullshit.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <footer class="site-footer">
-      <small>© 2025 Jonas – Free GitHub Pages Demo</small>
-    </footer>
+    <!-- CONTACT -->
+    <section class="section section-alt reveal" id="contact">
+      <div class="wrap contact">
+        <div>
+          <h2>Lass uns sprechen</h2>
+          <p>
+            Du baust eine Community, ein Produkt oder brauchst jemanden, der
+            Strukturen und Fokus in dein Projekt bringt?
+          </p>
+          <p>
+            Schreib mir gern eine kurze Nachricht mit Kontext – ich antworte
+            dir, sobald es in meinen Uni- und Projektplan passt.
+          </p>
+          <a href="mailto:hello@example.com" class="btn primary"
+            >Mail schreiben</a
+          >
+        </div>
+        <div class="contact-note">
+          <p>
+            Später kannst du hier auch ein Formular, Calendly oder etwas
+            Ähnliches einbauen. Für v1 reicht eine simple Mail-CTA.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>© 2025 Jonas Dzaack</span>
+      <span class="footer-dots">Portfolio · Experiments · In Progress</span>
+    </div>
+  </footer>
 </body>
 </html>
