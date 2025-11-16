@@ -1,98 +1,289 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>On Track – Jonas Dzaack</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="css/styles.css" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+  <title>On Track – Systems, Communities & Apps – Jonas Dzaack</title>
+  <meta
+    name="description"
+    content="On Track: Skool communities, focus apps and study systems Jonas is building and operating."
+  />
 
-<!-- Effekte -->
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"
-></script>
-<script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-<script defer src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-<script
-  defer
-  src="https://unpkg.com/@studio-freight/lenis@1.0.41/bundled/lenis.min.js"
-></script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-<!-- dein eigenes JS -->
-<script defer src="js/main.js"></script>
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Animation libs -->
+  <link rel="preconnect" href="https://unpkg.com" />
+  <script
+    defer
+    src="https://unpkg.com/gsap@3/dist/gsap.min.js"
+  ></script>
+  <script
+    defer
+    src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"
+  ></script>
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"
+  ></script>
+  <script
+    defer
+    src="https://unpkg.com/@studio-freight/lenis@1.0.41/bundled/lenis.min.js"
+  ></script>
+
+  <!-- Main JS -->
+  <script defer src="js/main.js"></script>
 </head>
-<body>
+
+<body class="page-ontrack">
   <div class="scroll-progress"></div>
+
   <header class="site-header">
     <div class="wrap header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-mark">JD</span>
-        <span class="logo-text">Jonas&nbsp;Dzaack</span>
+      <a href="index.html" class="brand">
+        <span class="brand-mark">JD</span>
+        <span class="brand-text">
+          <span class="brand-name">Jonas Dzaack</span>
+          <span class="brand-tagline">On / Off Track</span>
+        </span>
       </a>
 
       <nav class="nav">
-        <a href="index.html#about">Über mich</a>
-        <a href="index.html#projects">Projekte</a>
-        <a href="index.html#timeline">Timeline</a>
+        <a href="index.html">Home</a>
+        <a href="on-track.html" class="is-active">On&nbsp;Track</a>
+        <a href="off-track.html">Off&nbsp;Track</a>
         <a href="calendar.html">Calendar</a>
-        <a href="on-track.html" class="nav-pill">On&nbsp;Track</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="section section-alt reveal">
+    <!-- HERO -->
+    <section class="hero hero-ontrack">
+      <div class="hero-bg-gradient hero-bg-gradient-dark"></div>
+      <div class="hero-ghost-word">ON TRACK</div>
+
+      <div class="wrap hero-grid hero-grid-ontrack">
+        <div class="hero-content">
+          <p class="eyebrow">ON TRACK · WORK</p>
+          <h1 class="hero-title">
+            Systems, communities<br />
+            and apps that actually ship.
+          </h1>
+          <p class="hero-text">
+            This is the side where things get serious: <strong>Skool growth systems</strong>,
+            <strong>focus products</strong> and <strong>study setup</strong>. No fluff, just
+            what’s been built and what’s in the pipeline.
+          </p>
+
+          <div class="hero-chips hero-chips-inline">
+            <div class="chip">
+              <span class="chip-label">Skool Games</span>
+              <span class="chip-value">Dec 2024 winner</span>
+            </div>
+            <div class="chip">
+              <span class="chip-label">Biggest sprint</span>
+              <span class="chip-value">$18k in 21 days</span>
+            </div>
+            <div class="chip">
+              <span class="chip-label">Current focus</span>
+              <span class="chip-value">Uni + FocusLimit</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual hero-visual-ontrack">
+          <div class="hero-portrait-card small js-tilt">
+            <div class="hero-portrait-bg hero-portrait-bg-dark"></div>
+            <div class="hero-portrait-inner">
+              <div class="hero-mini-header">
+                <span class="mini-label">TRACKBOARD</span>
+                <span class="mini-value">Live systems</span>
+              </div>
+
+              <ul class="hero-mini-list">
+                <li>
+                  <span class="mini-tag">Skool communities</span>
+                  <span class="mini-note">Free → Paid → High-ticket</span>
+                </li>
+                <li>
+                  <span class="mini-tag">FocusLimit</span>
+                  <span class="mini-note">Anti-doomscrolling app concept</span>
+                </li>
+                <li>
+                  <span class="mini-tag">Habit Garden</span>
+                  <span class="mini-note">3D habit garden in Unity</span>
+                </li>
+                <li>
+                  <span class="mini-tag">Study systems</span>
+                  <span class="mini-note">Math, CS, BWL foundations</span>
+                </li>
+              </ul>
+            </div>
+            <div class="hero-orbit hero-orbit-primary"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKOOL COMMUNITIES AS RACE RESULTS -->
+    <section class="section section-dark">
       <div class="wrap">
         <header class="section-header">
-          <h2>On Track</h2>
-          <p>
-            Dinge, die aktuell gut laufen – Communities, Strukturen und
-            Experimente, bei denen ich ein klares „Weiter so“ sehe.
+          <p class="eyebrow">SKOOL COMMUNITIES</p>
+          <h2>Race-style results, but for communities.</h2>
+          <p class="section-intro">
+            A few highlights from Skool projects I helped build or scale. Real numbers,
+            no hype.
           </p>
         </header>
 
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="pill">Community</div>
-            <h3>Skool-Communities, die stabil laufen</h3>
-            <p>
-              Strukturierte Onboarding-Flows, regelmäßige Calls und klare
-              Content-Systeme sorgen dafür, dass Mitglieder aktiv bleiben.
+        <div class="results-table">
+          <div class="results-header-row">
+            <span class="results-col results-col-season">Season</span>
+            <span class="results-col">Project</span>
+            <span class="results-col">Role</span>
+            <span class="results-col results-col-result">Result</span>
+          </div>
+
+          <div class="results-row">
+            <span class="results-col results-col-season">2024</span>
+            <span class="results-col">
+              Ryan Walker · Skool Games
+            </span>
+            <span class="results-col">Growth operator</span>
+            <span class="results-col results-col-result">
+              Won Skool Games · optimized free → paid calls
+            </span>
+          </div>
+
+          <div class="results-row">
+            <span class="results-col results-col-season">2024</span>
+            <span class="results-col">
+              Maureen Erokwu
+            </span>
+            <span class="results-col">Funnel + growth</span>
+            <span class="results-col results-col-result">
+              ~$18k in 21 days with Meta ads + Skool
+            </span>
+          </div>
+
+          <div class="results-row">
+            <span class="results-col results-col-season">2024</span>
+            <span class="results-col">
+              Kyle Kane
+            </span>
+            <span class="results-col">Free-to-paid &amp; upsell</span>
+            <span class="results-col results-col-result">
+              ~$9k in 10 days incl. $3k upsell
+            </span>
+          </div>
+
+          <div class="results-row">
+            <span class="results-col results-col-season">2024</span>
+            <span class="results-col">
+              Impowered Skool (own community)
+            </span>
+            <span class="results-col">Builder &amp; host</span>
+            <span class="results-col results-col-result">
+              “Robin Hood of Skool” positioning · helping others make first $1k
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPS & PRODUCTS -->
+    <section class="section section-light">
+      <div class="wrap section-grid">
+        <div>
+          <header class="section-header section-header-tight">
+            <p class="eyebrow">FOCUS APPS</p>
+            <h2>Tools against doomscrolling and drift.</h2>
+          </header>
+          <p class="section-text">
+            I like building products that respect people’s attention. Not “infinite scroll” —
+            more like “controlled laps”.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <p class="card-label">FocusLimit</p>
+            <h3 class="card-title">Counting shorts so your brain doesn’t have to.</h3>
+            <p class="card-text">
+              Mobile app concept for iOS, Android and browser that tracks how many
+              short-form videos you consume and caps it before you lose the day.
             </p>
-            <ul>
-              <li>Saubere Welcome-Sequenzen & Auto-DMs</li>
-              <li>Events & Challenges zur Aktivierung</li>
-              <li>Messbare KPIs für Engagement & Churn</li>
+            <ul class="card-list">
+              <li>Tracks reels / shorts / TikToks across apps</li>
+              <li>Soft limits, hard limits and “race mode”</li>
+              <li>Freemium + subscription model</li>
             </ul>
+            <p class="card-meta">Status: concept &amp; project plan ready.</p>
           </article>
 
-          <article class="project-card">
-            <div class="pill">Operator-Rolle</div>
-            <h3>Growth als Dienstleistung</h3>
-            <p>
-              Unterstützung für Creator, die sich auf Content konzentrieren
-              wollen, während ich die Community-Infrastruktur halte.
+          <article class="card">
+            <p class="card-label">Habit Garden</p>
+            <h3 class="card-title">A 3D garden that grows with your habits.</h3>
+            <p class="card-text">
+              Long-term heart project: a hybrid iOS app where your daily habits
+              grow a stylised 3D garden built in Unity.
             </p>
-            <ul>
-              <li>Onboarding-Optimierung</li>
-              <li>Free-to-Paid Konvertierung</li>
-              <li>Retention & Upsell-Prozesse</li>
+            <ul class="card-list">
+              <li>Unity URP, low-poly mobile style</li>
+              <li>XP &amp; levels tied to consistency</li>
+              <li>Offline-first, EU-based backend</li>
             </ul>
+            <p class="card-meta">Status: vision &amp; asset specs defined.</p>
           </article>
+        </div>
+      </div>
+    </section>
 
-          <article class="project-card">
-            <div class="pill">Systeme</div>
-            <h3>Eigene Lern- & Fokusstruktur</h3>
-            <p>
-              Kombination aus Study-Routine, To-Do-System und digitalen
-              Experimenten (Apps, Notion, Automationen).
-            </p>
-            <ul>
-              <li>Studium & Projekte gleichzeitig managen</li>
-              <li>Erste Vorlagen & Templates für andere</li>
-              <li>Dokumentation, was funktioniert</li>
-            </ul>
-          </article>
+    <!-- STUDY SYSTEMS -->
+    <section class="section section-dark">
+      <div class="wrap section-grid">
+        <div>
+          <header class="section-header section-header-tight">
+            <p class="eyebrow">STUDY · B.SC. BUSINESS INFORMATICS</p>
+            <h2>Running uni like a season, not a sprint.</h2>
+          </header>
+          <p class="section-text">
+            I’m starting business informatics at the University of Hamburg. Math, CS,
+            BWL and HCI form the base layer under all the systems on this site.
+          </p>
+        </div>
+
+        <div class="section-facts">
+          <div class="fact">
+            <span class="fact-label">Math &amp; CS</span>
+            <span class="fact-value">Analysis, linear algebra, Java, proofs</span>
+            <span class="fact-meta">Thinking in abstractions pays off in product.</span>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Business</span>
+            <span class="fact-value">BWL, models, value creation</span>
+            <span class="fact-meta">Not just code – also why it matters.</span>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Season planning</span>
+            <span class="fact-value">Exams &amp; builds</span>
+            <span class="fact-meta">
+              Year structured like an F1 calendar – more on the calendar page.
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -101,7 +292,7 @@
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <span>© 2025 Jonas Dzaack</span>
-      <span class="footer-dots">On Track · Fokus · Systeme</span>
+      <span class="footer-dots">On Track · Focus · Systems</span>
     </div>
   </footer>
 </body>
