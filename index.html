@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Jonas Dzaack · Focus, Skool & Apps</title>
+  <title>On Track · Jonas Dzaack · Work, Skool & Apps</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Jonas Dzaack – student in business informatics, Skool community operator and builder of focus-first apps like FocusLimit and Habit Garden."
+    content="On Track – where Jonas Dzaack keeps all the serious work: Skool communities, focus-first apps and study systems."
   />
 
   <link rel="stylesheet" href="css/styles.css" />
@@ -24,19 +24,19 @@
   ></script>
   <script defer src="js/main.js"></script>
 </head>
-<body>
+<body data-page="on-track">
   <!-- Global loader / curtain -->
   <div class="loader-overlay">
     <div class="loader-inner">
       <div class="loader-logo">
         <span class="loader-logo-mark">JD</span>
-        <span class="loader-logo-text">Jonas Dzaack</span>
+        <span class="loader-logo-text">On Track</span>
       </div>
-      <p class="loader-sub">Loading focus…</p>
+      <p class="loader-sub">Loading results…</p>
     </div>
   </div>
 
-  <!-- Scroll progress bar (used by main.js) -->
+  <!-- Scroll progress bar -->
   <div class="scroll-progress"></div>
 
   <!-- Site header / nav -->
@@ -48,10 +48,11 @@
       </a>
 
       <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#experiments">Experiments</a>
-        <a href="on-track.html" class="nav-pill">On&nbsp;Track</a>
+        <a href="index.html">Home</a>
+        <a href="#communities">Communities</a>
+        <a href="#apps">Apps</a>
+        <a href="#study">Study</a>
+        <a href="on-track.html" class="nav-pill is-active">On&nbsp;Track</a>
         <a href="off-track.html">Off&nbsp;Track</a>
         <a href="calendar.html">Calendar</a>
       </nav>
@@ -60,272 +61,394 @@
 
   <main>
     <!-- ============================
-         HERO – Focus Head / Intro
+         ON TRACK HERO
          ============================ -->
-    <section class="section hero-section reveal" id="top">
-      <div class="wrap hero-grid">
-        <!-- Left column: Copy -->
-        <div class="hero-copy">
-          <div class="hero-label">FOCUS · COMMUNITY · APPS</div>
-
-          <h1 class="hero-title">
-            Always bringing<br />
-            the focus.
+    <section class="section ontrack-hero-section reveal" id="top">
+      <div class="wrap ontrack-hero-grid">
+        <div class="ontrack-hero-copy">
+          <div class="eyebrow">ON TRACK · WORK</div>
+          <h1 class="ontrack-hero-title">
+            Systems, communities<br />
+            and apps that actually ship.
           </h1>
-
-          <p class="hero-lead">
-            I’m Jonas – student in Business Informatics at Uni Hamburg and
-            Skool community operator. I build <strong>focus-first systems</strong>:
-            communities, funnels and apps that help people stay on track
-            instead of doomscrolling.
+          <p class="ontrack-hero-lead">
+            This is the part of my world where things have to work in real
+            life: Skool communities with actual revenue, focus-first app
+            concepts and study systems that make uni and projects fit into
+            one season.
           </p>
 
-          <div class="hero-buttons">
-            <a href="on-track.html" class="btn btn-primary">
-              See what’s on track
-            </a>
-            <a href="off-track.html" class="btn btn-ghost">
-              See what’s off track
-            </a>
-          </div>
-
-          <div class="hero-meta-chips">
-            <span class="meta-chip">Student @ Uni Hamburg</span>
-            <span class="meta-chip">Skool Growth Operator</span>
-            <span class="meta-chip">Building FocusLimit</span>
-          </div>
+          <p class="ontrack-hero-note">
+            No fluffy “10x grind” talk – just setups, sprints and results I’m
+            willing to put my name on.
+          </p>
         </div>
 
-        <!-- Right column: Visual / "Focus Head" -->
-        <div class="hero-visual">
-          <div class="hero-portrait-card js-tilt">
-            <div class="hero-bg-layer">
-              <div class="hero-bg-ring hero-bg-ring--1"></div>
-              <div class="hero-bg-ring hero-bg-ring--2"></div>
-              <div class="hero-bg-orbit"></div>
-              <div class="hero-topo hero-topo--1"></div>
-              <div class="hero-topo hero-topo--2"></div>
-            </div>
+        <div class="ontrack-hero-stats">
+          <div class="stat-grid">
+            <article class="stat-card js-tilt-sm">
+              <div class="stat-label">Skool Games</div>
+              <div class="stat-value">Winner</div>
+              <div class="stat-meta">December 2024</div>
+            </article>
 
-            <div class="hero-portrait-card-inner">
-              <img
-                src="assets/img/jonas-portrait.jpg"
-                alt="Portrait of Jonas Dzaack"
-                class="hero-portrait-img"
-              />
-            </div>
+            <article class="stat-card js-tilt-sm">
+              <div class="stat-label">Biggest sprint</div>
+              <div class="stat-value">$18k</div>
+              <div class="stat-meta">in 21 days · PassivAI</div>
+            </article>
 
-            <!-- Stats bubbles -->
-            <div class="hero-stat-bubble hero-stat-bubble--top js-tilt-sm">
-              <span class="hero-stat-label">Skool</span>
-              <span class="hero-stat-value">4+ active communities</span>
-            </div>
+            <article class="stat-card js-tilt-sm">
+              <div class="stat-label">Clients helped</div>
+              <div class="stat-value">Ryan · Maureen · Kyle</div>
+              <div class="stat-meta">+ more Skool creators</div>
+            </article>
 
-            <div class="hero-stat-bubble hero-stat-bubble--right js-tilt-sm">
-              <span class="hero-stat-label">Apps</span>
-              <span class="hero-stat-value">FocusLimit · Habit Garden</span>
-            </div>
-
-            <div class="hero-stat-bubble hero-stat-bubble--bottom js-tilt-sm">
-              <span class="hero-stat-label">Study</span>
-              <span class="hero-stat-value">Business Informatics, Uni HH</span>
-            </div>
+            <article class="stat-card js-tilt-sm">
+              <div class="stat-label">Current focus</div>
+              <div class="stat-value">Uni &amp; FocusLimit</div>
+              <div class="stat-meta">Business Informatics + apps</div>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============================
-         ON / OFF SPLIT
+         SKOOL COMMUNITIES – RACE RESULTS GRID
          ============================ -->
-    <section class="section section-alt split-section reveal" id="modes">
+    <section class="section section-alt reveal" id="communities">
       <div class="wrap">
-        <header class="section-header split-header">
-          <h2>Two modes. Same focus.</h2>
+        <header class="section-header ontrack-section-header">
+          <h2>Skool communities as race results</h2>
           <p>
-            On Track is where systems, communities and apps live. Off Track is
-            everything around it – F1, life and experiments that keep it fun.
+            Each project has a season, a role and a clear outcome. Less hype,
+            more scoreboard.
           </p>
         </header>
 
-        <div class="split-grid">
-          <!-- On Track card -->
-          <article class="split-card js-tilt-sm">
-            <div class="split-label">ON TRACK</div>
-            <h3 class="split-title">Systems, communities and apps.</h3>
-            <p class="split-copy">
-              On Track is uni, Skool communities and focus-first products like
-              FocusLimit and Habit Garden. Everything that keeps people moving
-              forward instead of getting lost in feeds.
+        <div class="race-table">
+          <div class="race-header-row">
+            <div class="race-col race-col--season">Season</div>
+            <div class="race-col race-col--client">Client / Project</div>
+            <div class="race-col race-col--role">Role</div>
+            <div class="race-col race-col--result">Result</div>
+          </div>
+
+          <!-- Row 1 -->
+          <article class="race-row js-tilt-sm">
+            <div class="race-col race-col--season">
+              <span class="race-tag">2024</span>
+            </div>
+            <div class="race-col race-col--client">
+              <div class="race-title">Ryan Walker</div>
+              <div class="race-sub">Performance community on Skool</div>
+            </div>
+            <div class="race-col race-col--role">
+              Growth Operator<br />
+              Funnel &amp; call strategy
+            </div>
+            <div class="race-col race-col--result">
+              <div class="race-result-main">Won Skool Games</div>
+              <div class="race-result-sub">Optimised free-to-paid + call flow</div>
+            </div>
+          </article>
+
+          <!-- Row 2 -->
+          <article class="race-row js-tilt-sm">
+            <div class="race-col race-col--season">
+              <span class="race-tag">2024</span>
+            </div>
+            <div class="race-col race-col--client">
+              <div class="race-title">Maureen Erokwu · PassivAI</div>
+              <div class="race-sub">Busy parents building AI-powered income</div>
+            </div>
+            <div class="race-col race-col--role">
+              Funnel &amp; Growth<br />
+              with ads specialist
+            </div>
+            <div class="race-col race-col--result">
+              <div class="race-result-main">$18k in 21 days</div>
+              <div class="race-result-sub">
+                Meta Ads + Skool funnel + tight onboarding
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 3 -->
+          <article class="race-row js-tilt-sm">
+            <div class="race-col race-col--season">
+              <span class="race-tag">2024</span>
+            </div>
+            <div class="race-col race-col--client">
+              <div class="race-title">Kyle Kane</div>
+              <div class="race-sub">Acquisition / deal-making community</div>
+            </div>
+            <div class="race-col race-col--role">
+              Free-to-paid &amp; Upsell<br />
+              Funnel &amp; retention
+            </div>
+            <div class="race-col race-col--result">
+              <div class="race-result-main">$9k in 10 days</div>
+              <div class="race-result-sub">$3k upsell · lean call process</div>
+            </div>
+          </article>
+
+          <!-- Row 4 -->
+          <article class="race-row js-tilt-sm">
+            <div class="race-col race-col--season">
+              <span class="race-tag">2024 →</span>
+            </div>
+            <div class="race-col race-col--client">
+              <div class="race-title">Impowered Skool</div>
+              <div class="race-sub">My own Skool community</div>
+            </div>
+            <div class="race-col race-col--role">
+              Creator &amp; Operator<br />
+              “Robin Hood of Skool” angle
+            </div>
+            <div class="race-col race-col--result">
+              <div class="race-result-main">
+                Teaching first $1k on Skool
+              </div>
+              <div class="race-result-sub">
+                Sharing playbooks from high-performing communities
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 5 (optional generic row) -->
+          <article class="race-row race-row--muted js-tilt-sm">
+            <div class="race-col race-col--season">
+              <span class="race-tag">Next</span>
+            </div>
+            <div class="race-col race-col--client">
+              <div class="race-title">Your Skool community?</div>
+              <div class="race-sub">Growth, funnels &amp; retention systems</div>
+            </div>
+            <div class="race-col race-col--role">
+              Growth partner<br />
+              or one-off sprint
+            </div>
+            <div class="race-col race-col--result">
+              <div class="race-result-main">
+                Clean onboarding &amp; clear upgrade paths
+              </div>
+              <div class="race-result-sub">
+                Focus on churn, engagement and honest numbers
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         APPS & TOOLS – FOCUSLIMIT / HABIT GARDEN
+         ============================ -->
+    <section class="section reveal" id="apps">
+      <div class="wrap">
+        <header class="section-header ontrack-section-header">
+          <h2>Apps &amp; tools that fight doomscrolling</h2>
+          <p>
+            I like building systems that make focus easier by design – not by
+            “just have more discipline” advice.
+          </p>
+        </header>
+
+        <div class="app-grid">
+          <!-- FocusLimit -->
+          <article class="app-card js-tilt-sm">
+            <div class="pill pill--accent">FocusLimit</div>
+            <h3>Limit reels instead of pretending you’ll quit them.</h3>
+            <p>
+              FocusLimit tracks how many short-form videos you watch across
+              apps and lets you set hard caps. It doesn’t judge you for
+              opening Instagram – it just stops the “one more swipe” spiral.
             </p>
 
-            <ul class="split-list">
-              <li>Skool growth &amp; funnels</li>
-              <li>Focus-limit apps</li>
-              <li>Study systems</li>
+            <dl class="app-meta">
+              <div class="app-meta-row">
+                <dt>Status</dt>
+                <dd>In planning / early build</dd>
+              </div>
+              <div class="app-meta-row">
+                <dt>Platforms</dt>
+                <dd>iOS · Android · optional browser extension</dd>
+              </div>
+              <div class="app-meta-row">
+                <dt>Tech stack</dt>
+                <dd>
+                  Android (Kotlin/Java + Accessibility Services),
+                  iOS (Swift + Screen Time API),
+                  backend optional (Supabase)
+                </dd>
+              </div>
+              <div class="app-meta-row">
+                <dt>Business model</dt>
+                <dd>Freemium + subscription, potential affiliates</dd>
+              </div>
+            </dl>
+
+            <p class="app-note">
+              Designed for realistic behaviour: people will scroll – the goal
+              is to keep it inside healthy limits.
+            </p>
+          </article>
+
+          <!-- Habit Garden -->
+          <article class="app-card js-tilt-sm">
+            <div class="pill">Habit Garden</div>
+            <h3>A 3D garden that grows with your habits.</h3>
+            <p>
+              Habit Garden is a long-term heart project: a stylised 3D garden
+              where every habit unlocks growth. Less streak anxiety, more
+              visible progress over seasons.
+            </p>
+
+            <dl class="app-meta">
+              <div class="app-meta-row">
+                <dt>Status</dt>
+                <dd>Vision &amp; design doc · long-term build</dd>
+              </div>
+              <div class="app-meta-row">
+                <dt>Visual direction</dt>
+                <dd>
+                  Unity (URP), low-poly stylised look, inspired by
+                  mobile AAA games
+                </dd>
+              </div>
+              <div class="app-meta-row">
+                <dt>Architecture</dt>
+                <dd>
+                  Hybrid iOS app (SwiftUI + embedded Unity),
+                  offline-first with EU backend
+                </dd>
+              </div>
+              <div class="app-meta-row">
+                <dt>Features</dt>
+                <dd>
+                  XP &amp; levels, daily deals, friend codes, privacy by
+                  design
+                </dd>
+              </div>
+            </dl>
+
+            <p class="app-note">
+              Built slowly and intentionally – this is a universe I want to
+              live in myself, not just an MVP to flip.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         STUDY & SYSTEMS – STUDY SPRINTS
+         ============================ -->
+    <section class="section section-alt reveal" id="study">
+      <div class="wrap">
+        <header class="section-header ontrack-section-header">
+          <h2>Study &amp; systems: keeping uni on track</h2>
+          <p>
+            Business Informatics at Uni Hamburg plus projects sounds chaotic.
+            Study sprints and simple systems keep it raceable.
+          </p>
+        </header>
+
+        <div class="study-board">
+          <div class="study-column">
+            <h3>Core modules</h3>
+            <ul class="study-list">
+              <li>
+                <span class="study-tag">Maths</span>
+                <span class="study-text">
+                  Analysis, linear algebra, proofs &amp; induction as mental
+                  strength training.
+                </span>
+              </li>
+              <li>
+                <span class="study-tag">CS</span>
+                <span class="study-text">
+                  Java, software development, BlueJ projects and fundamentals
+                  of computer science.
+                </span>
+              </li>
+              <li>
+                <span class="study-tag">BWL</span>
+                <span class="study-text">
+                  Companies, business models and economic principles – the
+                  theory behind my projects.
+                </span>
+              </li>
+              <li>
+                <span class="study-tag">HCI</span>
+                <span class="study-text">
+                  Human-computer interaction, usability and device design –
+                  perfect match for focus apps.
+                </span>
+              </li>
             </ul>
-
-            <a href="on-track.html" class="btn btn-primary split-btn">
-              Enter On Track
-            </a>
-          </article>
-
-          <!-- Off Track card -->
-          <article class="split-card split-card--off js-tilt-sm">
-            <div class="split-label split-label--off">OFF TRACK</div>
-            <h3 class="split-title">Life, F1 and experiments.</h3>
-            <p class="split-copy">
-              Off Track is where I recharge: F1 weekends, gaming, trips and
-              small experiments like the AI video origin detector. Not always
-              monetised – but often where the next idea starts.
-            </p>
-
-            <ul class="split-list">
-              <li>F1 &amp; Lando-inspired design</li>
-              <li>Gaming &amp; everyday setups</li>
-              <li>Side experiments</li>
-            </ul>
-
-            <a href="off-track.html" class="btn btn-ghost split-btn">
-              Enter Off Track
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================
-         ABOUT / STORY
-         ============================ -->
-    <section class="section section-alt reveal" id="about">
-      <div class="wrap">
-        <header class="section-header">
-          <h2>Who I am when I’m on track</h2>
-          <p>
-            I split my time between university, Skool communities and building
-            focus tools. No random hustle, just deliberate seasons.
-          </p>
-        </header>
-
-        <div class="two-col">
-          <div>
-            <h3>Student & builder at the same time</h3>
-            <p>
-              I study Business Informatics at Universität Hamburg – maths,
-              BWL, informatics and human-computer interaction. At the same
-              time, I work with creators and operators inside
-              <strong>Skool communities</strong>, helping them grow, convert
-              and retain members.
-            </p>
-            <p>
-              Everything I build – funnels, onboarding, apps – is meant to
-              create less chaos, not more. Focus instead of dopamine loops.
-            </p>
           </div>
-          <div>
-            <h3>What I actually do</h3>
-            <ul class="bullet-list">
-              <li>Designing free-to-paid funnels for Skool creators</li>
-              <li>Reducing churn with calendars, routines &amp; accountability</li>
-              <li>Planning and building focus-first apps like FocusLimit</li>
-              <li>Testing ideas in small experiments before going all in</li>
+
+          <div class="study-column">
+            <h3>Study sprints</h3>
+            <ul class="study-sprint-list">
+              <li class="study-sprint">
+                <div class="study-sprint-label">Pre-season</div>
+                <div class="study-sprint-body">
+                  <p>
+                    Setting up calendars, blocking focus slots and defining
+                    minimum weekly outputs for math, CS and BWL.
+                  </p>
+                </div>
+              </li>
+              <li class="study-sprint">
+                <div class="study-sprint-label">Mid-season push</div>
+                <div class="study-sprint-body">
+                  <p>
+                    Tight loops: lectures → notes → exercises → short
+                    recaps. Using simple dashboards to track where I’m
+                    falling behind early.
+                  </p>
+                </div>
+              </li>
+              <li class="study-sprint">
+                <div class="study-sprint-label">Exam weeks</div>
+                <div class="study-sprint-body">
+                  <p>
+                    Clear priorities: fewer calls &amp; less community work,
+                    more repetition sets and old exam tasks – no all-nighters
+                    if possible.
+                  </p>
+                </div>
+              </li>
+              <li class="study-sprint">
+                <div class="study-sprint-label">Off-season</div>
+                <div class="study-sprint-body">
+                  <p>
+                    Post-mortem for each semester and adjusting systems:
+                    what worked, what was overkill, what can be automated
+                    or delegated.
+                  </p>
+                </div>
+              </li>
             </ul>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ============================
-         WORK PREVIEW
-         ============================ -->
-    <section class="section reveal" id="work">
-      <div class="wrap">
-        <header class="section-header">
-          <h2>On track: communities &amp; results</h2>
-          <p>
-            A few highlights from Skool projects and growth work. Full stats
-            and breakdowns live on the On Track page.
-          </p>
-        </header>
-
-        <div class="project-grid">
-          <article class="project-card js-tilt-sm">
-            <div class="pill">Skool Games</div>
-            <h3>Winning the December round</h3>
+          <div class="study-column study-column--highlight">
+            <h3>How it all connects</h3>
             <p>
-              Built funnels and engagement systems that won the Skool Games
-              December round – combining community design, DM flows and data.
+              The same principles show up everywhere: clear seasons, honest
+              metrics and focus by design. Skool communities, FocusLimit and
+              Habit Garden are all built around that idea.
             </p>
-            <a href="on-track.html" class="project-link">View details</a>
-          </article>
-
-          <article class="project-card js-tilt-sm">
-            <div class="pill">Client&nbsp;Revenue</div>
-            <h3>18k in 21 days (PassivAI)</h3>
             <p>
-              With Maureen Erokwu &amp; Shane Swick: Meta Ads + Skool funnel +
-              clear onboarding. Fast but honest revenue, not hype.
+              If a setup doesn’t survive exam weeks or busy client sprints,
+              it’s not a real system. On Track is where I test if ideas
+              survive pressure.
             </p>
-            <a href="on-track.html" class="project-link">See more cases</a>
-          </article>
-
-          <article class="project-card js-tilt-sm">
-            <div class="pill">Focus&nbsp;Apps</div>
-            <h3>FocusLimit concept</h3>
-            <p>
-              App concept to limit short-form content by counting reels and
-              shorts instead of pretending you will never open them again.
-            </p>
-            <a href="on-track.html#apps" class="project-link">Explore apps</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================
-         EXPERIMENTS / OFF-TRACK PREVIEW
-         ============================ -->
-    <section class="section section-alt reveal" id="experiments">
-      <div class="wrap">
-        <header class="section-header">
-          <h2>Off track: experiments &amp; life</h2>
-          <p>
-            F1, gaming, side projects and random ideas that might turn into
-            real products later – or just stay fun.
-          </p>
-        </header>
-
-        <div class="card-row">
-          <article class="card">
-            <h3>F1 &amp; Lando-inspired design</h3>
-            <p>
-              I’m heavily inspired by Lando’s website, but this portfolio is
-              fully my own code and structure. Visual overload, but controlled.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Habit Garden universe</h3>
-            <p>
-              Long-term project: a 3D habit garden built with Unity, stylised
-              assets and a focus on long-term consistency instead of streak
-              anxiety.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>AI video origin detector</h3>
-            <p>
-              Early-stage idea: detect whether a short-form video is AI
-              generated. Less confusion, more transparency for people scrolling.
-            </p>
-          </article>
-        </div>
-
-        <div class="section-cta">
-          <a href="off-track.html" class="btn btn-ghost">
-            Dive deeper into Off Track
-          </a>
+          </div>
         </div>
       </div>
     </section>
@@ -335,7 +458,7 @@
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <span>© 2025 Jonas Dzaack</span>
-      <span class="footer-dots">Focus · Communities · Apps</span>
+      <span class="footer-dots">On Track · Communities · Apps</span>
     </div>
   </footer>
 </body>
