@@ -2915,3 +2915,45 @@ body {
   font-size: 0.94rem;
   color: #3c3f4c;
 }
+/* =======================================
+   BASE – REVEAL STATE
+   ======================================= */
+
+.section.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* Fallback, falls JS aus: einfach sichtbar */
+.no-js .section.reveal {
+  opacity: 1;
+  transform: none;
+}
+/* =======================================
+   TEXT HOVER – LETTER SPLIT
+   ======================================= */
+
+.hover-split {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-split .char {
+  display: inline-block;
+  transform: translateY(0);
+  transition: transform 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform;
+}
+
+/* kleine optische Korrektur für Spaces */
+.hover-split .char-space {
+  width: 0.35em;
+}
+
+/* Buttons & Nav profitieren besonders vom Effekt */
+.nav a.hover-split,
+.btn.hover-split {
+  position: relative;
+}
