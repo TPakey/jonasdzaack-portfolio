@@ -29,7 +29,7 @@ function initTilt() {
   if (!tiltElements.length) return;
 
   tiltElements.forEach((el) => {
-    const isSmall = el.classList.contains("js-tilt-sm);
+    const isSmall = el.classList.contains("js-tilt-sm");
 
     VanillaTilt.init(el, {
       max: isSmall ? 8 : 12,
