@@ -49,6 +49,8 @@
     <!-- HERO -->
     <section class="hero" id="top">
       <div class="hero-gradient"></div>
+      <div class="hero-ghost-title">JONAS</div>
+
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">Student · Entrepreneur · Community Operator</p>
@@ -63,7 +65,9 @@
 
           <div class="hero-cta">
             <a href="#projects" class="btn primary">Zu meinen Projekten</a>
-            <a href="off-track.html" class="btn ghost">Was (noch) off track ist</a>
+            <a href="off-track.html" class="btn ghost"
+              >Was (noch) off track ist</a
+            >
           </div>
 
           <div class="hero-meta">
@@ -74,33 +78,58 @@
         </div>
 
         <div class="hero-visual">
-          <div class="portrait-card js-tilt">
-            <div class="portrait-inner">
-              <img
-                src="assets/face.png"
-                alt="Portrait von Jonas Dzaack"
-                class="portrait-img"
-              />
-              <div class="portrait-badge">2025</div>
-              <div class="portrait-tag">Portfolio v1</div>
+          <!-- orbit ring / background -->
+          <div class="hero-orbit"></div>
+
+          <!-- kleine „chips“ wie bei F1 overlays -->
+          <div class="hero-chip chip-top-left">
+            <span class="chip-label">Mode</span>
+            <span class="chip-value">On&nbsp;Track</span>
+          </div>
+          <div class="hero-chip chip-top-right">
+            <span class="chip-label">Role</span>
+            <span class="chip-value">Operator</span>
+          </div>
+
+          <!-- 3D-Stack mit Portrait -->
+          <div class="hero-stack">
+            <div class="hero-layer hero-layer-bg"></div>
+            <div class="hero-layer hero-layer-lines"></div>
+
+            <div class="portrait-card js-tilt">
+              <div class="portrait-inner">
+                <img
+                  src="assets/face.png"
+                  alt="Portrait von Jonas Dzaack"
+                  class="portrait-img"
+                />
+                <div class="portrait-badge">2025</div>
+                <div class="portrait-tag">Portfolio v1</div>
+              </div>
             </div>
           </div>
 
           <div class="hero-stats">
-            <div class="stat-card">
+            <div class="stat-card js-tilt-sm">
               <span class="stat-label">Communities</span>
               <span class="stat-value">5+</span>
-              <span class="stat-note">Skool-Projekte aufgebaut & optimiert</span>
+              <span class="stat-note"
+                >Skool-Projekte aufgebaut & optimiert</span
+              >
             </div>
-            <div class="stat-card">
+            <div class="stat-card js-tilt-sm">
               <span class="stat-label">Revenue</span>
               <span class="stat-value">xx.xxx€</span>
-              <span class="stat-note">für Creator & Kunden mitgeneriert</span>
+              <span class="stat-note"
+                >für Creator & Kunden mitgeneriert</span
+              >
             </div>
-            <div class="stat-card">
+            <div class="stat-card js-tilt-sm">
               <span class="stat-label">Fokus</span>
               <span class="stat-value">Apps</span>
-              <span class="stat-note">erste Prototypen für Fokus & Habits</span>
+              <span class="stat-note"
+                >erste Prototypen für Fokus & Habits</span
+              >
             </div>
           </div>
         </div>
