@@ -2602,3 +2602,316 @@ body {
   color: #5f6373;
   margin-top: 0.5rem;
 }
+/* =======================================
+   CALENDAR – HERO
+   ======================================= */
+
+.calendar-hero-section {
+  background: #f3f2ee;
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+}
+
+.calendar-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (max-width: 960px) {
+  .calendar-hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calendar-hero-copy .eyebrow {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  color: #5D3FD3;
+  margin-bottom: 0.9rem;
+}
+
+.calendar-hero-title {
+  font-size: clamp(2.4rem, 3.1vw, 3.2rem);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+  color: #171821;
+}
+
+.calendar-hero-lead {
+  font-size: 1rem;
+  max-width: 36rem;
+  color: #3f4250;
+  margin-bottom: 0.9rem;
+}
+
+.calendar-hero-note {
+  font-size: 0.92rem;
+  max-width: 32rem;
+  color: #74788a;
+  margin-bottom: 1rem;
+}
+
+.calendar-hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Right hero card */
+
+.calendar-hero-card {
+  border-radius: 1.6rem;
+  padding: 1.5rem 1.4rem 1.4rem;
+  background: radial-gradient(circle at 0 0, #ffffff, #e9e6ff);
+  border: 1px solid rgba(93, 63, 211, 0.4);
+  box-shadow: 0 24px 60px rgba(24, 27, 40, 0.4);
+}
+
+.calendar-hero-card-inner {
+  position: relative;
+}
+
+.calendar-mini-title {
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #171821;
+  margin-bottom: 0.8rem;
+}
+
+.calendar-mini-timeline {
+  display: grid;
+  row-gap: 0.55rem;
+  margin-bottom: 0.9rem;
+}
+
+.calendar-mini-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.86rem;
+  color: #262938;
+}
+
+.calendar-mini-label {
+  font-weight: 600;
+}
+
+.calendar-mini-range {
+  font-size: 0.8rem;
+  color: #7a7f90;
+}
+
+.calendar-mini-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #e2e2f0, #c9cadb);
+  overflow: hidden;
+  position: relative;
+}
+
+.calendar-mini-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #5D3FD3, #D5FF4F);
+}
+
+.calendar-mini-bar--pre::after {
+  width: 55%;
+}
+
+.calendar-mini-bar--race::after {
+  width: 75%;
+}
+
+.calendar-mini-bar--mid::after {
+  width: 65%;
+}
+
+.calendar-mini-bar--off::after {
+  width: 45%;
+}
+
+.calendar-mini-note {
+  font-size: 0.86rem;
+  color: #565a6b;
+}
+
+/* =======================================
+   SEASON SCHEDULE GRID
+   ======================================= */
+
+.season-schedule-grid {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.season-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.3rem;
+  align-items: flex-start;
+  padding: 1.3rem 1.3rem 1.2rem;
+  border-radius: 1.4rem;
+  background: #ffffff;
+  border: 1px solid rgba(141, 145, 138, 0.7);
+  box-shadow: 0 18px 45px rgba(24, 27, 40, 0.14);
+}
+
+@media (max-width: 720px) {
+  .season-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.season-tag {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.7rem;
+  padding: 0.4rem 0.3rem;
+  border-radius: 999px;
+  background: #07090C;
+  color: #f8f8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 720px) {
+  .season-tag {
+    writing-mode: horizontal-tb;
+    text-orientation: initial;
+    align-self: flex-start;
+    padding-inline: 0.7rem;
+    margin-bottom: 0.3rem;
+  }
+}
+
+.season-tag--pre {
+  background: #07090C;
+}
+
+.season-tag--race {
+  background: #5D3FD3;
+}
+
+.season-tag--mid {
+  background: #111827;
+}
+
+.season-tag--off {
+  background: #8D918A;
+}
+
+.season-main {
+  display: grid;
+  row-gap: 0.45rem;
+}
+
+.season-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.86rem;
+}
+
+.season-range {
+  font-weight: 600;
+  color: #171821;
+}
+
+.season-focus {
+  color: #7a7f90;
+}
+
+.season-text {
+  font-size: 0.94rem;
+  color: #3c3f4c;
+}
+
+.season-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: #424556;
+}
+
+.season-bar {
+  margin-top: 0.6rem;
+  height: 7px;
+  border-radius: 999px;
+  background: #e5e5f0;
+  overflow: hidden;
+  position: relative;
+}
+
+.season-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #5D3FD3, #D5FF4F);
+}
+
+.season-bar--pre::after {
+  width: 45%;
+}
+
+.season-bar--race::after {
+  width: 80%;
+}
+
+.season-bar--mid::after {
+  width: 65%;
+}
+
+.season-bar--off::after {
+  width: 40%;
+}
+
+/* =======================================
+   CALENDAR – HIGHLIGHTS
+   ======================================= */
+
+.calendar-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+@media (max-width: 1200px) {
+  .calendar-highlights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .calendar-highlights-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.highlight-card {
+  border-radius: 1.3rem;
+  padding: 1.4rem 1.3rem 1.3rem;
+  background: #ffffff;
+  border: 1px solid rgba(141, 145, 138, 0.7);
+  box-shadow: 0 18px 45px rgba(24, 27, 40, 0.14);
+}
+
+.highlight-card h3 {
+  margin: 0.8rem 0 0.6rem;
+}
+
+.highlight-card p {
+  font-size: 0.94rem;
+  color: #3c3f4c;
+}
