@@ -16,7 +16,6 @@ function initLenis() {
   }
   requestAnimationFrame(raf);
 
-  // GSAP mit Lenis koppeln
   if (window.gsap && window.ScrollTrigger) {
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -32,16 +31,27 @@ function initLenis() {
 function initTilt() {
   if (!window.VanillaTilt) return;
 
-  const tiltElements = document.querySelectorAll(".js-tilt");
-  if (!tiltElements.length) return;
+  const bigTilt = document.querySelectorAll(".js-tilt");
+  const smallTilt = document.querySelectorAll(".js-tilt-sm");
 
-  VanillaTilt.init(tiltElements, {
-    max: 18,
-    speed: 400,
-    glare: true,
-    "max-glare": 0.25,
-    scale: 1.02,
-  });
+  if (bigTilt.length) {
+    VanillaTilt.init(bigTilt, {
+      max: 18,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.25,
+      scale: 1.02,
+    });
+  }
+
+  if (smallTilt.length) {
+    VanillaTilt.init(smallTilt, {
+      max: 10,
+      speed: 400,
+      glare: false,
+      scale: 1.02,
+    });
+  }
 }
 
 function initGsapAnimations() {
@@ -49,8 +59,9 @@ function initGsapAnimations() {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // HERO Intro (nur auf Seiten mit Hero)
+  // HERO only auf Seiten, die einen Hero haben
   if (document.querySelector(".hero")) {
+    // Intro
     gsap.from(".hero-copy h1", {
       y: 28,
       opacity: 0,
@@ -84,7 +95,7 @@ function initGsapAnimations() {
       ease: "power3.out",
     });
 
-    gsap.from(".portrait-card", {
+    gsap.from(".hero-stack", {
       y: 32,
       opacity: 0,
       duration: 0.9,
@@ -101,9 +112,9 @@ function initGsapAnimations() {
       ease: "power3.out",
     });
 
-    // Parallax / Scroll-Effects im Hero
-    gsap.to(".hero-gradient", {
-      y: 80,
+    // light floating / parallax
+    gsap.to(".hero-layer-bg", {
+      y: -30,
       ease: "none",
       scrollTrigger: {
         trigger: ".hero",
@@ -113,8 +124,20 @@ function initGsapAnimations() {
       },
     });
 
-    gsap.to(".portrait-card", {
+    gsap.to(".hero-layer-lines", {
+      y: 40,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+
+    gsap.to(".hero-orbit", {
       y: -40,
+      x: 30,
       ease: "none",
       scrollTrigger: {
         trigger: ".hero",
@@ -124,9 +147,8 @@ function initGsapAnimations() {
       },
     });
 
-    gsap.to(".hero-stats", {
-      y: 24,
-      opacity: 0.8,
+    gsap.to(".hero-ghost-title", {
+      x: -80,
       ease: "none",
       scrollTrigger: {
         trigger: ".hero",
@@ -134,10 +156,28 @@ function initGsapAnimations() {
         end: "bottom top",
         scrub: true,
       },
+    });
+
+    // kleine float-loop animationen (LN4-Feeling)
+    gsap.to(".hero-chip", {
+      y: -6,
+      repeat: -1,
+      yoyo: true,
+      duration: 2.2,
+      ease: "sine.inOut",
+      stagger: 0.3,
+    });
+
+    gsap.to(".portrait-inner", {
+      y: -10,
+      repeat: -1,
+      yoyo: true,
+      duration: 3.4,
+      ease: "sine.inOut",
     });
   }
 
-  // Section Reveals (alle Seiten mit .section.reveal)
+  // Section Reveals
   gsap.utils.toArray(".section.reveal").forEach((section) => {
     gsap.fromTo(
       section,
@@ -155,7 +195,7 @@ function initGsapAnimations() {
     );
   });
 
-  // Kleine „Aufpopper“ für Cards (Projects & Timeline)
+  // Projects & Cards
   gsap.utils.toArray(".project-card").forEach((card) => {
     gsap.from(card, {
       y: 22,
@@ -207,7 +247,7 @@ function initScrollProgress(lenis) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const lenis = initLenis(); // Smooth Scroll
-  initTilt();                // Fake-3D Portrait
-  initGsapAnimations();      // Scroll & Parallax
-  initScrollProgress(lenis); // Scroll-Bar
+  initTilt();                // 3D Face + Stats
+  initGsapAnimations();      // Hero, Parallax, Reveals
+  initScrollProgress(lenis); // Scroll-Leiste oben
 });
