@@ -38,6 +38,19 @@ body {
 
 /* Layout helpers */
 
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--accent-strong), var(--accent-soft));
+  z-index: 60;
+  pointer-events: none;
+}
+
 .wrap {
   width: min(1120px, 100% - 32px);
   margin-inline: auto;
