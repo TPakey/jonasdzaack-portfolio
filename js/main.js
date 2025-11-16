@@ -1,5 +1,7 @@
-// main.js – Interactions & Animations für Jonas' Portfolio
+// main.js – interactions & motion for Jonas' portfolio
+// v1: keeps things readable and easy to extend later.
 
+// Smooth scrolling with Lenis
 function initLenis() {
   if (!window.Lenis) return null;
 
@@ -7,247 +9,153 @@ function initLenis() {
     duration: 1.1,
     smoothWheel: true,
     smoothTouch: false,
-    wheelMultiplier: 1.0,
+    wheelMultiplier: 1.0
   });
 
   function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
   }
+
   requestAnimationFrame(raf);
-
-  if (window.gsap && window.ScrollTrigger) {
-    lenis.on("scroll", ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
-  }
-
   return lenis;
 }
 
+// Tilt effects for cards & hero portrait
 function initTilt() {
   if (!window.VanillaTilt) return;
 
-  const bigTilt = document.querySelectorAll(".js-tilt");
-  const smallTilt = document.querySelectorAll(".js-tilt-sm");
+  const tiltElements = document.querySelectorAll(".js-tilt, .js-tilt-sm");
+  if (!tiltElements.length) return;
 
-  if (bigTilt.length) {
-    VanillaTilt.init(bigTilt, {
-      max: 18,
-      speed: 400,
-      glare: true,
-      "max-glare": 0.25,
-      scale: 1.02,
-    });
-  }
+  tiltElements.forEach((el) => {
+    const isSmall = el.classList.contains("js-tilt-sm);
 
-  if (smallTilt.length) {
-    VanillaTilt.init(smallTilt, {
-      max: 10,
+    VanillaTilt.init(el, {
+      max: isSmall ? 8 : 12,
       speed: 400,
+      scale: isSmall ? 1.02 : 1.04,
       glare: false,
-      scale: 1.02,
+      "full-page-listening": false
     });
-  }
+  });
 }
 
+// Basic GSAP animations (hero, sections)
 function initGsapAnimations() {
-  if (!window.gsap || !window.ScrollTrigger) return;
+  if (!window.gsap) return;
 
-  gsap.registerPlugin(ScrollTrigger);
+  const { gsap } = window;
 
-  // HERO only auf Seiten, die einen Hero haben
-  if (document.querySelector(".hero")) {
-    // Intro
-    gsap.from(".hero-copy h1", {
-      y: 28,
+  // Hero content fade-in
+  const hero = document.querySelector(".hero");
+  if (hero) {
+    gsap.from(hero.querySelectorAll(".hero-content > *"), {
       opacity: 0,
-      duration: 0.9,
-      ease: "power3.out",
-    });
-
-    gsap.from(".hero-text", {
-      y: 20,
-      opacity: 0,
-      duration: 0.7,
-      delay: 0.15,
-      ease: "power3.out",
-    });
-
-    gsap.from(".hero-cta .btn", {
-      y: 16,
-      opacity: 0,
-      duration: 0.6,
-      delay: 0.3,
-      stagger: 0.08,
-      ease: "power3.out",
-    });
-
-    gsap.from(".hero-meta .meta-pill", {
-      y: 12,
-      opacity: 0,
-      duration: 0.6,
-      delay: 0.4,
+      y: 24,
+      duration: 0.8,
+      delay: 0.1,
       stagger: 0.06,
-      ease: "power3.out",
+      ease: "power2.out"
     });
 
-    gsap.from(".hero-stack", {
-      y: 32,
-      opacity: 0,
-      duration: 0.9,
-      delay: 0.25,
-      ease: "power3.out",
-    });
+    const heroVisual = hero.querySelector(".hero-visual");
+    if (heroVisual) {
+      gsap.from(heroVisual, {
+        opacity: 0,
+        y: 24,
+        duration: 0.9,
+        delay: 0.25,
+        ease: "power2.out"
+      });
+    }
+  }
 
-    gsap.from(".hero-stats .stat-card", {
-      y: 16,
-      opacity: 0,
-      duration: 0.7,
-      delay: 0.4,
-      stagger: 0.07,
-      ease: "power3.out",
-    });
-
-    // light floating / parallax
-    gsap.to(".hero-layer-bg", {
-      y: -30,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-
-    gsap.to(".hero-layer-lines", {
-      y: 40,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-
-    gsap.to(".hero-orbit", {
-      y: -40,
-      x: 30,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-
-    gsap.to(".hero-ghost-title", {
-      x: -80,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-
-    // kleine float-loop animationen (LN4-Feeling)
-    gsap.to(".hero-chip", {
-      y: -6,
-      repeat: -1,
-      yoyo: true,
-      duration: 2.2,
-      ease: "sine.inOut",
-      stagger: 0.3,
-    });
-
-    gsap.to(".portrait-inner", {
+  // Floating orbit / portrait subtle motion
+  const orbit = document.querySelector(".hero-orbit-primary");
+  if (orbit) {
+    gsap.to(orbit, {
       y: -10,
-      repeat: -1,
+      x: 6,
+      duration: 4,
       yoyo: true,
-      duration: 3.4,
-      ease: "sine.inOut",
+      repeat: -1,
+      ease: "sine.inOut"
     });
   }
 
-  // Section Reveals
-  gsap.utils.toArray(".section.reveal").forEach((section) => {
-    gsap.fromTo(
-      section,
-      { opacity: 0, y: 22 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out",
+  const portraitInner = document.querySelector(".hero-portrait-inner");
+  if (portraitInner) {
+    gsap.to(portraitInner, {
+      y: -6,
+      duration: 3.6,
+      yoyo: true,
+      repeat: -1,
+      ease: "sine.inOut"
+    });
+  }
+
+  // Section reveals on scroll
+  if (window.ScrollTrigger) {
+    gsap.utils.toArray(".section").forEach((section) => {
+      gsap.from(section, {
+        opacity: 0,
+        y: 40,
+        duration: 0.7,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: section,
-          start: "top 75%",
-        },
-      }
-    );
-  });
-
-  // Projects & Cards
-  gsap.utils.toArray(".project-card").forEach((card) => {
-    gsap.from(card, {
-      y: 22,
-      opacity: 0,
-      duration: 0.6,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: card,
-        start: "top 80%",
-      },
+          start: "top 80%",
+          toggleActions: "play none none none"
+        }
+      });
     });
-  });
-
-  gsap.utils.toArray(".timeline-item").forEach((item) => {
-    gsap.from(item, {
-      x: -18,
-      opacity: 0,
-      duration: 0.6,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: item,
-        start: "top 85%",
-      },
-    });
-  });
+  }
 }
 
-function initScrollProgress(lenis) {
+// Scroll progress bar at top
+function initScrollProgress(lenisInstance) {
   const bar = document.querySelector(".scroll-progress");
   if (!bar) return;
 
-  const update = () => {
-    const scroll =
-      lenis && typeof lenis.scroll === "number" ? lenis.scroll : window.scrollY;
-    const docHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
-    const progress = docHeight > 0 ? scroll / docHeight : 0;
-    bar.style.transform = `scaleX(${progress})`;
-  };
-
-  if (lenis && lenis.on) {
-    lenis.on("scroll", update);
-  } else {
-    window.addEventListener("scroll", update);
+  function updateProgress(scrollY, maxScroll) {
+    const progress = maxScroll > 0 ? scrollY / maxScroll : 0;
+    bar.style.width = `${Math.min(Math.max(progress, 0), 1) * 100}%`;
   }
 
-  update();
+  function handleScroll() {
+    const scrollTop =
+      window.pageYOffset || document.documentElement.scrollTop || 0;
+    const docHeight =
+      document.documentElement.scrollHeight ||
+      document.body.scrollHeight ||
+      1;
+    const winHeight = window.innerHeight || 1;
+    const maxScroll = docHeight - winHeight;
+    updateProgress(scrollTop, maxScroll);
+  }
+
+  if (lenisInstance && typeof lenisInstance.on === "function") {
+    lenisInstance.on("scroll", (e) => {
+      const scrollTop = e.scroll || 0;
+      const docHeight =
+        document.documentElement.scrollHeight ||
+        document.body.scrollHeight ||
+        1;
+      const winHeight = window.innerHeight || 1;
+      const maxScroll = docHeight - winHeight;
+      updateProgress(scrollTop, maxScroll);
+    });
+  } else {
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+  }
 }
 
+// Init on DOM ready
 document.addEventListener("DOMContentLoaded", () => {
-  const lenis = initLenis(); // Smooth Scroll
-  initTilt();                // 3D Face + Stats
-  initGsapAnimations();      // Hero, Parallax, Reveals
-  initScrollProgress(lenis); // Scroll-Leiste oben
+  const lenis = initLenis();
+  initTilt();
+  initGsapAnimations();
+  initScrollProgress(lenis);
 });
