@@ -2957,3 +2957,10 @@ body {
 .btn.hover-split {
   position: relative;
 }
+/* FIX: make all sections visible by default.
+   GSAP handles the fancy reveal, so we don't need them hidden in CSS. */
+
+.section.reveal {
+  opacity: 1;
+  transform: none;
+}
