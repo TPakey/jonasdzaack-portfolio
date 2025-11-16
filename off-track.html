@@ -1,128 +1,674 @@
-<!doctype html>
-<html lang="de">
-<head>
-  <meta charset="utf-8" />
-  <title>Off Track – Jonas Dzaack</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="css/styles.css" />
-
-<!-- Effekte -->
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"
-></script>
-<script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-<script defer src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-<script
-  defer
-  src="https://unpkg.com/@studio-freight/lenis@1.0.41/bundled/lenis.min.js"
-></script>
-
-<!-- dein eigenes JS -->
-<script defer src="js/main.js"></script>
-</head>
-<body>
-  <div class="scroll-progress"></div>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-mark">JD</span>
-        <span class="logo-text">Jonas&nbsp;Dzaack</span>
-      </a>
-
-      <nav class="nav">
-        <a href="index.html#about">Über mich</a>
-        <a href="index.html#projects">Projekte</a>
-        <a href="index.html#timeline">Timeline</a>
-        <a href="calendar.html">Calendar</a>
-        <a href="on-track.html" class="nav-pill">On&nbsp;Track</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="section reveal">
-      <div class="wrap section-grid">
-        <div>
-          <h2>Off Track</h2>
-          <p>
-            Dinge, die (noch) nicht so laufen, wie ich will. Statt sie zu
-            verstecken, liste ich sie hier – damit ich sie später abhaken kann.
-          </p>
-          <p>
-            Das ist keine „Failure Wall“, sondern eine ehrliche Roadmap von
-            Baustellen, an denen ich arbeite.
-          </p>
+<!DOCTYPE html>
+<html
+  data-wf-domain="www.landonorris.com"
+  data-wf-page="66f27a74171fef20de5e28da"
+  data-wf-site="66f27a74171fef20de5e2871"
+  lang="de"
+>
+  <head>
+    <meta charset="utf-8" />
+    <title>Off Track – Jonas Dzaack</title>
+    <meta
+      name="description"
+      content="Off Track von Jonas Dzaack – Baustellen, Learnings und ehrliche Roadmap. Dinge, die (noch) nicht so laufen, wie sie sollen – damit sie später On Track werden."
+    />
+    <meta content="Off Track – Jonas Dzaack" property="og:title" />
+    <meta
+      content="Off-Track-Bereich von Jonas Dzaack: Balance zwischen Studium, Projekten & Communities, Produkt-Shippen und Struktur – transparent dokumentiert."
+      property="og:description"
+    />
+    <meta content="Off Track – Jonas Dzaack" property="twitter:title" />
+    <meta
+      content="Baustellen & Learnings im Off-Track-Bereich von Jonas Dzaack. Fokus, Output und Systeme für weniger Chaos, mehr Klarheit."
+      property="twitter:description"
+    />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Webflow" name="generator" />
+    <link
+      href="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/css/lando-norris.webflow.9e0dbf9e3.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      WebFont.load({
+        google: {
+          families: [
+            "Space Grotesk:300,regular,500,600,700:latin,latin-ext",
+            "Inter:300,regular,500,600,700:latin,latin-ext",
+          ],
+        },
+      });
+    </script>
+    <script type="text/javascript">
+      !(function (o, c) {
+        var n = c.documentElement,
+          t = " w-mod-";
+        (n.className += t + "js"),
+          ("ontouchstart" in o || (o.DocumentTouch && c instanceof DocumentTouch)) &&
+            (n.className += t + "touch");
+      })(window, document);
+    </script>
+    <link
+      href="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2943_Favicon%2016x16.png"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e294b_Favicon%2032x32.png"
+      rel="apple-touch-icon"
+    />
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=G-YB006TZHRT"
+    ></script>
+    <script type="text/javascript">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("set", "developer_id.dMDhkMT", true);
+      gtag("config", "G-YB006TZHRT", { anonymize_ip: false });
+    </script>
+  </head>
+  <body class="body">
+    <div class="page-wrapper">
+      <!-- Transition / Loader -->
+      <div class="transition-w">
+        <div class="transition-holder">
+          <div class="transition-bg-w">
+            <div class="transition-bg-color is-1"></div>
+            <div class="transition-bg-color is-2"></div>
+            <div class="transition-bg-color is-3"></div>
+          </div>
+          <div class="transition-logo-w">
+            <div class="transition-logo">
+              <img
+                src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2935_LN%20Logo.svg"
+                loading="lazy"
+                alt="JD Logo"
+                class="transition-logo-icon"
+              />
+            </div>
+            <div class="transition-logo-holder">
+              <div class="transition-text-w">
+                <div class="btn-label">Loading</div>
+                <div class="dot-holder">
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                </div>
+              </div>
+              <div class="btn-w">
+                <div class="btn-square is-primary">
+                  <div class="btn-text">Load Jonas</div>
+                  <div class="btn-icon">
+                    <img
+                      src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                      loading="lazy"
+                      alt=""
+                      class="btn-icon-img"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="keypoints">
-          <div class="keypoint">
-            <span class="kp-label">Balance</span>
-            <p>
-              Studium, eigene Projekte und Arbeit in Communities unter einen
-              Hut zu bringen, ist laufend eine Herausforderung.
-            </p>
-          </div>
-          <div class="keypoint">
-            <span class="kp-label">Produkt-Shippen</span>
-            <p>
-              Viele Ideen für Apps & Tools – aber nicht alle sind schon als
-              echte, nutzbare Produkte draußen.
-            </p>
-          </div>
-          <div class="keypoint">
-            <span class="kp-label">Struktur</span>
-            <p>
-              Systeme für Content, Deep Work und Erholung sind in Arbeit –
-              Ziel: weniger Chaos, mehr Klarheit.
-            </p>
+        <div
+          data-w-id="5b2d9458-4939-a4e1-5423-4f17c02d3b4a"
+          class="transition-holder is-reverse"
+        >
+          <div class="transition-bg-w is-reverse">
+            <div class="transition-bg-color is-1 is-reverse"></div>
+            <div class="transition-bg-color is-2 is-reverse"></div>
+            <div class="transition-bg-color is-3 is-reverse"></div>
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="section section-alt reveal">
-      <div class="wrap">
-        <header class="section-header">
-          <h3>Was ich daraus lerne</h3>
-          <p>
-            Off Track ist für mich keine Scham-Liste, sondern ein Reminder,
-            wo die größten Hebel für die nächsten Monate liegen.
-          </p>
-        </header>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <span class="tl-label">Fokus</span>
-              <h4>Weniger Projekte gleichzeitig</h4>
-              <p>
-                Projekte konsequenter priorisieren und nicht alles parallel
-                fahren – vor allem während Prüfungsphasen.
-              </p>
+      <!-- Navigation -->
+      <div class="nav">
+        <div class="padding-global">
+          <div class="nav-container">
+            <a href="index.html" class="nav-brand-w w-nav-brand">
+              <div class="nav-logo-w">
+                <img
+                  src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2935_LN%20Logo.svg"
+                  loading="lazy"
+                  alt="JD Logo"
+                  class="nav-brand-logo"
+                />
+              </div>
+            </a>
+            <div class="nav-right">
+              <div class="nav-link-list">
+                <a href="index.html" class="nav-link w-inline-block">
+                  <div class="nav-link-label">Home</div>
+                </a>
+                <a href="on-track.html" class="nav-link w-inline-block">
+                  <div class="nav-link-label">On Track</div>
+                </a>
+                <a
+                  href="off-track.html"
+                  aria-current="page"
+                  class="nav-link w-inline-block w--current"
+                >
+                  <div class="nav-link-label">Off Track</div>
+                </a>
+                <a href="calendar.html" class="nav-link w-inline-block">
+                  <div class="nav-link-label">Calendar</div>
+                </a>
+              </div>
+              <a href="calendar.html" class="btn-w is-nav w-inline-block">
+                <div class="btn-square">
+                  <div class="btn-text">Timeline</div>
+                  <div class="btn-icon">
+                    <img
+                      src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                      loading="lazy"
+                      alt=""
+                      class="btn-icon-img"
+                    />
+                  </div>
+                </div>
+              </a>
+              <div class="menu-btn">
+                <div class="menu-line-w">
+                  <div class="menu-line"></div>
+                  <div class="menu-line is-bottom"></div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="timeline-item">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <span class="tl-label">Output</span>
-              <h4>Mehr Dinge shippen</h4>
-              <p>
-                Weniger Perfektionismus, mehr Dinge veröffentlichen – auch
-                wenn sie noch nicht „final“ sind.
-              </p>
+        </div>
+        <div class="nav-menu">
+          <div class="padding-global">
+            <div class="nav-menu-content">
+              <div class="nav-menu-grid">
+                <div class="nav-list">
+                  <a href="index.html" class="nav-menu-link w-inline-block">
+                    <div class="nav-menu-label">Home</div>
+                    <div class="nav-menu-arrow">
+                      <img
+                        src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                        loading="lazy"
+                        alt=""
+                        class="btn-icon-img is-nav"
+                      />
+                    </div>
+                  </a>
+                  <a
+                    href="on-track.html"
+                    class="nav-menu-link w-inline-block"
+                  >
+                    <div class="nav-menu-label">On Track</div>
+                    <div class="nav-menu-arrow">
+                      <img
+                        src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                        loading="lazy"
+                        alt=""
+                        class="btn-icon-img is-nav"
+                      />
+                    </div>
+                  </a>
+                  <a
+                    href="off-track.html"
+                    aria-current="page"
+                    class="nav-menu-link w-inline-block w--current"
+                  >
+                    <div class="nav-menu-label">Off Track</div>
+                    <div class="nav-menu-arrow">
+                      <img
+                        src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                        loading="lazy"
+                        alt=""
+                        class="btn-icon-img is-nav"
+                      />
+                    </div>
+                  </a>
+                  <a
+                    href="calendar.html"
+                    class="nav-menu-link w-inline-block"
+                  >
+                    <div class="nav-menu-label">Calendar</div>
+                    <div class="nav-menu-arrow">
+                      <img
+                        src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                        loading="lazy"
+                        alt=""
+                        class="btn-icon-img is-nav"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="nav-menu-right">
+                  <a
+                    href="calendar.html"
+                    class="btn-w is-nav-menu w-inline-block"
+                  >
+                    <div class="btn-square is-primary">
+                      <div class="btn-text">Zu meiner Timeline</div>
+                      <div class="btn-icon">
+                        <img
+                          src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                          loading="lazy"
+                          alt=""
+                          class="btn-icon-img"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                  <div class="nav-social-list">
+                    <a
+                      href="#"
+                      target="_blank"
+                      class="nav-social-link w-inline-block"
+                    >
+                      <div class="nav-social-label">Instagram</div>
+                      <div class="nav-social-arrow">
+                        <img
+                          src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                          loading="lazy"
+                          alt=""
+                          class="btn-icon-img is-nav"
+                        />
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      target="_blank"
+                      class="nav-social-link w-inline-block"
+                    >
+                      <div class="nav-social-label">X</div>
+                      <div class="nav-social-arrow">
+                        <img
+                          src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                          loading="lazy"
+                          alt=""
+                          class="btn-icon-img is-nav"
+                        />
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      target="_blank"
+                      class="nav-social-link w-inline-block"
+                    >
+                      <div class="nav-social-label">TikTok</div>
+                      <div class="nav-social-arrow">
+                        <img
+                          src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                          loading="lazy"
+                          alt=""
+                          class="btn-icon-img is-nav"
+                        />
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      target="_blank"
+                      class="nav-social-link w-inline-block"
+                    >
+                      <div class="nav-social-label">YouTube</div>
+                      <div class="nav-social-arrow">
+                        <img
+                          src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                          loading="lazy"
+                          alt=""
+                          class="btn-icon-img is-nav"
+                        />
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="nav-menu-bottom">
+                <div class="nav-menu-footer">
+                  <div class="nav-menu-footer-text">
+                    © 2025 Jonas Dzaack. Alle Rechte vorbehalten.
+                  </div>
+                  <div class="nav-menu-footer-links">
+                    <a href="#" class="nav-menu-footer-link">Impressum</a>
+                    <a href="#" class="nav-menu-footer-link">Datenschutz</a>
+                    <a href="#" class="nav-menu-footer-link">Cookies</a>
+                  </div>
+                </div>
+                <div class="nav-menu-footer">
+                  <div class="nav-menu-footer-text">
+                    Layout inspiriert von LandoNorris.com · Rebuilt für Jonas
+                    Dzaack
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <span>© 2025 Jonas Dzaack</span>
-      <span class="footer-dots">Off Track · Learnings · Progress</span>
+      <!-- MAIN -->
+      <main class="main">
+        <!-- PAGE HERO -->
+        <section class="page-hero">
+          <div class="padding-global">
+            <div class="page-hero-grid">
+              <div class="page-hero-left">
+                <div class="page-tag">Off Track</div>
+                <h1 class="page-heading">Baustellen & Learnings.</h1>
+                <p class="page-paragraph">
+                  Dinge, die (noch) nicht so laufen, wie ich will. Statt sie zu
+                  verstecken, liste ich sie hier – damit ich sie später abhaken
+                  kann. Das ist keine „Failure Wall“, sondern eine ehrliche
+                  Roadmap von Baustellen, an denen ich arbeite.
+                </p>
+              </div>
+              <div class="page-hero-right">
+                <div class="page-hero-card">
+                  <div class="page-hero-card-top">
+                    <div class="page-hero-card-label">Off-Track Fokus</div>
+                  </div>
+                  <div class="page-hero-card-body">
+                    <p class="page-hero-card-text">
+                      Off Track ist für mich der Bereich, in dem ich bewusst
+                      hinschaue, was noch nicht rund läuft: Balance zwischen
+                      Studium, Projekten und Communities, Dinge shippen statt
+                      nur planen und Systeme bauen, die Chaos ersetzen.
+                    </p>
+                  </div>
+                  <div class="page-hero-card-footer">
+                    <a
+                      href="on-track.html"
+                      class="page-hero-link w-inline-block"
+                    >
+                      <div>Sieh dir an, was schon On Track ist</div>
+                      <div class="page-hero-link-icon">
+                        <img
+                          src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                          loading="lazy"
+                          alt=""
+                          class="btn-icon-img is-nav"
+                        />
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 1: BAUSTELLEN -->
+        <section class="section">
+          <div class="padding-global">
+            <div class="section-header">
+              <div class="section-tag">Baustellen</div>
+              <h2 class="section-heading">Was aktuell Off Track ist.</h2>
+              <p class="section-paragraph">
+                Hier landen Themen, die noch nicht da sind, wo ich sie haben
+                will – damit klar bleibt, woran ich in den nächsten Monaten
+                wirklich arbeiten sollte.
+              </p>
+            </div>
+            <div class="card-grid">
+              <div class="card">
+                <div class="card-top">
+                  <div class="card-label">Balance</div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-heading">Studium x Projekte x Communities</h3>
+                  <p class="card-paragraph">
+                    Studium, eigene Projekte und Arbeit in Communities unter
+                    einen Hut zu bringen, ist laufend eine Herausforderung. Ich
+                    arbeite daran, Phasen klarer zu trennen und nicht alles
+                    gleichzeitig zu wollen.
+                  </p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-top">
+                  <div class="card-label">Produkt-Shippen</div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-heading">Ideen in reale Produkte bringen</h3>
+                  <p class="card-paragraph">
+                    Viele Ideen für Apps &amp; Tools – aber nicht alle sind schon
+                    als echte, nutzbare Produkte draußen. Ziel: Weniger
+                    Dauer-Beta im Kopf, mehr Versionen, die reale Nutzer testen
+                    können.
+                  </p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-top">
+                  <div class="card-label">Struktur</div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-heading">Systeme statt Chaos</h3>
+                  <p class="card-paragraph">
+                    Systeme für Content, Deep Work und Erholung sind in Arbeit –
+                    Ziel: weniger Chaos, mehr Klarheit und Routinen, die mich
+                    nicht jedes Mal Willenskraft kosten.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 2: LEARNINGS -->
+        <section class="section is-alt">
+          <div class="padding-global">
+            <div class="section-header">
+              <div class="section-tag">Learnings</div>
+              <h2 class="section-heading">Was ich daraus lerne.</h2>
+              <p class="section-paragraph">
+                Off Track ist für mich kein Grund zur Scham, sondern ein Reminder,
+                wo die größten Hebel für die nächsten Monate liegen. Hier ein
+                paar konkrete Learnings, die immer wieder auftauchen.
+              </p>
+            </div>
+            <div class="card-grid">
+              <div class="card">
+                <div class="card-top">
+                  <div class="card-label">Fokus</div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-heading">Weniger Projekte gleichzeitig</h3>
+                  <p class="card-paragraph">
+                    Projekte konsequenter priorisieren und nicht alles parallel
+                    fahren – vor allem während Prüfungsphasen. Lieber wenige
+                    Dinge sauber liefern als viele Dinge halb.
+                  </p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-top">
+                  <div class="card-label">Output</div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-heading">Mehr Dinge shippen</h3>
+                  <p class="card-paragraph">
+                    Weniger Perfektionismus, mehr Dinge veröffentlichen – auch
+                    wenn sie noch nicht „final“ sind. Iterationen schlagen
+                    Perfektion, vor allem bei Apps &amp; digitalen Produkten.
+                  </p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-top">
+                  <div class="card-label">Energie</div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-heading">Richtig takten statt ausbrennen</h3>
+                  <p class="card-paragraph">
+                    Pausen und Erholung bewusst einplanen, statt sie nur
+                    „passieren“ zu lassen. Gute Energie ist ein Feature, kein
+                    Zufallsprodukt.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 3: NÄCHSTE SCHRITTE -->
+        <section class="section">
+          <div class="padding-global">
+            <div class="section-header">
+              <div class="section-tag">Next Steps</div>
+              <h2 class="section-heading">Wie Off Track zu On Track wird.</h2>
+              <p class="section-paragraph">
+                Die Punkte hier sollen sich nicht ewig „Off Track“ nennen. Ziel
+                ist, sie Schritt für Schritt rüber auf die On-Track-Seite zu
+                bekommen – mit klaren Routinen und konkreten Experimenten.
+              </p>
+            </div>
+            <div class="card-grid">
+              <div class="card">
+                <div class="card-top">
+                  <div class="card-label">Review</div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-heading">Regelmäßige Check-ins</h3>
+                  <p class="card-paragraph">
+                    Monatliche Reviews: Was ist besser geworden, was hakt noch,
+                    was fliegt raus? So bleibt Off Track eine Liste in Bewegung
+                    und kein Friedhof von guten Vorsätzen.
+                  </p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-top">
+                  <div class="card-label">Experimente</div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-heading">Systeme testen</h3>
+                  <p class="card-paragraph">
+                    Neue Fokus-Routinen, Habit-Systeme oder App-Ideen nicht nur
+                    denken, sondern für ein paar Wochen ernsthaft testen – und
+                    danach entscheiden, ob sie bleiben dürfen.
+                  </p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-top">
+                  <div class="card-label">Transparenz</div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-heading">Build &amp; learn in public</h3>
+                  <p class="card-paragraph">
+                    Learnings aus Off Track teile ich nach und nach – damit
+                    andere aus meinen Baustellen mitlernen können und ich selbst
+                    accountable bleibe.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FOOTER CTA -->
+        <section class="section is-footer-cta">
+          <div class="padding-global">
+            <div class="footer-cta">
+              <div class="footer-cta-left">
+                <div class="footer-cta-tag">Stay Connected</div>
+                <h2 class="footer-cta-heading">Verfolg die Entwicklung.</h2>
+                <p class="footer-cta-paragraph">
+                  Wenn du sehen willst, wie aus Off Track nach und nach On Track
+                  wird, folg mir auf meinen Kanälen oder schau immer mal wieder
+                  hier vorbei – diese Seite soll sich verändern.
+                </p>
+              </div>
+              <div class="footer-cta-right">
+                <div class="footer-social-grid">
+                  <a
+                    href="#"
+                    target="_blank"
+                    class="footer-social-link w-inline-block"
+                  >
+                    <div class="footer-social-label">Instagram</div>
+                    <div class="footer-social-arrow">
+                      <img
+                        src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                        loading="lazy"
+                        alt=""
+                        class="btn-icon-img is-nav"
+                      />
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    target="_blank"
+                    class="footer-social-link w-inline-block"
+                  >
+                    <div class="footer-social-label">X</div>
+                    <div class="footer-social-arrow">
+                      <img
+                        src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                        loading="lazy"
+                        alt=""
+                        class="btn-icon-img is-nav"
+                      />
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    target="_blank"
+                    class="footer-social-link w-inline-block"
+                  >
+                    <div class="footer-social-label">TikTok</div>
+                    <div class="footer-social-arrow">
+                      <img
+                        src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                        loading="lazy"
+                        alt=""
+                        class="btn-icon-img is-nav"
+                      />
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    target="_blank"
+                    class="footer-social-link w-inline-block"
+                  >
+                    <div class="footer-social-label">YouTube</div>
+                    <div class="footer-social-arrow">
+                      <img
+                        src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/66f27a74171fef20de5e2937_arrow-up-right.svg"
+                        loading="lazy"
+                        alt=""
+                        class="btn-icon-img is-nav"
+                      />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <footer class="footer">
+              <div class="footer-left">
+                <div class="footer-text">
+                  © 2025 Jonas Dzaack. Alle Rechte vorbehalten.
+                </div>
+              </div>
+              <div class="footer-right">
+                <a href="#" class="footer-link">Impressum</a>
+                <a href="#" class="footer-link">Datenschutz</a>
+                <a href="#" class="footer-link">Cookies</a>
+              </div>
+            </footer>
+          </div>
+        </section>
+      </main>
     </div>
-  </footer>
-</body>
+
+    <script
+      src="https://cdn.prod.website-files.com/66f27a74171fef20de5e2871/js/webflow.123abc456.js"
+      type="text/javascript"
+    ></script>
+  </body>
 </html>
