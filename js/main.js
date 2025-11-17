@@ -1,5 +1,5 @@
 // main.js
-// Global motion, loader, page transitions, tilt & text hover effects
+// Loader, Page Transitions, Tilt, GSAP, Text Hover, Smooth Scroll
 
 (function () {
   // =======================================
@@ -9,10 +9,10 @@
     const loader = document.querySelector('.loader-overlay');
     const progressBar = document.querySelector('.scroll-progress');
     const loadStart = performance.now();
-    const MIN_LOADER_TIME = 650; // ms – minimum visible loader time
+    const MIN_LOADER_TIME = 650; // ms – Loader soll min. so lange sichtbar bleiben
 
     // ---------------------------------------
-    // Loader hide after window fully loaded
+    // Loader ausblenden, wenn alles geladen
     // ---------------------------------------
     window.addEventListener('load', function () {
       const elapsed = performance.now() - loadStart;
@@ -23,8 +23,7 @@
       }, delay);
     });
 
-    // Fallback: wenn aus irgendeinem Grund "load" nie fired,
-    // nach 3s trotzdem schließen, damit Seite nie hängen bleibt.
+    // Fallback: falls "load" aus irgendeinem Grund nie feuert
     setTimeout(function () {
       if (!loader) return;
       if (!loader.classList.contains('is-hidden')) {
@@ -33,7 +32,7 @@
     }, 3000);
 
     // ---------------------------------------
-    // Scroll progress bar
+    // Scroll-Progress-Bar
     // ---------------------------------------
     function updateScrollProgress() {
       if (!progressBar) return;
@@ -48,7 +47,12 @@
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
 
     // ---------------------------------------
-    // Page transitions – intercept internal links
+    // Smooth Scroll mit Lenis
+    // ---------------------------------------
+    setupLenis();
+
+    // ---------------------------------------
+    // Page transitions – interne Links abfangen
     // ---------------------------------------
     setupPageTransitions(loader);
 
@@ -58,12 +62,12 @@
     setupTilt();
 
     // ---------------------------------------
-    // GSAP animations (hero idle + section reveals)
+    // GSAP animations (Hero idle + Section reveals)
     // ---------------------------------------
     setupGsapMotion();
 
     // ---------------------------------------
-    // Text hover letter-by-letter
+    // Text Hover letter-by-letter
     // ---------------------------------------
     setupTextHoverEffects();
   });
@@ -72,26 +76,47 @@
   // Loader helpers
   // =======================================
 
-function hideLoader(loader) {
-  if (!loader) return;
-  if (loader.classList.contains('is-hidden')) return;
+  function hideLoader(loader) {
+    if (!loader) return;
+    if (loader.classList.contains('is-hidden')) return;
 
-  loader.classList.add('is-leaving');
-  // Zeit muss zu deiner CSS-Animation passen (exit-duration)
-  setTimeout(function () {
-    loader.classList.add('is-hidden');
-    loader.classList.remove('is-leaving');
-    loader.classList.remove('is-active');
-  }, 500);
-}
+    loader.classList.add('is-leaving');
+    // muss zu deiner CSS-Transition passen
+    setTimeout(function () {
+      loader.classList.add('is-hidden');
+      loader.classList.remove('is-leaving');
+      loader.classList.remove('is-active');
+    }, 500);
+  }
 
   function showLoader(loader) {
     if (!loader) return;
     loader.classList.remove('is-hidden');
     loader.classList.remove('is-leaving');
-    // reflow, damit Transition sauber triggert
+    // reflow, damit Transition sicher triggert
     void loader.offsetWidth;
     loader.classList.add('is-active');
+  }
+
+  // =======================================
+  // Smooth Scroll (Lenis)
+  // =======================================
+
+  function setupLenis() {
+    if (!window.Lenis) return;
+
+    const lenis = new window.Lenis({
+      duration: 1.1,
+      smoothWheel: true,
+      smoothTouch: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
   }
 
   // =======================================
@@ -106,12 +131,28 @@ function hideLoader(loader) {
       const href = link.getAttribute('href');
       if (!href) return;
 
-      // Anker-Links ignorieren
+      // Anker-Links oder spezielle Protokolle ignorieren
       if (href.startsWith('#')) return;
 
-      // Externe Links ignorieren
-      const isAbsolute = /^https?:\/\//i.test(href);
-      if (isAbsolute && !href.startsWith(currentOrigin)) return;
+      var url;
+      try {
+        url = new URL(href, window.location.href);
+      } catch (error) {
+        return; // ungültige URL – nichts tun
+      }
+
+      // Protokolle wie mailto:, tel:, ftp:, blob:, data:, javascript: etc. überspringen
+      var protocol = url.protocol;
+      var isHttp = protocol === 'http:' || protocol === 'https:';
+      if (!isHttp) return;
+
+      // Externe Links oder explizite Ausnahmen ignorieren
+      var isExternal = url.origin !== currentOrigin;
+      if (isExternal) return;
+      if (link.target && link.target !== '_self') return;
+      if (link.hasAttribute('download')) return;
+      if (link.getAttribute('rel') && link.getAttribute('rel').includes('external'))
+        return;
 
       link.addEventListener('click', function (event) {
         // Neue Tabs etc. nicht abfangen
@@ -126,10 +167,10 @@ function hideLoader(loader) {
         }
 
         event.preventDefault();
-        const url = link.href;
+        const urlToOpen = url.toString();
 
         if (!loader) {
-          window.location.href = url;
+          window.location.href = urlToOpen;
           return;
         }
 
@@ -137,73 +178,11 @@ function hideLoader(loader) {
 
         // kurze Curtain-Zeit, bevor wir wirklich navigieren
         setTimeout(function () {
-          window.location.href = url;
+          window.location.href = urlToOpen;
         }, 450);
       });
     });
   }
-
-  // =======================
-// Hero 3D Depth Shader
-// =======================
-
-const HERO_VERTEX_SHADER = `
-  varying vec2 vUv;
-  uniform sampler2D uDepthMap;
-  uniform float uStrength;
-
-  void main() {
-    vUv = uv;
-
-    // Depth-Map Sample (Graustufen)
-    float depth = texture2D(uDepthMap, uv).r;
-
-    // Von 0..1 nach -0.5..0.5 mappen
-    float displacement = (depth - 0.5) * uStrength;
-
-    // Entlang der Normalen verschieben
-    vec3 newPosition = position + normal * displacement;
-
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
-  }
-`;
-
-const HERO_FRAGMENT_SHADER = `
-  precision mediump float;
-
-  varying vec2 vUv;
-
-  uniform sampler2D uBaseMap;
-  uniform vec2 uMouse;   // Mausposition in UV (0..1)
-  uniform float uTime;
-
-  // leichte Schattenfärbung
-  vec3 applyShadow(vec3 baseColor, float factor) {
-    // factor: 0 = starker Schatten, 1 = Original
-    vec3 shadowColor = baseColor * vec3(0.45, 0.45, 0.65);
-    return mix(shadowColor, baseColor, factor);
-  }
-
-  void main() {
-    vec4 baseColor = texture2D(uBaseMap, vUv);
-
-    // Abstand zur Maus bestimmen
-    float distToMouse = distance(vUv, uMouse);
-
-    // Blob-Parameter: inner = komplett shadow, outer = komplett normal
-    float innerRadius = 0.12;
-    float outerRadius = 0.26;
-
-    // smoothstep: 0 im Zentrum, 1 außerhalb
-    float blobMask = smoothstep(innerRadius, outerRadius, distToMouse);
-
-    // Wenn Maus "weit draußen" ist (Default), einfach Originalbild zeigen
-    // (uMouse startet bei (10.0, 10.0), d.h. distToMouse >> outerRadius)
-    vec3 finalColor = applyShadow(baseColor.rgb, blobMask);
-
-    gl_FragColor = vec4(finalColor, baseColor.a);
-  }
-`;
 
   // =======================================
   // Tilt Effects
@@ -248,9 +227,9 @@ const HERO_FRAGMENT_SHADER = `
       gsap.registerPlugin(ScrollTrigger);
     }
 
-    // Hero idle motion (Home Hero – Focus Head)
+    // Hero idle motion – kleine „float“ Animation
     var heroCard = document.querySelector('.hero-portrait-card');
-    if (heroCard) {
+    if (heroCard && gsap) {
       gsap.to(heroCard, {
         y: -12,
         duration: 5,
@@ -292,7 +271,7 @@ const HERO_FRAGMENT_SHADER = `
 
       // Cards / Rows im Inneren: kleine Stagger-Animation
       var cards = section.querySelectorAll(
-        '.project-card, .season-row, .highlight-card, .card, .onoff-card, .hero-portrait-card'
+        '.project-card, .season-row, .highlight-card, .card, .onoff-card, .hero-portrait-card, .stat-card'
       );
 
       if (cards.length) {
@@ -317,251 +296,40 @@ const HERO_FRAGMENT_SHADER = `
   // =======================================
 
   function setupTextHoverEffects() {
-    // Ziel-Elemente: Nav, Buttons, Logo-Text, große Hero-Headline
+    // Ziel-Elemente: Nav, Buttons, Logo-Text, große Headlines
     var targets = document.querySelectorAll(
-      '.nav a, .btn, .logo-text, .hero-title'
+      '.nav a, .btn, .logo-text, .hero-title, .ontrack-hero-title, .offtrack-hero-title'
     );
 
+    if (!targets.length) return;
+
     targets.forEach(function (el) {
-      // Bereits gesplittet?
-      if (el.dataset.split === 'chars') return;
+      var text = el.textContent.trim();
+      if (!text) return;
 
-      var text = el.textContent;
-      if (!text || !text.trim()) return;
+      el.classList.add('js-letter-hover');
+      el.setAttribute('data-label', text);
 
-      // Inhalt leeren & in Spans pro Zeichen aufteilen
-      el.textContent = '';
-      el.classList.add('hover-split');
-
-      var chars = [];
-      for (var i = 0; i < text.length; i++) {
+      // Zeichen in Spans wrappen
+      el.innerHTML = '';
+      var spanWrap = document.createElement('span');
+      spanWrap.className = 'letter-row';
+      Array.from(text).forEach(function (ch, index) {
         var span = document.createElement('span');
-        span.className = 'char';
-        span.textContent = text[i];
+        span.className = 'letter';
+        span.textContent = ch;
+        span.style.transitionDelay = (index * 0.018).toFixed(3) + 's';
+        spanWrap.appendChild(span);
+      });
+      el.appendChild(spanWrap);
 
-        if (text[i] === ' ') {
-          span.classList.add('char-space');
-        }
-
-        el.appendChild(span);
-        chars.push(span);
-      }
-
-      el.dataset.split = 'chars';
-
-      // Hover-Animation: Buchstaben mit kleinem Delay nach oben schieben
       el.addEventListener('mouseenter', function () {
-        chars.forEach(function (char, index) {
-          char.style.transitionDelay = index * 0.02 + 's';
-          char.style.transform = 'translateY(-100%)';
-        });
+        el.classList.add('is-hover');
       });
 
       el.addEventListener('mouseleave', function () {
-        chars.forEach(function (char, index) {
-          char.style.transitionDelay = index * 0.015 + 's';
-          char.style.transform = 'translateY(0)';
-        });
+        el.classList.remove('is-hover');
       });
     });
   }
 })();
-
-function initHero3D() {
-  const heroEl = document.querySelector(".hero");
-  const canvas = document.querySelector("#heroCanvas");
-
-  if (!heroEl || !canvas) return;
-
-  // Respect: Reduced Motion & Low-Power
-  const prefersReducedMotion = window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  const lowPower =
-    navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2;
-
-  const webglSupported = !!window.WebGLRenderingContext;
-
-  if (prefersReducedMotion || lowPower || !webglSupported || typeof THREE === "undefined") {
-    heroEl.classList.add("hero--no-3d");
-    return;
-  }
-
-  heroEl.classList.add("hero--has-3d");
-
-  // -------- Three.js Grundsetup --------
-  const scene = new THREE.Scene();
-
-  const sizes = {
-    width: canvas.clientWidth || canvas.offsetWidth || 400,
-    height: canvas.clientHeight || canvas.offsetHeight || 520
-  };
-
-  const camera = new THREE.PerspectiveCamera(
-    22,
-    sizes.width / sizes.height,
-    0.1,
-    100
-  );
-  camera.position.z = 1.4;
-  scene.add(camera);
-
-  const renderer = new THREE.WebGLRenderer({
-    canvas,
-    antialias: true,
-    alpha: true
-  });
-
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-  renderer.setSize(sizes.width, sizes.height);
-  if ("outputColorSpace" in renderer) {
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-  }
-
-  const textureLoader = new THREE.TextureLoader();
-
-  // Pfade ggf. anpassen!
-  const baseTexture = textureLoader.load("assets/hero/jonas-base.png");
-  const depthTexture = textureLoader.load("assets/hero/jonas-depth.jpg");
-
-  if ("colorSpace" in baseTexture) {
-    baseTexture.colorSpace = THREE.SRGBColorSpace;
-  }
-  if ("colorSpace" in depthTexture) {
-    depthTexture.colorSpace = THREE.LinearSRGBColorSpace;
-  }
-
-  const uniforms = {
-    uBaseMap: { value: baseTexture },
-    uDepthMap: { value: depthTexture },
-    uMouse: { value: new THREE.Vector2(10.0, 10.0) }, // weit draußen -> kein Blob zu Beginn
-    uStrength: { value: 0.18 }, // Tiefe; bei Bedarf tweaken
-    uTime: { value: 0 }
-  };
-
-  // Geometrie: Plane mit ungefähr deinem Bildverhältnis
-  const geometry = new THREE.PlaneGeometry(1.0, 1.3, 128, 128);
-
-  const material = new THREE.ShaderMaterial({
-    uniforms,
-    vertexShader: HERO_VERTEX_SHADER,
-    fragmentShader: HERO_FRAGMENT_SHADER,
-    transparent: true
-  });
-
-  const portraitMesh = new THREE.Mesh(geometry, material);
-  scene.add(portraitMesh);
-
-  // -------- Mouse Handling --------
-  const targetMouse = new THREE.Vector2(10.0, 10.0); // Start: weit draußen
-  const currentMouse = new THREE.Vector2(10.0, 10.0);
-
-  function handlePointerMove(event) {
-    const rect = canvas.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width;
-    const y = (event.clientY - rect.top) / rect.height;
-
-    // UV-Koordinaten: (0,0) unten links → y invertieren
-    targetMouse.set(x, 1.0 - y);
-  }
-
-  function handlePointerLeave() {
-    // Maus raus → Blob langsam aus dem Bild schieben
-    targetMouse.set(10.0, 10.0);
-  }
-
-  canvas.addEventListener("pointermove", handlePointerMove);
-  canvas.addEventListener("pointerleave", handlePointerLeave);
-
-  // -------- Resize Handling --------
-  function handleResize() {
-    const { width, height } = canvas.getBoundingClientRect();
-    if (!width || !height) return;
-
-    sizes.width = width;
-    sizes.height = height;
-
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-
-    renderer.setSize(width, height);
-  }
-
-  window.addEventListener("resize", handleResize);
-
-  // -------- Render Loop --------
-  let animationFrameId;
-
-  function renderLoop() {
-    animationFrameId = requestAnimationFrame(renderLoop);
-
-    uniforms.uTime.value += 0.01;
-
-    // Maus weich interpolieren
-    currentMouse.lerp(targetMouse, 0.12);
-    uniforms.uMouse.value.copy(currentMouse);
-
-    // Karte leicht kippen für Parallax
-    const rotateX = (currentMouse.y - 0.5) * 0.35;
-    const rotateY = (currentMouse.x - 0.5) * -0.45;
-
-    portraitMesh.rotation.x = rotateX;
-    portraitMesh.rotation.y = rotateY;
-
-    renderer.render(scene, camera);
-  }
-
-  renderLoop();
-
-  // Optional: Cleanup, falls du Swup / Page-Transitions nutzt
-  return () => {
-  cancelAnimationFrame(animationFrameId);
-  window.removeEventListener("resize", handleResize);
-  canvas.removeEventListener("pointermove", handlePointerMove);
-  canvas.removeEventListener("pointerleave", handlePointerLeave);
-  geometry.dispose();
-  material.dispose();
-  baseTexture.dispose();
-  depthTexture.dispose();
-  renderer.dispose();
-  // };
-}
-
-function initHeroParallax() {
-  const stack = document.querySelector("[data-hero-parallax]");
-  if (!stack) return;
-
-  const strength = 10; // max. Rotation in Grad
-
-  function handleMove(e) {
-    const rect = stack.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5; // -0.5..0.5
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-    const rotateX = y * -strength;
-    const rotateY = x * strength;
-
-    stack.style.transform =
-      `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate3d(0, 0, 0)`;
-  }
-
-  function reset() {
-    stack.style.transform = "rotateX(0deg) rotateY(0deg) translate3d(0,0,0)";
-  }
-
-  stack.addEventListener("pointermove", handleMove);
-  stack.addEventListener("pointerleave", reset);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  // ...hier deine bisherigen Inits...
-  initHeroParallax();
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  initLenis();
-  initScrollProgress();
-  initTilt();
-  initGsapAnimations();
-  initHero3D();
-});
