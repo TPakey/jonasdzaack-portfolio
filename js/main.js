@@ -143,6 +143,68 @@
     });
   }
 
+  // =======================
+// Hero 3D Depth Shader
+// =======================
+
+const HERO_VERTEX_SHADER = `
+  varying vec2 vUv;
+  uniform sampler2D uDepthMap;
+  uniform float uStrength;
+
+  void main() {
+    vUv = uv;
+
+    // Depth-Map Sample (Graustufen)
+    float depth = texture2D(uDepthMap, uv).r;
+
+    // Von 0..1 nach -0.5..0.5 mappen
+    float displacement = (depth - 0.5) * uStrength;
+
+    // Entlang der Normalen verschieben
+    vec3 newPosition = position + normal * displacement;
+
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+  }
+`;
+
+const HERO_FRAGMENT_SHADER = `
+  precision mediump float;
+
+  varying vec2 vUv;
+
+  uniform sampler2D uBaseMap;
+  uniform vec2 uMouse;   // Mausposition in UV (0..1)
+  uniform float uTime;
+
+  // leichte Schattenfärbung
+  vec3 applyShadow(vec3 baseColor, float factor) {
+    // factor: 0 = starker Schatten, 1 = Original
+    vec3 shadowColor = baseColor * vec3(0.45, 0.45, 0.65);
+    return mix(shadowColor, baseColor, factor);
+  }
+
+  void main() {
+    vec4 baseColor = texture2D(uBaseMap, vUv);
+
+    // Abstand zur Maus bestimmen
+    float distToMouse = distance(vUv, uMouse);
+
+    // Blob-Parameter: inner = komplett shadow, outer = komplett normal
+    float innerRadius = 0.12;
+    float outerRadius = 0.26;
+
+    // smoothstep: 0 im Zentrum, 1 außerhalb
+    float blobMask = smoothstep(innerRadius, outerRadius, distToMouse);
+
+    // Wenn Maus "weit draußen" ist (Default), einfach Originalbild zeigen
+    // (uMouse startet bei (10.0, 10.0), d.h. distToMouse >> outerRadius)
+    vec3 finalColor = applyShadow(baseColor.rgb, blobMask);
+
+    gl_FragColor = vec4(finalColor, baseColor.a);
+  }
+`;
+
   // =======================================
   // Tilt Effects
   // =======================================
@@ -304,6 +366,166 @@
     });
   }
 })();
+
+function initHero3D() {
+  const heroEl = document.querySelector(".hero");
+  const canvas = document.querySelector("#heroCanvas");
+
+  if (!heroEl || !canvas) return;
+
+  // Respect: Reduced Motion & Low-Power
+  const prefersReducedMotion = window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const lowPower =
+    navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2;
+
+  const webglSupported = !!window.WebGLRenderingContext;
+
+  if (prefersReducedMotion || lowPower || !webglSupported || typeof THREE === "undefined") {
+    heroEl.classList.add("hero--no-3d");
+    return;
+  }
+
+  heroEl.classList.add("hero--has-3d");
+
+  // -------- Three.js Grundsetup --------
+  const scene = new THREE.Scene();
+
+  const sizes = {
+    width: canvas.clientWidth || canvas.offsetWidth || 400,
+    height: canvas.clientHeight || canvas.offsetHeight || 520
+  };
+
+  const camera = new THREE.PerspectiveCamera(
+    22,
+    sizes.width / sizes.height,
+    0.1,
+    100
+  );
+  camera.position.z = 1.4;
+  scene.add(camera);
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    alpha: true
+  });
+
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setSize(sizes.width, sizes.height);
+  if ("outputColorSpace" in renderer) {
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+  }
+
+  const textureLoader = new THREE.TextureLoader();
+
+  // Pfade ggf. anpassen!
+  const baseTexture = textureLoader.load("assets/hero/jonas-base.png");
+  const depthTexture = textureLoader.load("assets/hero/jonas-depth.jpg");
+
+  if ("colorSpace" in baseTexture) {
+    baseTexture.colorSpace = THREE.SRGBColorSpace;
+  }
+  if ("colorSpace" in depthTexture) {
+    depthTexture.colorSpace = THREE.LinearSRGBColorSpace;
+  }
+
+  const uniforms = {
+    uBaseMap: { value: baseTexture },
+    uDepthMap: { value: depthTexture },
+    uMouse: { value: new THREE.Vector2(10.0, 10.0) }, // weit draußen -> kein Blob zu Beginn
+    uStrength: { value: 0.18 }, // Tiefe; bei Bedarf tweaken
+    uTime: { value: 0 }
+  };
+
+  // Geometrie: Plane mit ungefähr deinem Bildverhältnis
+  const geometry = new THREE.PlaneGeometry(1.0, 1.3, 128, 128);
+
+  const material = new THREE.ShaderMaterial({
+    uniforms,
+    vertexShader: HERO_VERTEX_SHADER,
+    fragmentShader: HERO_FRAGMENT_SHADER,
+    transparent: true
+  });
+
+  const portraitMesh = new THREE.Mesh(geometry, material);
+  scene.add(portraitMesh);
+
+  // -------- Mouse Handling --------
+  const targetMouse = new THREE.Vector2(10.0, 10.0); // Start: weit draußen
+  const currentMouse = new THREE.Vector2(10.0, 10.0);
+
+  function handlePointerMove(event) {
+    const rect = canvas.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+
+    // UV-Koordinaten: (0,0) unten links → y invertieren
+    targetMouse.set(x, 1.0 - y);
+  }
+
+  function handlePointerLeave() {
+    // Maus raus → Blob langsam aus dem Bild schieben
+    targetMouse.set(10.0, 10.0);
+  }
+
+  canvas.addEventListener("pointermove", handlePointerMove);
+  canvas.addEventListener("pointerleave", handlePointerLeave);
+
+  // -------- Resize Handling --------
+  function handleResize() {
+    const { width, height } = canvas.getBoundingClientRect();
+    if (!width || !height) return;
+
+    sizes.width = width;
+    sizes.height = height;
+
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(width, height);
+  }
+
+  window.addEventListener("resize", handleResize);
+
+  // -------- Render Loop --------
+  let animationFrameId;
+
+  function renderLoop() {
+    animationFrameId = requestAnimationFrame(renderLoop);
+
+    uniforms.uTime.value += 0.01;
+
+    // Maus weich interpolieren
+    currentMouse.lerp(targetMouse, 0.12);
+    uniforms.uMouse.value.copy(currentMouse);
+
+    // Karte leicht kippen für Parallax
+    const rotateX = (currentMouse.y - 0.5) * 0.35;
+    const rotateY = (currentMouse.x - 0.5) * -0.45;
+
+    portraitMesh.rotation.x = rotateX;
+    portraitMesh.rotation.y = rotateY;
+
+    renderer.render(scene, camera);
+  }
+
+  renderLoop();
+
+  // Optional: Cleanup, falls du Swup / Page-Transitions nutzt
+  return () => {
+  cancelAnimationFrame(animationFrameId);
+  window.removeEventListener("resize", handleResize);
+  canvas.removeEventListener("pointermove", handlePointerMove);
+  canvas.removeEventListener("pointerleave", handlePointerLeave);
+  geometry.dispose();
+  material.dispose();
+  baseTexture.dispose();
+  depthTexture.dispose();
+  renderer.dispose();
+  // };
+}
 
 function initHeroParallax() {
   const stack = document.querySelector("[data-hero-parallax]");
