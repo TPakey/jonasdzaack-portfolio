@@ -22,6 +22,10 @@
     defer
     src="https://unpkg.com/@studio-freight/lenis@1.0.41/bundled/lenis.min.js"
   ></script>
+  <!-- Three.js von CDN -->
+  <script defer src="https://unpkg.com/three@0.161.0/build/three.min.js"></script>
+
+  <!-- dein Main-JS -->
   <script defer src="js/main.js"></script>
 </head>
 <body data-page="on-track">
@@ -104,37 +108,45 @@
       </div>
     </header>
 
-    <!-- RIGHT: VISUAL -->
-    <div class="hero-visual">
-      <div class="hero-orbit"></div>
+<div class="hero-visual">
+  <!-- Orbit / Deko kannst du lassen wie gehabt, nur Beispiel: -->
+  <div class="hero-orbit">
+    <!-- deine Orbit-Elemente -->
+  </div>
 
-      <div class="hero-portrait-stack" data-hero-parallax>
-        <div class="hero-portrait-bg">
-          <span class="hero-portrait-ring hero-portrait-ring--outer"></span>
-          <span class="hero-portrait-ring hero-portrait-ring--inner"></span>
-        </div>
+  <div class="hero-chip hero-chip--primary">
+    <span class="chip-label">Current Project</span>
+    <span class="chip-value">Uni &amp; FocusLimit</span>
+  </div>
 
-        <figure class="hero-portrait-frame">
-          <img
-            src="assets/jonas-hero.png"
-            alt="Portrait of Jonas Dzaack"
-            class="hero-portrait-img"
-            loading="lazy"
-          />
-        </figure>
+  <!-- Portrait-Card mit WebGL + Fallback -->
+  <div class="hero-stack js-tilt">
+    <div class="hero-stack-shadow"></div>
 
-        <div class="hero-floating-card hero-floating-card--bottom">
-          <span class="floating-label">Next Focus</span>
-          <span class="floating-value">Lando-Level Portfolio</span>
-        </div>
+    <div class="portrait-card">
+      <div class="portrait-inner">
+        <!-- WebGL-Canvas -->
+        <canvas
+          id="heroCanvas"
+          aria-hidden="true"
+        ></canvas>
 
-        <div class="hero-floating-card hero-floating-card--top">
-          <span class="floating-label">Role</span>
-          <span class="floating-value">Growth &amp; Apps</span>
-        </div>
+        <!-- Fallback-Bild für Geräte ohne WebGL / Reduce-Motion -->
+        <img
+          src="assets/hero/jonas-base.png"
+          alt="Portrait von Jonas Dzaack"
+          class="portrait-fallback"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="portrait-meta">
+        <p class="portrait-label">Growth Operator &amp; App Developer</p>
+        <p class="portrait-value">Building FocusLimit &amp; Uni Life</p>
       </div>
     </div>
   </div>
+</div>
 </section>
 
     <!-- ============================
