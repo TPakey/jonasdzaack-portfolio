@@ -72,18 +72,18 @@
   // Loader helpers
   // =======================================
 
-  function hideLoader(loader) {
-    if (!loader) return;
-    if (loader.classList.contains('is-hidden')) return;
+function hideLoader(loader) {
+  if (!loader) return;
+  if (loader.classList.contains('is-hidden')) return;
 
-    loader.classList.add('is-leaving');
-    // Zeit muss zu deiner CSS-Animation passen (exit-duration)
-    setTimeout(function () {
-      loader.classList.add('is-hidden');
-      loader.classList.remove('is-leaving');
-      loader.classList.remove('is-active');
-    }, 500);
-  }
+  loader.classList.add('is-leaving');
+  // Zeit muss zu deiner CSS-Animation passen (exit-duration)
+  setTimeout(function () {
+    loader.classList.add('is-hidden');
+    loader.classList.remove('is-leaving');
+    loader.classList.remove('is-active');
+  }, 500);
+}
 
   function showLoader(loader) {
     if (!loader) return;
