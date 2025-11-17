@@ -557,3 +557,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // ...hier deine bisherigen Inits...
   initHeroParallax();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  initLenis();
+  initScrollProgress();
+  initTilt();
+  initGsapAnimations();
+  initHero3D();
+});
