@@ -304,3 +304,34 @@
     });
   }
 })();
+
+function initHeroParallax() {
+  const stack = document.querySelector("[data-hero-parallax]");
+  if (!stack) return;
+
+  const strength = 10; // max. Rotation in Grad
+
+  function handleMove(e) {
+    const rect = stack.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5; // -0.5..0.5
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+    const rotateX = y * -strength;
+    const rotateY = x * strength;
+
+    stack.style.transform =
+      `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate3d(0, 0, 0)`;
+  }
+
+  function reset() {
+    stack.style.transform = "rotateX(0deg) rotateY(0deg) translate3d(0,0,0)";
+  }
+
+  stack.addEventListener("pointermove", handleMove);
+  stack.addEventListener("pointerleave", reset);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // ...hier deine bisherigen Inits...
+  initHeroParallax();
+});
