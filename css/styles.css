@@ -3355,3 +3355,282 @@ body {
   opacity: 1;
   transform: none;
 }
+
+/* =============================
+   Text Hover Wave 2.0
+   ============================= */
+.js-letter-hover {
+  position: relative;
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.js-letter-hover .letter-row {
+  display: inline-flex;
+  gap: 0.02em;
+}
+
+.js-letter-hover .letter {
+  display: inline-block;
+  transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1),
+    color 0.18s ease;
+  will-change: transform;
+}
+
+.js-letter-hover.is-hover .letter {
+  transform: translateY(-12%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-letter-hover .letter {
+    transition: color 0.18s ease;
+    transform: none !important;
+  }
+}
+
+/* =============================
+   Hall of Fame
+   ============================= */
+.hof-section {
+  background: linear-gradient(135deg, rgba(7, 9, 12, 0.95), rgba(12, 18, 30, 0.96));
+  color: #e5e7eb;
+  padding-bottom: 4.5rem;
+}
+
+.hof-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.4rem;
+}
+
+.hof-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(213, 255, 79, 0.35), rgba(93, 63, 211, 0.4));
+  mask-image: var(--mask-shape-a);
+  -webkit-mask-image: var(--mask-shape-a);
+  mask-size: cover;
+  -webkit-mask-size: cover;
+}
+
+.hof-card.mask-b {
+  mask-image: var(--mask-shape-b);
+  -webkit-mask-image: var(--mask-shape-b);
+}
+
+.hof-card.mask-c {
+  mask-image: var(--mask-shape-c);
+  -webkit-mask-image: var(--mask-shape-c);
+}
+
+.hof-card-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 20%, rgba(93, 63, 211, 0.2), transparent 55%),
+    radial-gradient(circle at 80% 10%, rgba(213, 255, 79, 0.18), transparent 50%),
+    radial-gradient(circle at 60% 80%, rgba(79, 70, 229, 0.22), transparent 50%);
+  opacity: 0.9;
+}
+
+.hof-card-inner {
+  position: relative;
+  padding: 1.3rem;
+  background: rgba(5, 7, 12, 0.88);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.hof-logo {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.hof-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.hof-card p {
+  margin: 0;
+  color: #cbd5f5;
+  line-height: 1.5;
+}
+
+.hof-tag {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(213, 255, 79, 0.15);
+  color: #d5ff4f;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+:root {
+  --mask-shape-a: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><path d="M40 120c0-44 36-80 80-80h120c66 0 120 54 120 120v40c0 66-54 120-120 120H140c-55 0-100-45-100-100V120Z" fill="black"/></svg>');
+  --mask-shape-b: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><path d="M70 120c20-60 80-90 140-70l40 14c62 22 96 89 74 151l-14 39c-22 62-89 96-151 74l-39-14c-62-22-96-89-74-151l14-39Z" fill="black"/></svg>');
+  --mask-shape-c: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><path d="M60 150c10-70 90-90 140-120s140 30 140 120-60 190-150 190S50 230 60 150Z" fill="black"/></svg>');
+}
+
+/* =============================
+   Trophy Canvas
+   ============================= */
+.trophy-section {
+  background: linear-gradient(135deg, #0b1020, #0f172a);
+  color: #e5e7eb;
+}
+
+.trophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: center;
+  gap: 2rem;
+}
+
+.trophy-canvas-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  background: radial-gradient(circle at 20% 20%, rgba(93, 63, 211, 0.35), rgba(15, 23, 42, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  margin-left: auto;
+}
+
+#trophyCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =============================
+   Timeline
+   ============================= */
+.timeline-hero {
+  background: linear-gradient(120deg, rgba(7, 9, 12, 0.92), rgba(29, 78, 216, 0.12));
+}
+
+.timeline-hero-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: center;
+}
+
+.timeline-legend {
+  display: grid;
+  gap: 0.4rem;
+  align-content: start;
+}
+
+.legend-pill {
+  display: inline-flex;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e5e7eb;
+}
+
+.legend-pill--uni {
+  background: rgba(94, 234, 212, 0.12);
+  color: #67e8f9;
+}
+
+.legend-pill--skool {
+  background: rgba(213, 255, 79, 0.15);
+  color: #d5ff4f;
+}
+
+.legend-pill--apps {
+  background: rgba(129, 140, 248, 0.15);
+  color: #a5b4fc;
+}
+
+.timeline-section {
+  background: #f8f8f5;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.4rem;
+}
+
+.timeline-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.2rem;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: 0 18px 40px rgba(17, 17, 17, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.timeline-year {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--jonas-purple);
+}
+
+.timeline-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.timeline-card p {
+  margin: 0;
+  color: #4b5563;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.timeline-tags .tag {
+  background: #f3f4f6;
+  color: #111827;
+  padding: 0.35rem 0.65rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+.timeline-tags .tag--skool {
+  background: rgba(213, 255, 79, 0.25);
+}
+
+.timeline-tags .tag--uni {
+  background: rgba(94, 234, 212, 0.25);
+}
+
+.timeline-tags .tag--apps {
+  background: rgba(129, 140, 248, 0.25);
+}
+
+@media (max-width: 820px) {
+  .timeline-hero-inner {
+    flex-direction: column;
+  }
+}
