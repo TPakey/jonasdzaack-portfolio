@@ -9,6 +9,7 @@
     content="On Track – where Jonas Dzaack keeps all the serious work: Skool communities, focus-first apps and study systems."
   />
 
+  <link rel="icon" href="assets/face.png" />
   <link rel="stylesheet" href="css/styles.css" />
 
   <!-- Effects / Libraries -->
@@ -24,9 +25,10 @@
   ></script>
   <!-- Three.js von CDN -->
   <script defer src="https://unpkg.com/three@0.161.0/build/three.min.js"></script>
+  <script defer src="https://unpkg.com/three@0.161.0/examples/js/loaders/GLTFLoader.js"></script>
 
   <!-- dein Main-JS -->
-  <script defer src="js/main.js"></script>
+  <script type="module" defer src="js/main.js"></script>
 </head>
 <body data-page="on-track">
   <!-- Global loader / curtain -->
@@ -59,6 +61,7 @@
         <a href="on-track.html" class="nav-pill is-active">On&nbsp;Track</a>
         <a href="off-track.html">Off&nbsp;Track</a>
         <a href="calendar.html">Calendar</a>
+        <a href="timeline.html">Timeline</a>
       </nav>
     </div>
   </header>
@@ -133,7 +136,7 @@
 
         <!-- Fallback-Bild für Geräte ohne WebGL / Reduce-Motion -->
         <img
-          src="assets/hero/jonas-base.png"
+          src="assets/jonas-hero.png"
           alt="Portrait von Jonas Dzaack"
           class="portrait-fallback"
           loading="lazy"
@@ -148,6 +151,60 @@
   </div>
 </div>
 </section>
+
+    <!-- ============================
+         COMMUNITY HALL OF FAME
+         ============================ -->
+    <section class="section hof-section reveal" id="hall-of-fame">
+      <div class="wrap">
+        <header class="section-header ontrack-section-header">
+          <h2>Community Hall of Fame</h2>
+          <p>People and projects that shaped my operator playbook.</p>
+        </header>
+
+        <div class="hof-grid">
+          <article class="hof-card mask-a js-tilt-sm">
+            <div class="hof-card-bg"></div>
+            <div class="hof-card-inner">
+              <div class="hof-logo">Ryan Walker</div>
+              <h3>Skool Games champ</h3>
+              <p>Won Skool Games with tight free → paid system and clearer call flow.</p>
+              <span class="hof-tag">Growth Operator</span>
+            </div>
+          </article>
+
+          <article class="hof-card mask-b js-tilt-sm">
+            <div class="hof-card-bg"></div>
+            <div class="hof-card-inner">
+              <div class="hof-logo">Maureen</div>
+              <h3>PassivAI ramp-up</h3>
+              <p>Meta ads + Skool funnel for busy parents – $18k in 21 days.</p>
+              <span class="hof-tag">Funnel + Ads</span>
+            </div>
+          </article>
+
+          <article class="hof-card mask-c js-tilt-sm">
+            <div class="hof-card-bg"></div>
+            <div class="hof-card-inner">
+              <div class="hof-logo">Kyle Kane</div>
+              <h3>Acquisition sprints</h3>
+              <p>Lean free-to-paid, $9k in 10 days with simple upsell path.</p>
+              <span class="hof-tag">Deal flow</span>
+            </div>
+          </article>
+
+          <article class="hof-card mask-b js-tilt-sm">
+            <div class="hof-card-bg"></div>
+            <div class="hof-card-inner">
+              <div class="hof-logo">Jonas</div>
+              <h3>Projects I’m building</h3>
+              <p>FocusLimit anti-doomscrolling, Habit Garden 3D, my own Skool community.</p>
+              <span class="hof-tag">Lab</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <!-- ============================
          SKOOL COMMUNITIES – RACE RESULTS GRID
