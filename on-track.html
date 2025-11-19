@@ -1,329 +1,173 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  />
-  <title>On Track – Systems, Communities & Apps – Jonas Dzaack</title>
-  <meta
-    name="description"
-    content="On Track: Skool communities, focus apps and study systems Jonas is building and operating."
-  />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Styles -->
-  <link rel="icon" href="assets/face.png" />
-  <link rel="stylesheet" href="css/styles.css" />
-
-  <!-- Animation libs -->
-  <link rel="preconnect" href="https://unpkg.com" />
-  <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-  <script
-    defer
-    src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"
-  ></script>
-  <script
-    defer
-    src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"
-  ></script>
-  <script
-    defer
-    src="https://unpkg.com/@studio-freight/lenis@1.0.41/bundled/lenis.min.js"
-  ></script>
-  <script defer src="https://unpkg.com/three@0.161.0/build/three.min.js"></script>
-  <script defer src="https://unpkg.com/three@0.161.0/examples/js/loaders/GLTFLoader.js"></script>
-
-  <!-- Main JS -->
-  <script type="module" defer src="js/main.js"></script>
-</head>
-
-<body class="page-ontrack" data-page="on-track">
-  <!-- Global loader / curtain -->
-  <div class="loader-overlay">
-    <div class="loader-inner">
-      <div class="loader-logo">
-        <span class="loader-logo-mark">JD</span>
-        <span class="loader-logo-text">Jonas Dzaack</span>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>On Track · Jonas Dzaack</title>
+    <meta name="description" content="Active work, wins, and sprints that are on track." />
+    <link rel="icon" href="assets/face.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="on-track">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">JD</span>
+          <span>Jonas Dzaack</span>
+        </a>
+        <nav>
+          <a class="nav-link" data-page-link="home" href="index.html">Home</a>
+          <a class="nav-link" data-page-link="on-track" href="on-track.html">On Track</a>
+          <a class="nav-link" data-page-link="off-track" href="off-track.html">Off Track</a>
+          <a class="nav-link" data-page-link="calendar" href="calendar.html">Calendar</a>
+        </nav>
       </div>
-      <p class="loader-sub">Loading focus…</p>
-    </div>
-  </div>
-  <div class="scroll-progress"></div>
+    </header>
 
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a href="index.html" class="brand">
-        <span class="brand-mark">JD</span>
-        <span class="brand-text">
-          <span class="brand-name">Jonas Dzaack</span>
-          <span class="brand-tagline">On / Off Track</span>
-        </span>
-      </a>
-
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="on-track.html" class="is-active">On&nbsp;Track</a>
-        <a href="off-track.html">Off&nbsp;Track</a>
-        <a href="calendar.html">Calendar</a>
-        <a href="timeline.html">Timeline</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <!-- HERO -->
-    <section class="hero hero-ontrack">
-      <div class="hero-bg-gradient hero-bg-gradient-dark"></div>
-      <div class="hero-ghost-word">ON TRACK</div>
-
-      <div class="wrap hero-grid hero-grid-ontrack">
-        <div class="hero-content">
-          <p class="eyebrow">ON TRACK · WORK</p>
-          <h1 class="hero-title">
-            Systems, communities<br />
-            and apps that actually ship.
-          </h1>
-          <p class="hero-text">
-            This is the side where things get serious: <strong>Skool Growth Systems</strong>,
-            <strong>focus products</strong> and <strong>study setup</strong>. No fluff, just
-            what’s been built and what’s in the pipeline.
-          </p>
-
-          <div class="hero-chips hero-chips-inline">
-            <div class="chip">
-              <span class="chip-label">Skool Games</span>
-              <span class="chip-value">Dec 2024 winner</span>
-            </div>
-            <div class="chip">
-              <span class="chip-label">Biggest sprint</span>
-              <span class="chip-value">$18k in 21 days</span>
-            </div>
-            <div class="chip">
-              <span class="chip-label">Current focus</span>
-              <span class="chip-value">Uni + FocusLimit</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual hero-visual-ontrack">
-          <div class="hero-portrait-card small js-tilt">
-            <div class="hero-portrait-bg hero-portrait-bg-dark"></div>
-            <div class="hero-portrait-inner">
-              <div class="hero-mini-header">
-                <span class="mini-label">TRACKBOARD</span>
-                <span class="mini-value">Live systems</span>
-              </div>
-
-              <ul class="hero-mini-list">
-                <li>
-                  <span class="mini-tag">Skool communities</span>
-                  <span class="mini-note">Free → Paid → High-ticket</span>
-                </li>
-                <li>
-                  <span class="mini-tag">FocusLimit</span>
-                  <span class="mini-note">Anti-doomscrolling app concept</span>
-                </li>
-                <li>
-                  <span class="mini-tag">Habit Garden</span>
-                  <span class="mini-note">3D habit garden in Unity</span>
-                </li>
-                <li>
-                  <span class="mini-tag">Study systems</span>
-                  <span class="mini-note">Math, CS, BWL foundations</span>
-                </li>
-              </ul>
-            </div>
-            <div class="hero-orbit hero-orbit-primary"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section trophy-section reveal" id="ontrack-trophy">
-      <div class="wrap trophy-grid">
+    <main>
+      <section class="container hero">
         <div>
-          <p class="eyebrow">On Track trophy</p>
-          <h2 class="ontrack-hero-title">Keeping momentum visible.</h2>
-          <p class="section-intro">
-            A small 3D trophy to remind me to keep seasons short and ship fast. Scroll to rotate, hover to nudge.
+          <span class="hero-kicker">Execution lane</span>
+          <h1 class="hero-title">On Track: work that is moving with momentum.</h1>
+          <p class="hero-subtitle">
+            Every sprint listed here is shipping on schedule. Each card shows owners, health,
+            and why it matters. Check the calendar for timing and the Off Track page for anything
+            that needs a reset.
           </p>
-          <div class="hero-cta-row">
-            <a class="btn btn-primary text-wave" href="index.html#hall-of-fame">See the Hall of Fame</a>
-            <a class="btn btn-ghost text-wave" href="timeline.html">View timeline</a>
+          <div class="btn-row">
+            <a class="btn primary" href="calendar.html">View calendar</a>
+            <a class="btn" href="#wins">See recent wins</a>
           </div>
         </div>
-        <div class="trophy-canvas-wrap">
-          <canvas id="trophyCanvas" aria-hidden="true"></canvas>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKOOL COMMUNITIES AS RACE RESULTS -->
-    <section class="section section-dark">
-      <div class="wrap">
-        <header class="section-header">
-          <p class="eyebrow">SKOOL COMMUNITIES</p>
-          <h2>Race-style results, but for communities.</h2>
-          <p class="section-intro">
-            A few highlights from Skool projects I helped build or scale. Real numbers,
-            no hype.
-          </p>
-        </header>
-
-        <div class="results-table">
-          <div class="results-header-row">
-            <span class="results-col results-col-season">Season</span>
-            <span class="results-col">Project</span>
-            <span class="results-col">Role</span>
-            <span class="results-col results-col-result">Result</span>
+        <div class="hero-panel">
+          <div class="hero-meta">
+            <div class="meta-chip">
+              <div class="meta-label">Current sprint</div>
+              <div class="meta-value">Community Upgrade</div>
+            </div>
+            <div class="meta-chip">
+              <div class="meta-label">Health</div>
+              <div class="meta-value">On Track</div>
+            </div>
+            <div class="meta-chip">
+              <div class="meta-label">Reporting</div>
+              <div class="meta-value">Weekly summary</div>
+            </div>
           </div>
-
-          <div class="results-row">
-            <span class="results-col results-col-season">2024</span>
-            <span class="results-col">
-              Ryan Walker · Skool Games
-            </span>
-            <span class="results-col">Growth operator</span>
-            <span class="results-col results-col-result">
-              Won Skool Games · optimized free → paid calls
-            </span>
-          </div>
-
-          <div class="results-row">
-            <span class="results-col results-col-season">2024</span>
-            <span class="results-col">
-              Maureen Erokwu
-            </span>
-            <span class="results-col">Funnel + growth</span>
-            <span class="results-col results-col-result">
-              ~$18k in 21 days with Meta ads + Skool
-            </span>
-          </div>
-
-          <div class="results-row">
-            <span class="results-col results-col-season">2024</span>
-            <span class="results-col">
-              Kyle Kane
-            </span>
-            <span class="results-col">Free-to-paid &amp; upsell</span>
-            <span class="results-col results-col-result">
-              ~$9k in 10 days incl. $3k upsell
-            </span>
-          </div>
-
-          <div class="results-row">
-            <span class="results-col results-col-season">2024</span>
-            <span class="results-col">
-              Impowered Skool (own community)
-            </span>
-            <span class="results-col">Builder &amp; host</span>
-            <span class="results-col results-col-result">
-              “Robin Hood of Skool” positioning · helping others make first $1k
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- APPS & PRODUCTS -->
-    <section class="section section-light">
-      <div class="wrap section-grid">
-        <div>
-          <header class="section-header section-header-tight">
-            <p class="eyebrow">FOCUS APPS</p>
-            <h2>Tools against doomscrolling and drift.</h2>
-          </header>
-          <p class="section-text">
-            I like building products that respect people’s attention. Not “infinite scroll” —
-            more like “controlled laps”.
+          <p class="section-lead">
+            Design, operations, and app builds each have clear deliverables. Progress here is the
+            source of truth for what is going well.
           </p>
         </div>
+      </section>
 
-        <div class="card-grid">
+      <section class="container section" id="tracks">
+        <div class="section-header">
+          <h2 class="section-title">Active tracks</h2>
+          <p class="section-lead">Workstreams that are confidently shipping.</p>
+        </div>
+        <div class="grid">
           <article class="card">
-            <p class="card-label">FocusLimit</p>
-            <h3 class="card-title">Counting shorts so your brain doesn’t have to.</h3>
-            <p class="card-text">
-              Mobile app concept for iOS, Android and browser that tracks how many
-              short-form videos you consume and caps it before you lose the day.
-            </p>
-            <ul class="card-list">
-              <li>Tracks reels / shorts / TikToks across apps</li>
-              <li>Soft limits, hard limits and “race mode”</li>
-              <li>Freemium + subscription model</li>
-            </ul>
-            <p class="card-meta">Status: concept &amp; project plan ready.</p>
+            <h3>Skool onboarding flow</h3>
+            <p>New community arc with rapid activation emails and a live cohort walkthrough.</p>
+            <div class="chip-row">
+              <span class="tag accent">Live</span>
+              <span class="tag">Community</span>
+            </div>
           </article>
-
           <article class="card">
-            <p class="card-label">Habit Garden</p>
-            <h3 class="card-title">A 3D garden that grows with your habits.</h3>
-            <p class="card-text">
-              Long-term heart project: a hybrid iOS app where your daily habits
-              grow a stylised 3D garden built in Unity.
-            </p>
-            <ul class="card-list">
-              <li>Unity URP, low-poly mobile style</li>
-              <li>XP &amp; levels tied to consistency</li>
-              <li>Offline-first, EU-based backend</li>
-            </ul>
-            <p class="card-meta">Status: vision &amp; asset specs defined.</p>
+            <h3>FocusLimit app sprint</h3>
+            <p>Shipping a weekly build with usability fixes, reminders, and beta feedback calls.</p>
+            <div class="chip-row">
+              <span class="tag accent">Build</span>
+              <span class="tag alt">Apps</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Operator playbook</h3>
+            <p>Documenting acquisition scripts, retention routines, and upsell checkpoints.</p>
+            <div class="chip-row">
+              <span class="tag accent">Systems</span>
+              <span class="tag">Ops</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Client growth lab</h3>
+            <p>Weekly experiments with ads, offer tuning, and call-to-action optimizations.</p>
+            <div class="chip-row">
+              <span class="tag accent">Experiments</span>
+              <span class="tag">Acquisition</span>
+            </div>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- STUDY SYSTEMS -->
-    <section class="section section-dark">
-      <div class="wrap section-grid">
-        <div>
-          <header class="section-header section-header-tight">
-            <p class="eyebrow">STUDY · B.SC. BUSINESS INFORMATICS</p>
-            <h2>Running uni like a season, not a sprint.</h2>
-          </header>
-          <p class="section-text">
-            I’m starting business informatics at the University of Hamburg. Math, CS,
-            BWL and HCI form the base layer under all the systems on this site.
-          </p>
+      <section class="container section" id="wins">
+        <div class="section-header">
+          <h2 class="section-title">Recent wins</h2>
+          <p class="section-lead">A simple timeline to show momentum and celebrate delivery.</p>
         </div>
-
-        <div class="section-facts">
-          <div class="fact">
-            <span class="fact-label">Math &amp; CS</span>
-            <span class="fact-value">Analysis, linear algebra, Java, proofs</span>
-            <span class="fact-meta">Thinking in abstractions pays off in product.</span>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">Week 1</div>
+            <div class="timeline-content">
+              <h4>Activation emails live</h4>
+              <p>New onboarding flow opened with a 42% lift in first-session completion.</p>
+            </div>
           </div>
-          <div class="fact">
-            <span class="fact-label">Business</span>
-            <span class="fact-value">BWL, models, value creation</span>
-            <span class="fact-meta">Not just code – also why it matters.</span>
+          <div class="timeline-item">
+            <div class="timeline-date">Week 2</div>
+            <div class="timeline-content">
+              <h4>App beta shipped</h4>
+              <p>FocusLimit beta pushed to testers with reminders and session logging.</p>
+            </div>
           </div>
-          <div class="fact">
-            <span class="fact-label">Season planning</span>
-            <span class="fact-value">Exams &amp; builds</span>
-            <span class="fact-meta">
-              Year structured like an F1 calendar – more on the calendar page.
-            </span>
+          <div class="timeline-item">
+            <div class="timeline-date">Week 3</div>
+            <div class="timeline-content">
+              <h4>Community live call</h4>
+              <p>Hosted a cohort walkthrough that doubled retention for the new members.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <span>© 2025 Jonas Dzaack</span>
-      <span class="footer-dots">On Track · Focus · Systems</span>
-    </div>
-  </footer>
-</body>
+      <section class="container section" id="labs">
+        <div class="section-header">
+          <h2 class="section-title">Focus labs</h2>
+          <p class="section-lead">The small routines keeping delivery reliable.</p>
+        </div>
+        <div class="split-grid">
+          <div class="panel">
+            <h3>Operator cadence</h3>
+            <ul class="bullet-list">
+              <li>Weekly review with outcome metrics and scope checks.</li>
+              <li>Midweek QA for app builds and community automation.</li>
+              <li>Friday recap shared to Off Track if anything slips.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Quality checks</h3>
+            <ul class="bullet-list">
+              <li>Accessibility and copy pass before any release.</li>
+              <li>Test calls recorded for high-risk features.</li>
+              <li>Calendar anchors updated with real timelines.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      On Track holds the workstreams that are moving. See Off Track for recovery plans or
+      Calendar for scheduling.
+    </footer>
+    <script src="script.js" defer></script>
+  </body>
 </html>

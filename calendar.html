@@ -1,327 +1,152 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Calendar · Jonas Dzaack · Season of Focus</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Season of focus – how Jonas Dzaack plans his year like a race calendar: pre-season, race weeks, mid-season push and off-season."
-  />
-
-  <link rel="icon" href="assets/face.png" />
-  <link rel="stylesheet" href="css/styles.css" />
-
-  <!-- Effects / Libraries -->
-  <script
-    defer
-    src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"
-  ></script>
-  <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-  <script defer src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script
-    defer
-    src="https://unpkg.com/@studio-freight/lenis@1.0.41/bundled/lenis.min.js"
-  ></script>
-  <script type="module" defer src="js/main.js"></script>
-</head>
-<body data-page="calendar">
-  <!-- Global loader / curtain -->
-  <div class="loader-overlay">
-    <div class="loader-inner">
-      <div class="loader-logo">
-        <span class="loader-logo-mark">JD</span>
-        <span class="loader-logo-text">Season</span>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calendar · Jonas Dzaack</title>
+    <meta name="description" content="Timeboxed schedule for Jonas Dzaack's projects." />
+    <link rel="icon" href="assets/face.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="calendar">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">JD</span>
+          <span>Jonas Dzaack</span>
+        </a>
+        <nav>
+          <a class="nav-link" data-page-link="home" href="index.html">Home</a>
+          <a class="nav-link" data-page-link="on-track" href="on-track.html">On Track</a>
+          <a class="nav-link" data-page-link="off-track" href="off-track.html">Off Track</a>
+          <a class="nav-link" data-page-link="calendar" href="calendar.html">Calendar</a>
+        </nav>
       </div>
-      <p class="loader-sub">Loading the season…</p>
-    </div>
-  </div>
+    </header>
 
-  <!-- Scroll progress bar -->
-  <div class="scroll-progress"></div>
-
-  <!-- Site header / nav -->
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-mark">JD</span>
-        <span class="logo-text">Jonas&nbsp;Dzaack</span>
-      </a>
-
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="on-track.html">On&nbsp;Track</a>
-        <a href="off-track.html">Off&nbsp;Track</a>
-        <a href="calendar.html" class="nav-pill is-active">Calendar</a>
-        <a href="timeline.html">Timeline</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <!-- ============================
-         CALENDAR HERO
-         ============================ -->
-    <section class="section calendar-hero-section reveal" id="top">
-      <div class="wrap calendar-hero-grid">
-        <div class="calendar-hero-copy">
-          <div class="eyebrow">SEASON</div>
-          <h1 class="calendar-hero-title">
-            Planning my year<br />
-            like a race calendar.
-          </h1>
-          <p class="calendar-hero-lead">
-            Instead of “I’ll just see what happens”, I think in
-            <strong>pre-season, race weeks, mid-season push and off-season</strong>.
-            Study blocks, app sprints and community launches are planned like
-            a season – with real breaks in between.
+    <main>
+      <section class="container hero">
+        <div>
+          <span class="hero-kicker">Calendar</span>
+          <h1 class="hero-title">Timeboxed plan with live milestones.</h1>
+          <p class="hero-subtitle">
+            This calendar anchors every deliverable. Use it to jump between On Track workstreams,
+            recovery steps, and weekly checkpoints.
           </p>
-          <p class="calendar-hero-note">
-            This page isn’t a full calendar app. It’s the high-level board
-            that keeps my focus aligned with the actual year.
-          </p>
-
-          <div class="calendar-hero-chips">
-            <span class="meta-chip">Study sprints</span>
-            <span class="meta-chip">App milestones</span>
-            <span class="meta-chip">Community launches</span>
+          <div class="btn-row">
+            <a class="btn primary" href="on-track.html">Go to On Track</a>
+            <a class="btn" href="off-track.html">Visit Off Track</a>
           </div>
         </div>
-
-        <div class="calendar-hero-card js-tilt">
-          <div class="calendar-hero-card-inner">
-            <h2 class="calendar-mini-title">Season snapshot</h2>
-            <div class="calendar-mini-timeline">
-              <div class="calendar-mini-row">
-                <span class="calendar-mini-label">Pre-season</span>
-                <span class="calendar-mini-range">Jan – Mar</span>
-              </div>
-              <div class="calendar-mini-bar calendar-mini-bar--pre"></div>
-
-              <div class="calendar-mini-row">
-                <span class="calendar-mini-label">Race weeks</span>
-                <span class="calendar-mini-range">Exams & launches</span>
-              </div>
-              <div class="calendar-mini-bar calendar-mini-bar--race"></div>
-
-              <div class="calendar-mini-row">
-                <span class="calendar-mini-label">Mid-season push</span>
-                <span class="calendar-mini-range">Deep work projects</span>
-              </div>
-              <div class="calendar-mini-bar calendar-mini-bar--mid"></div>
-
-              <div class="calendar-mini-row">
-                <span class="calendar-mini-label">Off-season</span>
-                <span class="calendar-mini-range">Reset & travel</span>
-              </div>
-              <div class="calendar-mini-bar calendar-mini-bar--off"></div>
+        <div class="hero-panel">
+          <div class="hero-meta">
+            <div class="meta-chip">
+              <div class="meta-label">Current week</div>
+              <div class="meta-value">Week 32</div>
             </div>
+            <div class="meta-chip">
+              <div class="meta-label">Milestones</div>
+              <div class="meta-value">6 scheduled</div>
+            </div>
+            <div class="meta-chip">
+              <div class="meta-label">Updated</div>
+              <div class="meta-value">Today</div>
+            </div>
+          </div>
+          <p class="section-lead">
+            Dates are synced across pages. If something slips into Off Track, the table updates so
+            the timeline stays honest.
+          </p>
+        </div>
+      </section>
 
-            <p class="calendar-mini-note">
-              The exact dates may change, but the rhythm stays: push → recover
-              → push → recover.
-            </p>
+      <section class="container section" id="schedule">
+        <div class="section-header">
+          <h2 class="section-title">Upcoming schedule</h2>
+          <p class="section-lead">A compact view of the next milestones.</p>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Item</th>
+                <th>Owner</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mon</td>
+                <td>Activation email rollout</td>
+                <td>Jonas</td>
+                <td><span class="status-dot status-on"></span>On Track</td>
+              </tr>
+              <tr>
+                <td>Tue</td>
+                <td>App beta QA block</td>
+                <td>Jonas</td>
+                <td><span class="status-dot status-on"></span>On Track</td>
+              </tr>
+              <tr>
+                <td>Wed</td>
+                <td>Ad creative refresh</td>
+                <td>Jonas</td>
+                <td><span class="status-dot status-off"></span>Off Track</td>
+              </tr>
+              <tr>
+                <td>Thu</td>
+                <td>Community live call</td>
+                <td>Jonas</td>
+                <td><span class="status-dot status-upcoming"></span>Upcoming</td>
+              </tr>
+              <tr>
+                <td>Fri</td>
+                <td>Weekly summary + migration</td>
+                <td>Jonas</td>
+                <td><span class="status-dot status-on"></span>On Track</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="container section" id="notes">
+        <div class="section-header">
+          <h2 class="section-title">Calendar notes</h2>
+          <p class="section-lead">How dates move when things switch between On and Off Track.</p>
+        </div>
+        <div class="split-grid">
+          <div class="panel">
+            <h3>When work stays On Track</h3>
+            <ul class="bullet-list">
+              <li>Dates are locked and appear with the green indicator.</li>
+              <li>Milestones link back to the On Track cards for context.</li>
+              <li>Recaps are added to keep the history clear.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>When work shifts Off Track</h3>
+            <ul class="bullet-list">
+              <li>Status switches to red and a reset date is assigned.</li>
+              <li>Owners document the blocker and the fix in Off Track.</li>
+              <li>Once resolved, the item returns here with the new date.</li>
+            </ul>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- ============================
-         SEASON SCHEDULE GRID
-         ============================ -->
-    <section class="section section-alt reveal" id="season">
-      <div class="wrap">
-        <header class="section-header">
-          <h2>Season schedule: how the year actually feels</h2>
-          <p>
-            A simple board that maps months to focus modes. Less “perfect
-            productivity system”, more realistic race calendar.
-          </p>
-        </header>
-
-        <div class="season-schedule-grid">
-          <!-- Pre-season -->
-          <article class="season-row js-tilt-sm">
-            <div class="season-tag season-tag--pre">Pre-season</div>
-            <div class="season-main">
-              <div class="season-meta">
-                <span class="season-range">Jan – Mar</span>
-                <span class="season-focus">Setup & routines</span>
-              </div>
-              <p class="season-text">
-                Getting into rhythm after breaks: setting up university
-                structure, cleaning up Notion, planning app sprints and
-                refreshing Skool systems.
-              </p>
-              <ul class="season-list">
-                <li>Math / CS pre-work and recap sessions</li>
-                <li>Define FocusLimit milestones for the year</li>
-                <li>Plan community experiments & funnels</li>
-              </ul>
-              <div class="season-bar season-bar--pre"></div>
-            </div>
-          </article>
-
-          <!-- Race weeks -->
-          <article class="season-row js-tilt-sm">
-            <div class="season-tag season-tag--race">Race weeks</div>
-            <div class="season-main">
-              <div class="season-meta">
-                <span class="season-range">Exam phases & launches</span>
-                <span class="season-focus">High intensity</span>
-              </div>
-              <p class="season-text">
-                Short, intense blocks with fewer experiments and more
-                execution: exams at uni, launch windows for communities, big
-                pushes for app features.
-              </p>
-              <ul class="season-list">
-                <li>Exam sprints with clear study plans</li>
-                <li>Launch windows for Skool communities</li>
-                <li>Feature freezes so nothing new distracts</li>
-              </ul>
-              <div class="season-bar season-bar--race"></div>
-            </div>
-          </article>
-
-          <!-- Mid-season push -->
-          <article class="season-row js-tilt-sm">
-            <div class="season-tag season-tag--mid">Mid-season push</div>
-            <div class="season-main">
-              <div class="season-meta">
-                <span class="season-range">Between exams</span>
-                <span class="season-focus">Deep work projects</span>
-              </div>
-              <p class="season-text">
-                The quieter parts of the semester: perfect for deeper app
-                work, long-term Skool systems and bigger experiments that
-                don’t fit into a race week.
-              </p>
-              <ul class="season-list">
-                <li>Implementing bigger FocusLimit features</li>
-                <li>Improving Skool onboarding & retention systems</li>
-                <li>Research & experiments (AI video detector, etc.)</li>
-              </ul>
-              <div class="season-bar season-bar--mid"></div>
-            </div>
-          </article>
-
-          <!-- Off-season -->
-          <article class="season-row js-tilt-sm">
-            <div class="season-tag season-tag--off">Off-season</div>
-            <div class="season-main">
-              <div class="season-meta">
-                <span class="season-range">Breaks & travel</span>
-                <span class="season-focus">Reset & reflection</span>
-              </div>
-              <p class="season-text">
-                Deliberate down-time: travel, smaller projects, reflection
-                and refactoring. Less output, more thinking about what the
-                next season should look like.
-              </p>
-              <ul class="season-list">
-                <li>Short trips (Nord-/Ostsee, cities, maybe US / SA)</li>
-                <li>Light maintenance of communities & apps</li>
-                <li>Review what worked, what didn’t and why</li>
-              </ul>
-              <div class="season-bar season-bar--off"></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================
-         UPCOMING HIGHLIGHTS
-         ============================ -->
-    <section class="section reveal" id="highlights">
-      <div class="wrap">
-        <header class="section-header">
-          <h2>Upcoming highlights</h2>
-          <p>
-            Not every date is here – only the milestones that actually
-            change how I plan my focus.
-          </p>
-        </header>
-
-        <div class="calendar-highlights-grid">
-          <!-- Exams -->
-          <article class="highlight-card js-tilt-sm">
-            <div class="pill">Exams</div>
-            <h3>Next exam phase</h3>
-            <p>
-              Math, CS and BWL blocks that define the intensity of the
-              season. Study sprints are planned backwards from these dates.
-            </p>
-            <ul class="bullet-list">
-              <li>Revise lecture notes & exercise sheets early</li>
-              <li>Lock time for deep study blocks in the calendar</li>
-              <li>Reduce new experiments & content during this window</li>
-            </ul>
-          </article>
-
-          <!-- App milestones -->
-          <article class="highlight-card js-tilt-sm">
-            <div class="pill">FocusLimit</div>
-            <h3>App milestones</h3>
-            <p>
-              FocusLimit has its own micro-season: prototype, first test
-              users, then a more polished version if the idea holds up.
-            </p>
-            <ul class="bullet-list">
-              <li>v0 concept & tracking logic nailed down</li>
-              <li>Internal test build with limited users</li>
-              <li>Decision point: ship, pivot or park</li>
-            </ul>
-          </article>
-
-          <!-- Community sprints -->
-          <article class="highlight-card js-tilt-sm">
-            <div class="pill">Communities</div>
-            <h3>Skool community sprints</h3>
-            <p>
-              Short, focused pushes for communities I operate or help
-              build: new funnels, events, content drops or launch series.
-            </p>
-            <ul class="bullet-list">
-              <li>Planning 21-day growth sprints</li>
-              <li>Updating funnels & onboarding flows</li>
-              <li>Testing new engagement mechanics</li>
-            </ul>
-          </article>
-
-          <!-- Wildcard -->
-          <article class="highlight-card js-tilt-sm">
-            <div class="pill">Wildcard</div>
-            <h3>Open slot for the unexpected</h3>
-            <p>
-              There’s always something that appears mid-season: a new
-              collab, an idea, or a challenge. Keeping one slot unplanned
-              avoids overloading the board.
-            </p>
-            <ul class="bullet-list">
-              <li>Room for one bigger “surprise project”</li>
-              <li>Buffer so delays don’t crash the system</li>
-              <li>Flexibility without losing the overall rhythm</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="section-cta">
-          <a href="on-track.html" class="btn btn-primary">
-            Back to On Track results
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <span>© 2025 Jonas Dzaack</span>
-      <span class="footer-dots">Season of focus · Pre-season · Race weeks · Off-season</span>
-    </div>
-  </footer>
-</body>
+    <footer class="container footer">
+      Calendar keeps the cadence visible. Jump to On Track for active delivery or Off Track for
+      recovery work.
+    </footer>
+    <script src="script.js" defer></script>
+  </body>
 </html>
