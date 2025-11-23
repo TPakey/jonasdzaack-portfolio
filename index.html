@@ -13,6 +13,11 @@
   <link rel="stylesheet" href="styles.css" />
 
   <script defer src="script.js"></script>
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"
+  ></script>
+  <script defer src="js/hero-scene.js"></script>
 </head>
 <body data-page="on-track">
   <!-- Global loader / curtain -->
@@ -29,113 +34,69 @@
   <!-- Scroll progress bar -->
   <div class="scroll-progress"></div>
 
-  <!-- Site header / nav -->
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-mark">JD</span>
-        <span class="logo-text">Jonas&nbsp;Dzaack</span>
+  <header class="premium-hero" id="home-hero">
+    <div class="premium-hero__backdrop"></div>
+    <div class="premium-hero__glow"></div>
+
+    <div class="wrap premium-hero__nav">
+      <a href="index.html" class="hero-logo">
+        <span class="hero-logo__mark">JD</span>
+        <span class="hero-logo__text">Jonas&nbsp;Dzaack</span>
       </a>
 
-      <nav class="nav">
-        <a href="index.html">Home</a>
+      <nav class="hero-nav">
+        <a href="index.html" class="is-active">Home</a>
         <a href="#communities">Communities</a>
         <a href="#apps">Apps</a>
         <a href="#study">Study</a>
-        <a href="on-track.html" class="nav-pill is-active">On&nbsp;Track</a>
+        <a href="on-track.html" class="nav-pill">On&nbsp;Track</a>
         <a href="off-track.html">Off&nbsp;Track</a>
         <a href="calendar.html">Calendar</a>
         <a href="timeline.html">Timeline</a>
       </nav>
     </div>
+
+    <div class="wrap premium-hero__grid">
+      <div class="premium-hero__copy">
+        <p class="premium-hero__eyebrow">Growth Operator &amp; App Developer</p>
+        <h1 class="premium-hero__title">
+          Lando-grade focus.<br />Skool growth that ships.
+        </h1>
+        <p class="premium-hero__lead">
+          Teal cockpit, sky-blue accents, and a depth-reactive portrait. I help creators and
+          founders grow their Skool communities while building focus apps that keep you on track.
+        </p>
+
+        <div class="premium-hero__actions">
+          <a class="btn btn-primary" href="on-track.html">View On&nbsp;Track</a>
+          <a class="btn btn-ghost" href="#hall-of-fame">Community Hall&nbsp;of&nbsp;Fame</a>
+        </div>
+
+        <div class="premium-hero__meta">
+          <div class="premium-chip">Current: Uni &amp; FocusLimit</div>
+          <div class="premium-chip">Skool Growth &amp; Acquisition</div>
+        </div>
+      </div>
+
+      <div class="premium-hero__visual">
+        <div
+          class="hero-scene"
+          data-base="assets/portrait_base.png"
+          data-depth="assets/portrait_depth.png"
+          data-shadow="assets/portrait_shadow.png"
+          data-helmet="assets/helmet_overlay.png"
+        >
+          <div class="hero-scene__frame">
+            <div class="hero-scene__fallback">
+              <img src="assets/jonas-hero.png" alt="Portrait of Jonas Dzaack" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main>
-    <!-- ============================
-         ON TRACK HERO
-         ============================ -->
-<section class="hero-section" id="home-hero">
-  <div class="hero-bg-gradient"></div>
-  <div class="hero-ghost-word">FOCUS</div>
-
-  <div class="hero-grid">
-    <!-- LEFT: COPY -->
-    <header class="hero-copy">
-      <p class="hero-label">Growth Operator &amp; App Developer</p>
-
-      <h1 class="hero-title">
-        Building communities &amp;<br />
-        focus apps that actually ship.
-      </h1>
-
-      <p class="hero-subtitle">
-        I help creators and founders grow their Skool communities,
-        reduce churn and turn attention into revenue – while building
-        focus tools and apps on the side.
-      </p>
-
-      <div class="hero-cta-row">
-        <a href="on-track.html" class="btn btn-primary text-wave">
-          View On&nbsp;Track
-        </a>
-        <a href="#hall-of-fame" class="btn btn-ghost text-wave">
-          Community Hall&nbsp;of&nbsp;Fame
-        </a>
-      </div>
-
-      <div class="hero-meta-row">
-        <div class="hero-meta-card">
-          <span class="meta-label">Current Project</span>
-          <span class="meta-value">Uni &amp; FocusLimit</span>
-        </div>
-        <div class="hero-meta-card">
-          <span class="meta-label">Communities</span>
-          <span class="meta-value">Skool Growth &amp; Acquisition</span>
-        </div>
-      </div>
-    </header>
-
-<div class="hero-visual">
-  <!-- Orbit / Deko kannst du lassen wie gehabt, nur Beispiel: -->
-  <div class="hero-orbit">
-    <!-- deine Orbit-Elemente -->
-  </div>
-
-  <div class="hero-chip hero-chip--primary">
-    <span class="chip-label">Current Project</span>
-    <span class="chip-value">Uni &amp; FocusLimit</span>
-  </div>
-
-  <!-- Portrait-Card mit WebGL + Fallback -->
-  <div class="hero-stack js-tilt">
-    <div class="hero-stack-shadow"></div>
-
-    <div class="portrait-card">
-      <div class="portrait-inner">
-        <!-- WebGL-Canvas -->
-        <canvas
-          id="heroCanvas"
-          aria-hidden="true"
-        ></canvas>
-
-        <!-- Fallback-Bild für Geräte ohne WebGL / Reduce-Motion -->
-        <img
-          src="assets/jonas-hero.png"
-          alt="Portrait von Jonas Dzaack"
-          class="portrait-fallback"
-          loading="lazy"
-        />
-      </div>
-
-      <div class="portrait-meta">
-        <p class="portrait-label">Growth Operator &amp; App Developer</p>
-        <p class="portrait-value">Building FocusLimit &amp; Uni Life</p>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
-
     <!-- ============================
          COMMUNITY HALL OF FAME
          ============================ -->
