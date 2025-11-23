@@ -1,648 +1,159 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>On Track · Jonas Dzaack · Work, Skool & Apps</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="On Track – where Jonas Dzaack keeps all the serious work: Skool communities, focus-first apps and study systems."
-  />
-
-  <link rel="icon" href="assets/face.png" />
-  <link rel="stylesheet" href="styles.css" />
-
-  <script defer src="script.js"></script>
-  <script
-    defer
-    src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"
-  ></script>
-  <script defer src="js/hero-scene.js"></script>
-</head>
-<body data-page="on-track">
-  <!-- Global loader / curtain -->
-  <div class="loader-overlay">
-    <div class="loader-inner">
-      <div class="loader-logo">
-        <span class="loader-logo-mark">JD</span>
-        <span class="loader-logo-text">ON TRACK</span>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jonas Dzaack · Portfolio Hub</title>
+    <meta
+      name="description"
+      content="Central hub for Jonas Dzaack's portfolio, linking On Track, Off Track, and Calendar updates."
+    />
+    <link rel="icon" href="assets/face.png" />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="home">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">JD</span>
+          <span>Jonas Dzaack</span>
+        </a>
+        <nav>
+          <a class="nav-link" data-page-link="home" href="index.html">Home</a>
+          <a class="nav-link" data-page-link="on-track" href="on-track.html">On Track</a>
+          <a class="nav-link" data-page-link="off-track" href="off-track.html">Off Track</a>
+          <a class="nav-link" data-page-link="calendar" href="calendar.html">Calendar</a>
+        </nav>
       </div>
-      <p class="loader-sub">LOADING RESULTS...</p>
-    </div>
-  </div>
+    </header>
 
-  <!-- Scroll progress bar -->
-  <div class="scroll-progress"></div>
-
-  <header class="premium-hero" id="home-hero">
-    <div class="premium-hero__backdrop"></div>
-    <div class="premium-hero__glow"></div>
-
-    <div class="wrap premium-hero__nav">
-      <a href="index.html" class="hero-logo">
-        <span class="hero-logo__mark">JD</span>
-        <span class="hero-logo__text">Jonas&nbsp;Dzaack</span>
-      </a>
-
-      <nav class="hero-nav">
-        <a href="index.html" class="is-active">Home</a>
-        <a href="#communities">Communities</a>
-        <a href="#apps">Apps</a>
-        <a href="#study">Study</a>
-        <a href="on-track.html" class="nav-pill">On&nbsp;Track</a>
-        <a href="off-track.html">Off&nbsp;Track</a>
-        <a href="calendar.html">Calendar</a>
-        <a href="timeline.html">Timeline</a>
-      </nav>
-    </div>
-
-    <div class="wrap premium-hero__grid">
-      <div class="premium-hero__copy">
-        <p class="premium-hero__eyebrow">Growth Operator &amp; App Developer</p>
-        <h1 class="premium-hero__title">
-          Lando-grade focus.<br />Skool growth that ships.
-        </h1>
-        <p class="premium-hero__lead">
-          Teal cockpit, sky-blue accents, and a depth-reactive portrait. I help creators and
-          founders grow their Skool communities while building focus apps that keep you on track.
-        </p>
-
-        <div class="premium-hero__actions">
-          <a class="btn btn-primary" href="on-track.html">View On&nbsp;Track</a>
-          <a class="btn btn-ghost" href="#hall-of-fame">Community Hall&nbsp;of&nbsp;Fame</a>
-        </div>
-
-        <div class="premium-hero__meta">
-          <div class="premium-chip">Current: Uni &amp; FocusLimit</div>
-          <div class="premium-chip">Skool Growth &amp; Acquisition</div>
-        </div>
-      </div>
-
-      <div class="premium-hero__visual">
-        <div
-          class="hero-scene"
-          data-base="assets/portrait_base.png"
-          data-depth="assets/portrait_depth.png"
-          data-shadow="assets/portrait_shadow.png"
-          data-helmet="assets/helmet_overlay.png"
-        >
-          <div class="hero-scene__frame">
-            <div class="hero-scene__fallback">
-              <img src="assets/jonas-hero.png" alt="Portrait of Jonas Dzaack" loading="lazy" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- ============================
-         COMMUNITY HALL OF FAME
-         ============================ -->
-    <section class="section hof-section reveal" id="hall-of-fame">
-      <div class="wrap">
-        <header class="section-header ontrack-section-header">
-          <h2>Community Hall of Fame</h2>
-          <p>People and projects that shaped my operator playbook.</p>
-        </header>
-
-        <div class="hof-grid">
-          <article class="hof-card mask-a js-tilt-sm">
-            <div class="hof-card-bg"></div>
-            <div class="hof-card-inner">
-              <div class="hof-logo">Ryan Walker</div>
-              <h3>Skool Games champ</h3>
-              <p>Won Skool Games with tight free → paid system and clearer call flow.</p>
-              <span class="hof-tag">Growth Operator</span>
-            </div>
-          </article>
-
-          <article class="hof-card mask-b js-tilt-sm">
-            <div class="hof-card-bg"></div>
-            <div class="hof-card-inner">
-              <div class="hof-logo">Maureen</div>
-              <h3>PassivAI ramp-up</h3>
-              <p>Meta ads + Skool funnel for busy parents – $18k in 21 days.</p>
-              <span class="hof-tag">Funnel + Ads</span>
-            </div>
-          </article>
-
-          <article class="hof-card mask-c js-tilt-sm">
-            <div class="hof-card-bg"></div>
-            <div class="hof-card-inner">
-              <div class="hof-logo">Kyle Kane</div>
-              <h3>Acquisition sprints</h3>
-              <p>Lean free-to-paid, $9k in 10 days with simple upsell path.</p>
-              <span class="hof-tag">Deal flow</span>
-            </div>
-          </article>
-
-          <article class="hof-card mask-b js-tilt-sm">
-            <div class="hof-card-bg"></div>
-            <div class="hof-card-inner">
-              <div class="hof-logo">Jonas</div>
-              <h3>Projects I’m building</h3>
-              <p>FocusLimit anti-doomscrolling, Habit Garden 3D, my own Skool community.</p>
-              <span class="hof-tag">Lab</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================
-         ON/OFF-TRACK HEADS TRACK
-         ============================ -->
-    <section class="section heads-section reveal" id="heads">
-      <div class="wrap heads-grid">
-        <div class="heads-copy">
-          <p class="eyebrow">On / Off track headspace</p>
-          <h2>Where I switch from operator mode to creative mode.</h2>
-          <p>
-            Lando has his visor-up moments – I have mine. On Track is the systems,
-            scoreboards and client calls. Off Track is where the experiments and
-            culture pieces live. Same head, two race lines.
-          </p>
-
-          <div class="heads-cta">
-            <a href="on-track.html" class="btn btn-primary text-wave">See On Track</a>
-            <a href="off-track.html" class="btn btn-ghost">Jump to Off Track</a>
-          </div>
-        </div>
-
-        <div class="heads-track">
-          <div class="heads-lane heads-lane--on">
-            <div class="lane-top">
-              <div class="pill pill--accent">On Track</div>
-              <span class="lane-chip">Systems · Skool · Focus apps</span>
-            </div>
-            <p class="lane-text">
-              Operator energy. Clean funnels, tighter onboarding, focus-first app
-              builds. Fewer tabs, more output.
-            </p>
-
-            <div class="head-bubbles">
-              <div class="head-bubble" data-shift="14">
-                <img src="assets/jonas-hero.png" alt="Jonas in focus" />
-              </div>
-              <div class="head-bubble head-bubble--secondary" data-shift="20">
-                <img src="assets/jonas-portrait.jpeg" alt="Portrait of Jonas" />
-              </div>
-            </div>
-          </div>
-
-          <div class="heads-lane heads-lane--off">
-            <div class="lane-top">
-              <div class="pill">Off Track</div>
-              <span class="lane-chip">Culture · Experiments · People</span>
-            </div>
-            <p class="lane-text">
-              No lap delta, just creative laps: off-beat projects, people ops,
-              travel and the stories that keep the engine fun.
-            </p>
-
-            <div class="head-bubbles">
-              <div class="head-bubble" data-shift="18">
-                <img src="assets/face.png" alt="Jonas doodle" />
-              </div>
-              <div class="head-bubble head-bubble--secondary" data-shift="26">
-                <img src="assets/jonas-hero-depth.jpg" alt="Jonas depth" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================
-         SKOOL COMMUNITIES – RACE RESULTS GRID
-         ============================ -->
-    <section class="section section-alt reveal" id="communities">
-      <div class="wrap">
-        <header class="section-header ontrack-section-header">
-          <h2>Skool communities as race results</h2>
-          <p>
-            Each project has a season, a role and a clear outcome. Less hype,
-            more scoreboard.
-          </p>
-        </header>
-
-        <div class="race-table">
-          <div class="race-header-row">
-            <div class="race-col race-col--season">Season</div>
-            <div class="race-col race-col--client">Client / Project</div>
-            <div class="race-col race-col--role">Role</div>
-            <div class="race-col race-col--result">Result</div>
-          </div>
-
-          <!-- Row 1 -->
-          <article class="race-row js-tilt-sm">
-            <div class="race-col race-col--season">
-              <span class="race-tag">2024</span>
-            </div>
-            <div class="race-col race-col--client">
-              <div class="race-title">Ryan Walker</div>
-              <div class="race-sub">Performance community on Skool</div>
-            </div>
-            <div class="race-col race-col--role">
-              Growth Operator<br />
-              Funnel &amp; call strategy
-            </div>
-            <div class="race-col race-col--result">
-              <div class="race-result-main">Won Skool Games</div>
-              <div class="race-result-sub">Optimised free-to-paid + call flow</div>
-            </div>
-          </article>
-
-          <!-- Row 2 -->
-          <article class="race-row js-tilt-sm">
-            <div class="race-col race-col--season">
-              <span class="race-tag">2024</span>
-            </div>
-            <div class="race-col race-col--client">
-              <div class="race-title">Maureen Erokwu · PassivAI</div>
-              <div class="race-sub">Busy parents building AI-powered income</div>
-            </div>
-            <div class="race-col race-col--role">
-              Funnel &amp; Growth<br />
-              with ads specialist
-            </div>
-            <div class="race-col race-col--result">
-              <div class="race-result-main">$18k in 21 days</div>
-              <div class="race-result-sub">
-                Meta Ads + Skool funnel + tight onboarding
-              </div>
-            </div>
-          </article>
-
-          <!-- Row 3 -->
-          <article class="race-row js-tilt-sm">
-            <div class="race-col race-col--season">
-              <span class="race-tag">2024</span>
-            </div>
-            <div class="race-col race-col--client">
-              <div class="race-title">Kyle Kane</div>
-              <div class="race-sub">Acquisition / deal-making community</div>
-            </div>
-            <div class="race-col race-col--role">
-              Free-to-paid &amp; Upsell<br />
-              Funnel &amp; retention
-            </div>
-            <div class="race-col race-col--result">
-              <div class="race-result-main">$9k in 10 days</div>
-              <div class="race-result-sub">$3k upsell · lean call process</div>
-            </div>
-          </article>
-
-          <!-- Row 4 -->
-          <article class="race-row js-tilt-sm">
-            <div class="race-col race-col--season">
-              <span class="race-tag">2024 →</span>
-            </div>
-            <div class="race-col race-col--client">
-              <div class="race-title">Impowered Skool</div>
-              <div class="race-sub">My own Skool community</div>
-            </div>
-            <div class="race-col race-col--role">
-              Creator &amp; Operator<br />
-              “Robin Hood of Skool” angle
-            </div>
-            <div class="race-col race-col--result">
-              <div class="race-result-main">
-                Teaching first $1k on Skool
-              </div>
-              <div class="race-result-sub">
-                Sharing playbooks from high-performing communities
-              </div>
-            </div>
-          </article>
-
-          <!-- Row 5 (optional generic row) -->
-          <article class="race-row race-row--muted js-tilt-sm">
-            <div class="race-col race-col--season">
-              <span class="race-tag">Next</span>
-            </div>
-            <div class="race-col race-col--client">
-              <div class="race-title">Your Skool community?</div>
-              <div class="race-sub">Growth, funnels &amp; retention systems</div>
-            </div>
-            <div class="race-col race-col--role">
-              Growth partner<br />
-              or one-off sprint
-            </div>
-            <div class="race-col race-col--result">
-              <div class="race-result-main">
-                Clean onboarding &amp; clear upgrade paths
-              </div>
-              <div class="race-result-sub">
-                Focus on churn, engagement and honest numbers
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================
-         APPS & TOOLS – FOCUSLIMIT / HABIT GARDEN
-         ============================ -->
-    <section class="section reveal" id="apps">
-      <div class="wrap">
-        <header class="section-header ontrack-section-header">
-          <h2>Apps &amp; tools that fight doomscrolling</h2>
-          <p>
-            I like building systems that make focus easier by design – not by
-            “just have more discipline” advice.
-          </p>
-        </header>
-
-        <div class="app-grid">
-          <!-- FocusLimit -->
-          <article class="app-card js-tilt-sm">
-            <div class="pill pill--accent">FocusLimit</div>
-            <h3>Limit reels instead of pretending you’ll quit them.</h3>
-            <p>
-              FocusLimit tracks how many short-form videos you watch across
-              apps and lets you set hard caps. It doesn’t judge you for
-              opening Instagram – it just stops the “one more swipe” spiral.
-            </p>
-
-            <dl class="app-meta">
-              <div class="app-meta-row">
-                <dt>Status</dt>
-                <dd>In planning / early build</dd>
-              </div>
-              <div class="app-meta-row">
-                <dt>Platforms</dt>
-                <dd>iOS · Android · optional browser extension</dd>
-              </div>
-              <div class="app-meta-row">
-                <dt>Tech stack</dt>
-                <dd>
-                  Android (Kotlin/Java + Accessibility Services),
-                  iOS (Swift + Screen Time API),
-                  backend optional (Supabase)
-                </dd>
-              </div>
-              <div class="app-meta-row">
-                <dt>Business model</dt>
-                <dd>Freemium + subscription, potential affiliates</dd>
-              </div>
-            </dl>
-
-            <p class="app-note">
-              Designed for realistic behaviour: people will scroll – the goal
-              is to keep it inside healthy limits.
-            </p>
-          </article>
-
-          <!-- Habit Garden -->
-          <article class="app-card js-tilt-sm">
-            <div class="pill">Habit Garden</div>
-            <h3>A 3D garden that grows with your habits.</h3>
-            <p>
-              Habit Garden is a long-term heart project: a stylised 3D garden
-              where every habit unlocks growth. Less streak anxiety, more
-              visible progress over seasons.
-            </p>
-
-            <dl class="app-meta">
-              <div class="app-meta-row">
-                <dt>Status</dt>
-                <dd>Vision &amp; design doc · long-term build</dd>
-              </div>
-              <div class="app-meta-row">
-                <dt>Visual direction</dt>
-                <dd>
-                  Unity (URP), low-poly stylised look, inspired by
-                  mobile AAA games
-                </dd>
-              </div>
-              <div class="app-meta-row">
-                <dt>Architecture</dt>
-                <dd>
-                  Hybrid iOS app (SwiftUI + embedded Unity),
-                  offline-first with EU backend
-                </dd>
-              </div>
-              <div class="app-meta-row">
-                <dt>Features</dt>
-                <dd>
-                  XP &amp; levels, daily deals, friend codes, privacy by
-                  design
-                </dd>
-              </div>
-            </dl>
-
-            <p class="app-note">
-              Built slowly and intentionally – this is a universe I want to
-              live in myself, not just an MVP to flip.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================
-         STUDY & SYSTEMS – STUDY SPRINTS
-         ============================ -->
-    <section class="section section-alt reveal" id="study">
-      <div class="wrap">
-        <header class="section-header ontrack-section-header">
-          <h2>Study &amp; systems: keeping uni on track</h2>
-          <p>
-            Business Informatics at Uni Hamburg plus projects sounds chaotic.
-            Study sprints and simple systems keep it raceable.
-          </p>
-        </header>
-
-        <div class="study-board">
-          <div class="study-column">
-            <h3>Core modules</h3>
-            <ul class="study-list">
-              <li>
-                <span class="study-tag">Maths</span>
-                <span class="study-text">
-                  Analysis, linear algebra, proofs &amp; induction as mental
-                  strength training.
-                </span>
-              </li>
-              <li>
-                <span class="study-tag">CS</span>
-                <span class="study-text">
-                  Java, software development, BlueJ projects and fundamentals
-                  of computer science.
-                </span>
-              </li>
-              <li>
-                <span class="study-tag">BWL</span>
-                <span class="study-text">
-                  Companies, business models and economic principles – the
-                  theory behind my projects.
-                </span>
-              </li>
-              <li>
-                <span class="study-tag">HCI</span>
-                <span class="study-text">
-                  Human-computer interaction, usability and device design –
-                  perfect match for focus apps.
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="study-column">
-            <h3>Study sprints</h3>
-            <ul class="study-sprint-list">
-              <li class="study-sprint">
-                <div class="study-sprint-label">Pre-season</div>
-                <div class="study-sprint-body">
-                  <p>
-                    Setting up calendars, blocking focus slots and defining
-                    minimum weekly outputs for math, CS and BWL.
-                  </p>
-                </div>
-              </li>
-              <li class="study-sprint">
-                <div class="study-sprint-label">Mid-season push</div>
-                <div class="study-sprint-body">
-                  <p>
-                    Tight loops: lectures → notes → exercises → short
-                    recaps. Using simple dashboards to track where I’m
-                    falling behind early.
-                  </p>
-                </div>
-              </li>
-              <li class="study-sprint">
-                <div class="study-sprint-label">Exam weeks</div>
-                <div class="study-sprint-body">
-                  <p>
-                    Clear priorities: fewer calls &amp; less community work,
-                    more repetition sets and old exam tasks – no all-nighters
-                    if possible.
-                  </p>
-                </div>
-              </li>
-              <li class="study-sprint">
-                <div class="study-sprint-label">Off-season</div>
-                <div class="study-sprint-body">
-                  <p>
-                    Post-mortem for each semester and adjusting systems:
-                    what worked, what was overkill, what can be automated
-                    or delegated.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="study-column study-column--highlight">
-            <h3>How it all connects</h3>
-            <p>
-              The same principles show up everywhere: clear seasons, honest
-              metrics and focus by design. Skool communities, FocusLimit and
-              Habit Garden are all built around that idea.
-            </p>
-            <p>
-              If a setup doesn’t survive exam weeks or busy client sprints,
-              it’s not a real system. On Track is where I test if ideas
-              survive pressure.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ============================
-       ALWAYS FIGHT SECTION
-       ============================ -->
-  <section class="fight-section">
-    <div class="wrap fight-grid">
-      <div class="fight-copy">
-        <p class="eyebrow">Always bringing the fight</p>
-        <h2>Focus beats hype. Every lap, every build.</h2>
-        <p>
-          Whether it’s a Skool launch, a focus app sprint or a uni exam block –
-          I keep the car light, the data honest and the mindset aggressive. If
-          you want that energy on your project, let’s go racing.
-        </p>
-        <div class="fight-cta">
-          <a class="btn btn-primary text-wave" href="calendar.html">Book a call</a>
-          <a class="btn btn-ghost" href="timeline.html">See the timeline</a>
-        </div>
-      </div>
-
-      <div class="fight-card js-tilt-sm">
-        <div class="fight-card-top">
-          <span class="pill pill--accent">Race pace</span>
-          <span class="fight-chip">Hamburg · Remote-friendly</span>
-        </div>
-        <h3>Operator + builder package</h3>
-        <ul class="fight-list">
-          <li>Growth sprints for Skool creators</li>
-          <li>FocusLimit + Habit Garden builds</li>
-          <li>Study systems that survive exam weeks</li>
-          <li>Lightweight, static and fast – no fluff</li>
-        </ul>
-        <p class="fight-note">I show up ready. Bring your sharpest brief.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="wrap footer-top">
-      <div class="footer-title">
-        <p class="eyebrow">Pit lane</p>
-        <h3>Refuel, reset, go again.</h3>
-      </div>
-      <div class="footer-actions">
-        <a href="on-track.html" class="btn btn-primary text-wave">On Track</a>
-        <a href="off-track.html" class="btn btn-ghost">Off Track</a>
-      </div>
-    </div>
-
-    <div class="wrap footer-grid">
-      <div class="footer-brand">
-        <span class="footer-mark">JD</span>
+    <main>
+      <section class="container hero">
         <div>
-          <div class="footer-name">Jonas Dzaack</div>
-          <div class="footer-tag">Growth operator · Focus apps</div>
+          <span class="hero-kicker">Portfolio Overview</span>
+          <h1 class="hero-title">Ship fast. Stay accountable. Track the story.</h1>
+          <p class="hero-subtitle">
+            A single place to navigate my work sprints, reset plans, and timeboxed goals.
+            Move between On Track execution, Off Track recovery, and the live calendar.
+          </p>
+          <div class="btn-row">
+            <a class="btn primary" href="on-track.html">View On Track</a>
+            <a class="btn" href="calendar.html">Open Calendar</a>
+          </div>
         </div>
-      </div>
+        <div class="hero-panel">
+          <div class="hero-meta">
+            <div class="meta-chip">
+              <div class="meta-label">Status</div>
+              <div class="meta-value">Momentum rising</div>
+            </div>
+            <div class="meta-chip">
+              <div class="meta-label">Next check-in</div>
+              <div class="meta-value">Weekly cadence</div>
+            </div>
+            <div class="meta-chip">
+              <div class="meta-label">Focus</div>
+              <div class="meta-value">Community Ops + Apps</div>
+            </div>
+          </div>
+          <div>
+            <p class="section-lead">
+              Four touchpoints keep this system alive: On Track sprints, Off Track recovery, a
+              transparent calendar, and this landing page so you can jump anywhere.
+            </p>
+            <div class="tag accent">Design system refreshed</div>
+            <small class="helper">Shared styles and utilities power every page.</small>
+          </div>
+        </div>
+      </section>
 
-      <div class="footer-links">
-        <div class="footer-column">
-          <p class="footer-heading">Navigate</p>
-          <a href="index.html">Home</a>
-          <a href="on-track.html">On Track</a>
-          <a href="off-track.html">Off Track</a>
+      <section class="container section" id="navigation">
+        <div class="section-header">
+          <h2 class="section-title">Navigate the portfolio</h2>
+          <p class="section-lead">Direct links into each part of the accountability stack.</p>
         </div>
-        <div class="footer-column">
-          <p class="footer-heading">Systems</p>
-          <a href="index.html#apps">Apps</a>
-          <a href="index.html#study">Study</a>
-          <a href="index.html#communities">Communities</a>
-        </div>
-        <div class="footer-column">
-          <p class="footer-heading">Context</p>
-          <a href="calendar.html">Calendar</a>
-          <a href="timeline.html">Timeline</a>
-        </div>
-      </div>
+        <div class="grid">
+          <article class="card">
+            <h3>On Track</h3>
+            <p>Active workstreams, current sprints, and recent wins that are shipping.</p>
+            <div class="chip-row">
+              <span class="tag accent">Execution</span>
+              <span class="tag">Momentum</span>
+            </div>
+            <div class="btn-row" style="margin-top: 0.8rem">
+              <a class="btn primary" href="on-track.html">Jump in</a>
+            </div>
+          </article>
 
-      <div class="footer-copy">
-        <p>Performance mindset with lightweight builds. No bloat, no excuses.</p>
-        <p class="footer-meta">Hamburg based · Remote everywhere</p>
-      </div>
-    </div>
+          <article class="card">
+            <h3>Off Track</h3>
+            <p>Recovery actions, blockers, and experiments to move stalled items forward.</p>
+            <div class="chip-row">
+              <span class="tag danger">Reset</span>
+              <span class="tag">Diagnostics</span>
+            </div>
+            <div class="btn-row" style="margin-top: 0.8rem">
+              <a class="btn" href="off-track.html">See plan</a>
+            </div>
+          </article>
 
-    <div class="wrap footer-bottom">
-      <span>© 2025 Jonas Dzaack</span>
-      <span>Focus over hype.</span>
-    </div>
-  </footer>
-</body>
+          <article class="card">
+            <h3>Calendar</h3>
+            <p>Week-by-week view of milestones, deliverables, and content drops.</p>
+            <div class="chip-row">
+              <span class="tag alt">Schedule</span>
+              <span class="tag">Cadence</span>
+            </div>
+            <div class="btn-row" style="margin-top: 0.8rem">
+              <a class="btn" href="calendar.html">Open calendar</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="container section" id="signals">
+        <div class="section-header">
+          <h2 class="section-title">Signals I'm tracking</h2>
+          <p class="section-lead">Small snapshots from the On Track and Off Track pages.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Community systems</h3>
+            <p>Lifecycle messaging, onboarding flows, and activation experiments.</p>
+            <div class="tag accent">On Track</div>
+          </div>
+          <div class="card">
+            <h3>App sprints</h3>
+            <p>Shipping focus tools with scoped milestones and weekly QA blocks.</p>
+            <div class="tag accent">In Motion</div>
+          </div>
+          <div class="card">
+            <h3>Backlog triage</h3>
+            <p>Anything stalled rolls into Off Track to reset ownership and unblock.</p>
+            <div class="tag danger">Off Track</div>
+          </div>
+          <div class="card">
+            <h3>Timeboxing</h3>
+            <p>Calendar anchors every deliverable so the schedule stays visible.</p>
+            <div class="tag alt">Calendar</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      Built with a shared design system across all pages. Tap into On Track, Off Track, or
+      Calendar anytime.
+    </footer>
+    <script src="script.js" defer></script>
+  </body>
 </html>
