@@ -20,6 +20,22 @@
 
   --header-height: 72px;
 
+  /* Spacing scale */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  --content-padding: var(--space-lg);
+  --section-padding: var(--space-3xl);
+  --card-padding: var(--space-lg);
+  --card-gap: var(--space-lg);
+  --hero-gap: var(--space-xl);
+
   --transition-fast: 0.16s ease-out;
   --transition-medium: 0.26s ease-out;
 }
@@ -56,7 +72,7 @@ body {
   width: 100%;
   max-width: 1120px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--content-padding);
 }
 
 /* Scroll progress bar at top */
@@ -92,7 +108,7 @@ body {
   align-items: center;
   justify-content: space-between;
   height: var(--header-height);
-  gap: 24px;
+  gap: var(--space-lg);
 }
 
 /* Brand */
@@ -142,7 +158,7 @@ body {
 .nav {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: var(--space-md);
   font-size: 14px;
 }
 
@@ -153,7 +169,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 11px;
-  padding-bottom: 4px;
+  padding-bottom: var(--space-2xs);
   transition: color var(--transition-fast);
 }
 
@@ -188,7 +204,7 @@ body {
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 80px 0 72px;
+  padding: var(--section-padding) 0;
 }
 
 .hero-bg-gradient {
@@ -239,7 +255,7 @@ body {
 
 .hero-section {
   position: relative;
-  padding-block: clamp(5rem, 10vh, 7rem);
+  padding: var(--section-padding) 0;
   overflow: hidden;
   isolation: isolate;
   background: radial-gradient(circle at top left, #111827 0, #020617 55%);
@@ -289,7 +305,7 @@ body {
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: clamp(3rem, 5vw, 4rem);
+  gap: var(--hero-gap);
   align-items: center;
 }
 
@@ -561,7 +577,7 @@ body {
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: 40px;
+  gap: var(--hero-gap);
   align-items: center;
 }
 
@@ -924,7 +940,9 @@ body {
 /* Sections */
 
 .section {
-  padding: 60px 0;
+  padding: var(--section-padding) 0;
+  background: var(--bg-soft);
+  color: var(--text-main);
 }
 
 .section-light {
@@ -944,7 +962,7 @@ body {
 
 .section-header {
   max-width: 640px;
-  margin-bottom: 26px;
+  margin-bottom: var(--space-xl);
 }
 
 .section-header h2 {
@@ -1089,12 +1107,12 @@ body {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: var(--card-gap);
 }
 
 .card {
   border-radius: var(--radius-lg);
-  padding: 18px 18px 14px;
+  padding: var(--card-padding);
   background: #ffffff;
   box-shadow: var(--shadow-subtle);
 }
@@ -1456,8 +1474,7 @@ body {
    ======================================= */
 
 .hero-section {
-  padding-top: 8rem;
-  padding-bottom: 6rem;
+  padding: var(--section-padding) 0;
   background: radial-gradient(circle at top left, #5D3FD3 0%, #07090C 55%, #050609 100%);
   color: #F6F6F6;
   position: relative;
@@ -1481,7 +1498,7 @@ body {
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 4rem;
+  gap: var(--hero-gap);
   align-items: center;
 }
 
@@ -1782,9 +1799,9 @@ body {
 /* Generic sections (falls noch nicht vorhanden oder als Feinschliff) */
 
 .section {
-  padding: 4.5rem 0;
-  background: #07090C;
-  color: #F6F6F6;
+  padding: var(--section-padding) 0;
+  background: var(--bg-soft);
+  color: var(--text-main);
 }
 
 .section-alt {
@@ -1797,7 +1814,7 @@ body {
 }
 
 .section-header {
-  margin-bottom: 2.5rem;
+  margin-bottom: var(--space-xl);
   max-width: 36rem;
 }
 
@@ -2449,7 +2466,7 @@ body {
 .app-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem;
+  gap: var(--card-gap);
 }
 
 @media (max-width: 900px) {
@@ -3481,8 +3498,8 @@ body {
 .hof-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.2rem;
-  margin-top: 1.4rem;
+  gap: var(--card-gap);
+  margin-top: var(--space-lg);
 }
 
 .hof-card {
@@ -3654,18 +3671,18 @@ body {
 .timeline-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.4rem;
+  gap: var(--card-gap);
 }
 
 .timeline-card {
   background: #ffffff;
   border-radius: 16px;
-  padding: 1.2rem;
+  padding: var(--card-padding);
   border: 1px solid rgba(17, 17, 17, 0.08);
   box-shadow: 0 18px 40px rgba(17, 17, 17, 0.08);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--space-sm);
 }
 
 .timeline-year {
