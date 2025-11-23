@@ -13,6 +13,11 @@
   <link rel="stylesheet" href="styles.css" />
 
   <script defer src="script.js"></script>
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"
+  ></script>
+  <script defer src="js/hero-scene.js"></script>
 </head>
 <body data-page="on-track">
   <!-- Global loader / curtain -->
@@ -29,114 +34,69 @@
   <!-- Scroll progress bar -->
   <div class="scroll-progress"></div>
 
-  <!-- Site header / nav -->
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-mark">JD</span>
-        <span class="logo-text">Jonas&nbsp;Dzaack</span>
+  <header class="premium-hero" id="home-hero">
+    <div class="premium-hero__backdrop"></div>
+    <div class="premium-hero__glow"></div>
+
+    <div class="wrap premium-hero__nav">
+      <a href="index.html" class="hero-logo">
+        <span class="hero-logo__mark">JD</span>
+        <span class="hero-logo__text">Jonas&nbsp;Dzaack</span>
       </a>
 
-      <nav class="nav">
-        <a href="index.html">Home</a>
+      <nav class="hero-nav">
+        <a href="index.html" class="is-active">Home</a>
         <a href="#communities">Communities</a>
         <a href="#apps">Apps</a>
         <a href="#study">Study</a>
-        <a href="on-track.html" class="nav-pill is-active">On&nbsp;Track</a>
+        <a href="on-track.html" class="nav-pill">On&nbsp;Track</a>
         <a href="off-track.html">Off&nbsp;Track</a>
         <a href="calendar.html">Calendar</a>
         <a href="timeline.html">Timeline</a>
       </nav>
     </div>
-  </header>
 
-  <main>
-    <!-- ============================
-         ON TRACK HERO
-         ============================ -->
-<section class="hero-section" id="home-hero">
-  <div class="hero-bg-gradient"></div>
-  <div class="hero-ghost-word">FOCUS</div>
+    <div class="wrap premium-hero__grid">
+      <div class="premium-hero__copy">
+        <p class="premium-hero__eyebrow">Growth Operator &amp; App Developer</p>
+        <h1 class="premium-hero__title">
+          Lando-grade focus.<br />Skool growth that ships.
+        </h1>
+        <p class="premium-hero__lead">
+          Teal cockpit, sky-blue accents, and a depth-reactive portrait. I help creators and
+          founders grow their Skool communities while building focus apps that keep you on track.
+        </p>
 
-  <div class="wrap hero-grid">
-    <!-- LEFT: COPY -->
-    <header class="hero-copy">
-      <p class="hero-label">Growth Operator &amp; App Developer</p>
-
-      <h1 class="hero-title">
-        Building communities &amp;<br />
-        focus apps that actually ship.
-      </h1>
-
-      <p class="hero-subtitle">
-        I help creators and founders grow their Skool communities,
-        reduce churn and turn attention into revenue – while building
-        focus tools and apps on the side.
-      </p>
-
-      <div class="hero-cta-row">
-        <a href="on-track.html" class="btn btn-primary text-wave">
-          View On&nbsp;Track
-        </a>
-        <a href="#hall-of-fame" class="btn btn-ghost text-wave">
-          Community Hall&nbsp;of&nbsp;Fame
-        </a>
-      </div>
-
-      <div class="hero-meta-row">
-        <div class="hero-meta-card">
-          <span class="meta-label">Current Project</span>
-          <span class="meta-value">Uni &amp; FocusLimit</span>
+        <div class="premium-hero__actions">
+          <a class="btn btn-primary" href="on-track.html">View On&nbsp;Track</a>
+          <a class="btn btn-ghost" href="#hall-of-fame">Community Hall&nbsp;of&nbsp;Fame</a>
         </div>
-        <div class="hero-meta-card">
-          <span class="meta-label">Communities</span>
-          <span class="meta-value">Skool Growth &amp; Acquisition</span>
+
+        <div class="premium-hero__meta">
+          <div class="premium-chip">Current: Uni &amp; FocusLimit</div>
+          <div class="premium-chip">Skool Growth &amp; Acquisition</div>
         </div>
       </div>
-    </header>
 
-    <div class="hero-visual">
-      <!-- Orbit / Deko kannst du lassen wie gehabt, nur Beispiel: -->
-      <div class="hero-orbit">
-        <!-- deine Orbit-Elemente -->
-      </div>
-
-      <div class="hero-chip hero-chip--primary">
-        <span class="chip-label">Current Project</span>
-        <span class="chip-value">Uni &amp; FocusLimit</span>
-      </div>
-
-      <!-- Portrait-Card mit WebGL + Fallback -->
-      <div class="hero-stack js-tilt">
-        <div class="hero-stack-shadow"></div>
-
-        <div class="portrait-card">
-          <div class="portrait-inner">
-            <!-- WebGL-Canvas -->
-            <canvas
-              id="heroCanvas"
-              aria-hidden="true"
-            ></canvas>
-
-            <!-- Fallback-Bild für Geräte ohne WebGL / Reduce-Motion -->
-            <img
-              src="assets/jonas-hero.png"
-              alt="Portrait von Jonas Dzaack"
-              class="portrait-fallback"
-              loading="lazy"
-            />
-          </div>
-
-          <div class="portrait-meta">
-            <p class="portrait-label">Growth Operator &amp; App Developer</p>
-            <p class="portrait-value">Building FocusLimit &amp; Uni Life</p>
+      <div class="premium-hero__visual">
+        <div
+          class="hero-scene"
+          data-base="assets/portrait_base.png"
+          data-depth="assets/portrait_depth.png"
+          data-shadow="assets/portrait_shadow.png"
+          data-helmet="assets/helmet_overlay.png"
+        >
+          <div class="hero-scene__frame">
+            <div class="hero-scene__fallback">
+              <img src="assets/jonas-hero.png" alt="Portrait of Jonas Dzaack" loading="lazy" />
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </header>
 
+  <main>
     <!-- ============================
          COMMUNITY HALL OF FAME
          ============================ -->
@@ -187,6 +147,70 @@
               <span class="hof-tag">Lab</span>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         ON/OFF-TRACK HEADS TRACK
+         ============================ -->
+    <section class="section heads-section reveal" id="heads">
+      <div class="wrap heads-grid">
+        <div class="heads-copy">
+          <p class="eyebrow">On / Off track headspace</p>
+          <h2>Where I switch from operator mode to creative mode.</h2>
+          <p>
+            Lando has his visor-up moments – I have mine. On Track is the systems,
+            scoreboards and client calls. Off Track is where the experiments and
+            culture pieces live. Same head, two race lines.
+          </p>
+
+          <div class="heads-cta">
+            <a href="on-track.html" class="btn btn-primary text-wave">See On Track</a>
+            <a href="off-track.html" class="btn btn-ghost">Jump to Off Track</a>
+          </div>
+        </div>
+
+        <div class="heads-track">
+          <div class="heads-lane heads-lane--on">
+            <div class="lane-top">
+              <div class="pill pill--accent">On Track</div>
+              <span class="lane-chip">Systems · Skool · Focus apps</span>
+            </div>
+            <p class="lane-text">
+              Operator energy. Clean funnels, tighter onboarding, focus-first app
+              builds. Fewer tabs, more output.
+            </p>
+
+            <div class="head-bubbles">
+              <div class="head-bubble" data-shift="14">
+                <img src="assets/jonas-hero.png" alt="Jonas in focus" />
+              </div>
+              <div class="head-bubble head-bubble--secondary" data-shift="20">
+                <img src="assets/jonas-portrait.jpeg" alt="Portrait of Jonas" />
+              </div>
+            </div>
+          </div>
+
+          <div class="heads-lane heads-lane--off">
+            <div class="lane-top">
+              <div class="pill">Off Track</div>
+              <span class="lane-chip">Culture · Experiments · People</span>
+            </div>
+            <p class="lane-text">
+              No lap delta, just creative laps: off-beat projects, people ops,
+              travel and the stories that keep the engine fun.
+            </p>
+
+            <div class="head-bubbles">
+              <div class="head-bubble" data-shift="18">
+                <img src="assets/face.png" alt="Jonas doodle" />
+              </div>
+              <div class="head-bubble head-bubble--secondary" data-shift="26">
+                <img src="assets/jonas-hero-depth.jpg" alt="Jonas depth" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -531,11 +555,93 @@
     </section>
   </main>
 
+  <!-- ============================
+       ALWAYS FIGHT SECTION
+       ============================ -->
+  <section class="fight-section">
+    <div class="wrap fight-grid">
+      <div class="fight-copy">
+        <p class="eyebrow">Always bringing the fight</p>
+        <h2>Focus beats hype. Every lap, every build.</h2>
+        <p>
+          Whether it’s a Skool launch, a focus app sprint or a uni exam block –
+          I keep the car light, the data honest and the mindset aggressive. If
+          you want that energy on your project, let’s go racing.
+        </p>
+        <div class="fight-cta">
+          <a class="btn btn-primary text-wave" href="calendar.html">Book a call</a>
+          <a class="btn btn-ghost" href="timeline.html">See the timeline</a>
+        </div>
+      </div>
+
+      <div class="fight-card js-tilt-sm">
+        <div class="fight-card-top">
+          <span class="pill pill--accent">Race pace</span>
+          <span class="fight-chip">Hamburg · Remote-friendly</span>
+        </div>
+        <h3>Operator + builder package</h3>
+        <ul class="fight-list">
+          <li>Growth sprints for Skool creators</li>
+          <li>FocusLimit + Habit Garden builds</li>
+          <li>Study systems that survive exam weeks</li>
+          <li>Lightweight, static and fast – no fluff</li>
+        </ul>
+        <p class="fight-note">I show up ready. Bring your sharpest brief.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="wrap footer-inner">
+    <div class="wrap footer-top">
+      <div class="footer-title">
+        <p class="eyebrow">Pit lane</p>
+        <h3>Refuel, reset, go again.</h3>
+      </div>
+      <div class="footer-actions">
+        <a href="on-track.html" class="btn btn-primary text-wave">On Track</a>
+        <a href="off-track.html" class="btn btn-ghost">Off Track</a>
+      </div>
+    </div>
+
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <span class="footer-mark">JD</span>
+        <div>
+          <div class="footer-name">Jonas Dzaack</div>
+          <div class="footer-tag">Growth operator · Focus apps</div>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-column">
+          <p class="footer-heading">Navigate</p>
+          <a href="index.html">Home</a>
+          <a href="on-track.html">On Track</a>
+          <a href="off-track.html">Off Track</a>
+        </div>
+        <div class="footer-column">
+          <p class="footer-heading">Systems</p>
+          <a href="index.html#apps">Apps</a>
+          <a href="index.html#study">Study</a>
+          <a href="index.html#communities">Communities</a>
+        </div>
+        <div class="footer-column">
+          <p class="footer-heading">Context</p>
+          <a href="calendar.html">Calendar</a>
+          <a href="timeline.html">Timeline</a>
+        </div>
+      </div>
+
+      <div class="footer-copy">
+        <p>Performance mindset with lightweight builds. No bloat, no excuses.</p>
+        <p class="footer-meta">Hamburg based · Remote everywhere</p>
+      </div>
+    </div>
+
+    <div class="wrap footer-bottom">
       <span>© 2025 Jonas Dzaack</span>
-      <span class="footer-dots">On Track · Communities · Apps</span>
+      <span>Focus over hype.</span>
     </div>
   </footer>
 </body>
