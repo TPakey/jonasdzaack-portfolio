@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initTiltEffects();
   initScrollReveal();
+  initHeadsMotion();
   initTextHoverWave();
   markHeroFallback();
   initTrophyCanvas();
@@ -475,6 +476,46 @@ function drawSparkles(ctx, w, h, t) {
     ctx.fill();
   }
   ctx.restore();
+}
+
+// =====================
+// Heads section motion
+// =====================
+function initHeadsMotion() {
+  if (isReducedMotion) return;
+  const section = document.querySelector('.heads-section');
+  if (!section) return;
+
+  const bubbles = section.querySelectorAll('.head-bubble');
+  if (!bubbles.length) return;
+
+  const applyShift = (x = 0, y = 0) => {
+    bubbles.forEach((bubble) => {
+      const shift = parseFloat(bubble.dataset.shift || '12');
+      bubble.style.setProperty('--head-shift-x', `${x * shift}px`);
+      bubble.style.setProperty('--head-shift-y', `${y * shift * 0.6}px`);
+      bubble.style.setProperty('--float-rot', `${x * 0.6}deg`);
+    });
+  };
+
+  applyShift(0, 0);
+
+  section.addEventListener('pointermove', (event) => {
+    const rect = section.getBoundingClientRect();
+    const relX = (event.clientX - rect.left) / rect.width - 0.5;
+    const relY = (event.clientY - rect.top) / rect.height - 0.5;
+    applyShift(relX * 1.4, relY);
+  });
+
+  section.addEventListener('pointerleave', () => applyShift(0, 0));
+
+  const handleScroll = () => {
+    const rect = section.getBoundingClientRect();
+    const visible = Math.min(1, Math.max(0, 1 - Math.abs(rect.top) / window.innerHeight));
+    applyShift(0, (0.5 - visible) * 0.4);
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
 }
 
 // =====================
