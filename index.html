@@ -83,75 +83,136 @@
         </div>
       </section>
 
-      <section class="container section" id="navigation">
-        <div class="section-header">
-          <h2 class="section-title">Navigate the portfolio</h2>
-          <p class="section-lead">Direct links into each part of the accountability stack.</p>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <h3>On Track</h3>
-            <p>Active workstreams, current sprints, and recent wins that are shipping.</p>
-            <div class="chip-row">
-              <span class="tag accent">Execution</span>
-              <span class="tag">Momentum</span>
-            </div>
-            <div class="btn-row" style="margin-top: 0.8rem">
-              <a class="btn primary" href="on-track.html">Jump in</a>
-            </div>
-          </article>
+      <section class="band" id="navigation">
+        <div class="container">
+          <div class="section-header stacked">
+            <h2 class="section-title">Navigate the portfolio</h2>
+            <p class="section-lead">
+              Each destination has a different job: the On Track stream ships, Off Track fixes, and the
+              Calendar keeps the tempo visible.
+            </p>
+          </div>
 
-          <article class="card">
-            <h3>Off Track</h3>
-            <p>Recovery actions, blockers, and experiments to move stalled items forward.</p>
-            <div class="chip-row">
-              <span class="tag danger">Reset</span>
-              <span class="tag">Diagnostics</span>
-            </div>
-            <div class="btn-row" style="margin-top: 0.8rem">
-              <a class="btn" href="off-track.html">See plan</a>
-            </div>
-          </article>
+          <div class="feature-grid">
+            <article class="feature-row">
+              <div class="feature-body">
+                <p class="kicker">Primary lane</p>
+                <h3>On Track is where the work is moving</h3>
+                <p>
+                  Weekly sprints, visible wins, and decisions that keep the roadmap alive. Follow the
+                  active stories that are already in motion.
+                </p>
+                <div class="btn-row">
+                  <a class="btn primary" href="on-track.html">Jump into On Track</a>
+                  <span class="tag accent">Execution</span>
+                </div>
+              </div>
+              <div class="feature-aside">
+                <div class="stacked-marks">
+                  <div class="mark">Shipping updates</div>
+                  <div class="mark">Momentum logs</div>
+                  <div class="mark">Sprint retros</div>
+                </div>
+              </div>
+            </article>
 
-          <article class="card">
-            <h3>Calendar</h3>
-            <p>Week-by-week view of milestones, deliverables, and content drops.</p>
-            <div class="chip-row">
-              <span class="tag alt">Schedule</span>
-              <span class="tag">Cadence</span>
+            <article class="feature-row alt">
+              <div class="feature-body">
+                <p class="kicker">Recovery lane</p>
+                <h3>Off Track is the reset ritual</h3>
+                <p>
+                  When something slows, it lands here for diagnosis, experiments, and new commitments. It
+                  keeps the system honest.
+                </p>
+                <div class="btn-row">
+                  <a class="btn" href="off-track.html">See the recovery plan</a>
+                  <span class="tag danger">Resets</span>
+                </div>
+              </div>
+              <div class="feature-aside">
+                <div class="stacked-marks">
+                  <div class="mark">Blocker triage</div>
+                  <div class="mark">Ownership swaps</div>
+                  <div class="mark">Fresh experiments</div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="calendar-band">
+            <div>
+              <p class="kicker">Schedule anchor</p>
+              <h3>Calendar keeps every commitment timeboxed</h3>
+              <p>
+                Milestones live on a shared cadence so you can scan the horizon, jump into a week, and see
+                how priorities ladder up.
+              </p>
             </div>
-            <div class="btn-row" style="margin-top: 0.8rem">
-              <a class="btn" href="calendar.html">Open calendar</a>
+            <div class="calendar-actions">
+              <a class="btn" href="calendar.html">Open the calendar</a>
+              <span class="tag alt">Cadence</span>
+              <span class="tag">Visibility</span>
             </div>
-          </article>
+          </div>
         </div>
       </section>
 
       <section class="container section" id="signals">
-        <div class="section-header">
+        <div class="section-header stacked">
           <h2 class="section-title">Signals I'm tracking</h2>
-          <p class="section-lead">Small snapshots from the On Track and Off Track pages.</p>
+          <p class="section-lead">
+            Instead of a grid of cards, peek at the themes moving through each lane. Primary narratives
+            take the full width; supporting notes stay lightweight.
+          </p>
         </div>
-        <div class="grid">
-          <div class="card">
-            <h3>Community systems</h3>
-            <p>Lifecycle messaging, onboarding flows, and activation experiments.</p>
-            <div class="tag accent">On Track</div>
+
+        <div class="signal-rows">
+          <div class="signal-row">
+            <div class="signal-head">
+              <p class="kicker">Community systems</p>
+              <h3>Lifecycle journeys, onboarding, and activation experiments</h3>
+              <p>Watching how each message nudges action and keeps members engaged week to week.</p>
+            </div>
+            <div class="signal-meta">
+              <span class="tag accent">On Track</span>
+              <p>Drives momentum and retention.</p>
+            </div>
           </div>
-          <div class="card">
-            <h3>App sprints</h3>
-            <p>Shipping focus tools with scoped milestones and weekly QA blocks.</p>
-            <div class="tag accent">In Motion</div>
+
+          <div class="signal-row alt">
+            <div class="signal-head">
+              <p class="kicker">App sprints</p>
+              <h3>Shipping focus tools with QA gates and feedback loops</h3>
+              <p>Balancing ambition with scoped milestones so the delivery drumbeat stays audible.</p>
+            </div>
+            <div class="signal-meta">
+              <span class="tag accent">In Motion</span>
+              <p>All about fast learning cycles.</p>
+            </div>
           </div>
-          <div class="card">
-            <h3>Backlog triage</h3>
-            <p>Anything stalled rolls into Off Track to reset ownership and unblock.</p>
-            <div class="tag danger">Off Track</div>
+
+          <div class="signal-row">
+            <div class="signal-head">
+              <p class="kicker">Backlog triage</p>
+              <h3>Anything stalled is reset with a clear owner and a test</h3>
+              <p>Off Track remains a safety net so nothing hides in the shadows or drifts without a date.</p>
+            </div>
+            <div class="signal-meta">
+              <span class="tag danger">Off Track</span>
+              <p>Weekly rescues and re-commits.</p>
+            </div>
           </div>
-          <div class="card">
-            <h3>Timeboxing</h3>
-            <p>Calendar anchors every deliverable so the schedule stays visible.</p>
-            <div class="tag alt">Calendar</div>
+
+          <div class="signal-row alt">
+            <div class="signal-head">
+              <p class="kicker">Timeboxing</p>
+              <h3>Calendar anchors every deliverable in the open</h3>
+              <p>Deadlines, drops, and rituals show up as full-width beats instead of tiny cards.</p>
+            </div>
+            <div class="signal-meta">
+              <span class="tag alt">Calendar</span>
+              <p>Shifts focus week by week.</p>
+            </div>
           </div>
         </div>
       </section>
