@@ -6,33 +6,28 @@
   <title>Timeline – Jonas Dzaack</title>
   <meta name="description" content="Timeline of Jonas Dzaack – school, skool, uni, apps and future seasons." />
   <link rel="icon" href="assets/face.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
 <body class="page-timeline" data-page="timeline">
-  <div class="loader-overlay">
-    <div class="loader-inner">
-      <div class="loader-logo">
-        <span class="loader-logo-mark">JD</span>
-        <span class="loader-logo-text">Timeline</span>
-      </div>
-      <p class="loader-sub">Mapping seasons…</p>
-    </div>
-  </div>
-  <div class="scroll-progress"></div>
-
   <header class="site-header">
-    <div class="wrap header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-mark">JD</span>
-        <span class="logo-text">Jonas&nbsp;Dzaack</span>
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">JD</span>
+        <span>Jonas Dzaack</span>
       </a>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="on-track.html">On&nbsp;Track</a>
-        <a href="off-track.html">Off&nbsp;Track</a>
-        <a href="calendar.html">Calendar</a>
-        <a href="timeline.html" class="nav-pill is-active">Timeline</a>
+      <nav>
+        <a class="nav-link" data-page-link="home" href="index.html">Home</a>
+        <a class="nav-link" data-page-link="on-track" href="on-track.html">On Track</a>
+        <a class="nav-link" data-page-link="off-track" href="off-track.html">Off Track</a>
+        <a class="nav-link" data-page-link="calendar" href="calendar.html">Calendar</a>
+        <a class="nav-link" data-page-link="timeline" href="timeline.html">Timeline</a>
       </nav>
     </div>
   </header>
@@ -48,8 +43,8 @@
             Links jump back into On Track and Off Track when you want details.
           </p>
           <div class="hero-cta-row">
-            <a class="btn btn-primary text-wave" href="on-track.html">See On Track</a>
-            <a class="btn btn-ghost text-wave" href="off-track.html">Jump to Off Track</a>
+            <a class="btn primary" href="on-track.html">See On Track</a>
+            <a class="btn" href="off-track.html">Jump to Off Track</a>
           </div>
         </div>
         <div class="timeline-legend">
@@ -128,10 +123,10 @@
         <p class="eyebrow">Pit lane</p>
         <h3>Refuel, reset, go again.</h3>
       </div>
-      <div class="footer-actions">
-        <a href="on-track.html" class="btn btn-primary text-wave">On Track</a>
-        <a href="off-track.html" class="btn btn-ghost">Off Track</a>
-      </div>
+        <div class="footer-actions">
+          <a href="on-track.html" class="btn primary">On Track</a>
+          <a href="off-track.html" class="btn">Off Track</a>
+        </div>
     </div>
 
     <div class="wrap footer-grid">
