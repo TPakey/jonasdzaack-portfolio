@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Calendar · Jonas Dzaack</title>
-    <meta name="description" content="Timeboxed schedule for Jonas Dzaack's projects." />
     <link rel="icon" href="assets/face.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +14,13 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="calendar">
+    <div class="sky-bg"></div>
+    <div class="loader-overlay" aria-hidden="true">
+      <div class="loader-orb" role="presentation"></div>
+    </div>
+
     <header class="site-header">
-      <div class="header-inner">
+      <div class="header-inner page-width">
         <a class="brand" href="index.html">
           <span class="brand-mark">JD</span>
           <span>Jonas Dzaack</span>
@@ -32,128 +36,92 @@
     </header>
 
     <main>
-      <section class="container hero">
-        <div>
-          <span class="hero-kicker">Calendar</span>
-          <h1 class="hero-title">Timeboxed plan with live milestones.</h1>
-          <p class="hero-subtitle">
-            This calendar anchors every deliverable. Use it to jump between On Track workstreams,
-            recovery steps, and weekly checkpoints.
-          </p>
-          <div class="btn-row">
-            <a class="btn primary" href="on-track.html">Go to On Track</a>
-            <a class="btn" href="off-track.html">Visit Off Track</a>
+      <section class="section-shell">
+        <div class="page-width hero-grid">
+          <div>
+            <span class="kicker">Schedule anchor</span>
+            <h1>Calendar · timeboxed commitments</h1>
+            <p>Milestones and weekly drops share one cadence so you can scan the horizon.</p>
           </div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-image-shell">
-            <img src="assets/jonas-hero.png" alt="Jonas Dzaack helmet illustration" />
-            <span class="hero-badge">Schedule</span>
-          </div>
-        </div>
-        <div class="hero-panel">
-          <div class="hero-meta">
-            <div class="meta-chip">
-              <div class="meta-label">Current week</div>
-              <div class="meta-value">Week 32</div>
+          <div class="stats-stack">
+            <div class="stat-card">
+              <span class="pill accent">Current week</span>
+              <strong>Week 32</strong>
+              <p>Shipping UX refinement and onboarding tweaks.</p>
             </div>
-            <div class="meta-chip">
-              <div class="meta-label">Milestones</div>
-              <div class="meta-value">6 scheduled</div>
-            </div>
-            <div class="meta-chip">
-              <div class="meta-label">Updated</div>
-              <div class="meta-value">Today</div>
+            <div class="stat-card">
+              <span class="pill">Milestones</span>
+              <strong>3 near-term</strong>
+              <p>One app drop, one ops automation, one comms refresh.</p>
             </div>
           </div>
-          <p class="section-lead">
-            Dates are synced across pages. If something slips into Off Track, the table updates so
-            the timeline stays honest.
-          </p>
         </div>
       </section>
 
-      <section class="container section" id="schedule">
-        <div class="section-header">
-          <h2 class="section-title">Upcoming schedule</h2>
-          <p class="section-lead">A compact view of the next milestones.</p>
-        </div>
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Item</th>
-                <th>Owner</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Mon</td>
-                <td>Activation email rollout</td>
-                <td>Jonas</td>
-                <td><span class="status-dot status-on"></span>On Track</td>
-              </tr>
-              <tr>
-                <td>Tue</td>
-                <td>App beta QA block</td>
-                <td>Jonas</td>
-                <td><span class="status-dot status-on"></span>On Track</td>
-              </tr>
-              <tr>
-                <td>Wed</td>
-                <td>Ad creative refresh</td>
-                <td>Jonas</td>
-                <td><span class="status-dot status-off"></span>Off Track</td>
-              </tr>
-              <tr>
-                <td>Thu</td>
-                <td>Community live call</td>
-                <td>Jonas</td>
-                <td><span class="status-dot status-upcoming"></span>Upcoming</td>
-              </tr>
-              <tr>
-                <td>Fri</td>
-                <td>Weekly summary + migration</td>
-                <td>Jonas</td>
-                <td><span class="status-dot status-on"></span>On Track</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="container section" id="notes">
-        <div class="section-header">
-          <h2 class="section-title">Calendar notes</h2>
-          <p class="section-lead">How dates move when things switch between On and Off Track.</p>
-        </div>
-        <div class="split-grid">
-          <div class="panel">
-            <h3>When work stays On Track</h3>
-            <ul class="bullet-list">
-              <li>Dates are locked and appear with the green indicator.</li>
-              <li>Milestones link back to the On Track cards for context.</li>
-              <li>Recaps are added to keep the history clear.</li>
-            </ul>
+      <section class="section-shell">
+        <div class="page-width">
+          <div class="section-header">
+            <div>
+              <span class="kicker">This week</span>
+              <h2>Live schedule</h2>
+            </div>
+            <p>Restyled table uses soft surfaces and hover states to match the hero cards.</p>
           </div>
-          <div class="panel">
-            <h3>When work shifts Off Track</h3>
-            <ul class="bullet-list">
-              <li>Status switches to red and a reset date is assigned.</li>
-              <li>Owners document the blocker and the fix in Off Track.</li>
-              <li>Once resolved, the item returns here with the new date.</li>
-            </ul>
+
+          <div class="card table-card">
+            <div class="table-head">
+              <span>Item</span>
+              <span>Status</span>
+              <span>Owner</span>
+              <span>Due</span>
+            </div>
+            <div class="table-row">
+              <span>Community onboarding passes</span>
+              <span class="pill accent">In progress</span>
+              <span>Jonas</span>
+              <span>Tue</span>
+            </div>
+            <div class="table-row">
+              <span>App QA sweep</span>
+              <span class="pill warning">QA window</span>
+              <span>Jonas</span>
+              <span>Wed</span>
+            </div>
+            <div class="table-row">
+              <span>Ops automation</span>
+              <span class="pill">Build</span>
+              <span>Jonas</span>
+              <span>Thu</span>
+            </div>
+            <div class="table-row">
+              <span>Community report</span>
+              <span class="pill accent">Draft</span>
+              <span>Jonas</span>
+              <span>Fri</span>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="container footer">
-      Calendar keeps the cadence visible. Jump to On Track for active delivery or Off Track for
-      recovery work.
+    <footer class="site-footer">
+      <img class="footer-mask" src="assets/67d2dd47cfe84bed1dce9542_ln4-footer-mask-desktop.svg" alt="Curved footer mask" />
+      <div class="page-width footer-inner">
+        <div class="footer-top">
+          <div>
+            <span class="kicker">Cadence</span>
+            <h2>Keep the tempo visible.</h2>
+            <p>Timeboxed work makes the next drop predictable—reach out to collaborate.</p>
+          </div>
+          <div class="footer-actions">
+            <a class="btn primary" href="mailto:hello@example.com">Business enquiries</a>
+            <a class="btn" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" href="https://www.twitter.com" target="_blank" rel="noreferrer">Twitter</a>
+          </div>
+        </div>
+      </div>
     </footer>
-    <script src="script.js" defer></script>
+
+    <script src="script.js"></script>
   </body>
 </html>

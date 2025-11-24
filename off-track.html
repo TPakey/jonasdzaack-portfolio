@@ -4,10 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Off Track · Jonas Dzaack</title>
-    <meta
-      name="description"
-      content="Recovery plans and diagnostics for any workstream that fell behind."
-    />
     <link rel="icon" href="assets/face.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,8 +14,13 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="off-track">
+    <div class="sky-bg"></div>
+    <div class="loader-overlay" aria-hidden="true">
+      <div class="loader-orb" role="presentation"></div>
+    </div>
+
     <header class="site-header">
-      <div class="header-inner">
+      <div class="header-inner page-width">
         <a class="brand" href="index.html">
           <span class="brand-mark">JD</span>
           <span>Jonas Dzaack</span>
@@ -35,101 +36,92 @@
     </header>
 
     <main>
-      <section class="container hero">
-        <div>
-          <span class="hero-kicker">Recovery lane</span>
-          <h1 class="hero-title">Off Track: slowdowns, diagnostics, and resets.</h1>
-          <p class="hero-subtitle">
-            If something slips, it lands here. Each item has a reason, a reset date, and a
-            clear owner. After the fix, it moves back to On Track and the calendar updates.
-          </p>
-          <div class="btn-row">
-            <a class="btn primary" href="#plan">See reset plan</a>
-            <a class="btn" href="on-track.html">Back to On Track</a>
+      <section class="section-shell">
+        <div class="page-width section-header">
+          <div>
+            <span class="kicker">Reset lane</span>
+            <h1>Off Track · recovery in motion</h1>
           </div>
+          <p>Two crisp columns keep "Still on track" and "Off track & recovering" clearly separated.</p>
         </div>
-        <div class="hero-visual">
-          <div class="hero-image-shell">
-            <img src="assets/jonas-hero.png" alt="Jonas Dzaack helmet illustration" />
-            <span class="hero-badge">Reset</span>
-          </div>
-        </div>
-        <div class="hero-panel">
-          <div class="hero-meta">
-            <div class="meta-chip">
-              <div class="meta-label">Open issues</div>
-              <div class="meta-value">3</div>
+
+        <div class="page-width split-panels">
+          <article class="panel">
+            <h2>Still on track</h2>
+            <p>Healthy streams that stay steady while recovery work happens elsewhere.</p>
+            <div class="stats-stack">
+              <span class="pill accent">Community ops</span>
+              <span class="pill">Content cadence</span>
+              <span class="pill">Support queue</span>
             </div>
-            <div class="meta-chip">
-              <div class="meta-label">Target</div>
-              <div class="meta-value">Back on track in 7 days</div>
+          </article>
+
+          <article class="panel">
+            <h2>Off track & recovering</h2>
+            <p>Items under repair with owners, tests, and a clear date to rejoin the main lane.</p>
+            <div class="stats-stack">
+              <span class="pill danger">Blocked: data QA</span>
+              <span class="pill warning">Rework: app polish</span>
+              <span class="pill accent">Reset: docs clarity</span>
             </div>
-            <div class="meta-chip">
-              <div class="meta-label">Owner</div>
-              <div class="meta-value">Jonas Dzaack</div>
-            </div>
-          </div>
-          <p class="section-lead">
-            The split below shows what is still moving versus what needs attention. Nothing stays
-            here longer than a week without a decision.
-          </p>
+          </article>
         </div>
       </section>
 
-      <section class="container section" id="split">
-        <div class="section-header">
-          <h2 class="section-title">On vs Off Track</h2>
-          <p class="section-lead">Clear separation of the healthy lanes and the stalled ones.</p>
-        </div>
-        <div class="split-grid">
-          <div class="panel">
-            <h3>Still On Track</h3>
-            <ul class="bullet-list">
-              <li><span class="tag accent">On</span> Community onboarding sequence performing well.</li>
-              <li><span class="tag accent">On</span> FocusLimit weekly build cadence holding.</li>
-              <li><span class="tag accent">On</span> Operator playbook updates continue to ship.</li>
-            </ul>
+      <section class="section-shell">
+        <div class="page-width">
+          <div class="section-header">
+            <div>
+              <span class="kicker">Recovery notes</span>
+              <h2>What we're doing about it</h2>
+            </div>
+            <p>Clear, concise bullets so the rhythm matches the rest of the system.</p>
           </div>
-          <div class="panel">
-            <h3>Off Track and recovering</h3>
-            <ul class="bullet-list">
-              <li><span class="tag danger">Off</span> Ad experiments paused pending new creative.</li>
-              <li><span class="tag danger">Off</span> Community live call replay needs editing.</li>
-              <li><span class="tag danger">Off</span> Dashboard analytics delayed by data cleanup.</li>
-            </ul>
+          <div class="signal-list">
+            <div class="signal-row alt">
+              <div>
+                <h3>Root cause sweeps</h3>
+                <p>Lightweight postmortems with action items assigned the same day.</p>
+              </div>
+              <span class="pill danger">In motion</span>
+            </div>
+            <div class="signal-row">
+              <div>
+                <h3>Experiment cycles</h3>
+                <p>Small tests, short timelines, and a public readout to re-enter the On Track lane.</p>
+              </div>
+              <span class="pill accent">Shipping</span>
+            </div>
+            <div class="signal-row">
+              <div>
+                <h3>Comms refresh</h3>
+                <p>Aligning expectations with simple milestones and owner tags.</p>
+              </div>
+              <span class="pill">Transparent</span>
+            </div>
           </div>
-        </div>
-      </section>
-
-      <section class="container section" id="plan">
-        <div class="section-header">
-          <h2 class="section-title">Reset plan</h2>
-          <p class="section-lead">Steps to bring the Off Track items back into motion.</p>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <h3>Diagnose</h3>
-            <p>Identify the blocker, check scope, and confirm the owner. Timeline gets updated in the calendar.</p>
-            <div class="tag danger">Day 1</div>
-          </article>
-          <article class="card">
-            <h3>Design a fix</h3>
-            <p>Create the next right action: new creative, a patched feature, or a customer loop.</p>
-            <div class="tag alt">Day 2</div>
-          </article>
-          <article class="card">
-            <h3>Ship and monitor</h3>
-            <p>Push the fix, monitor metrics for 48 hours, then graduate back to On Track.</p>
-            <div class="tag accent">Day 3-7</div>
-          </article>
         </div>
       </section>
     </main>
 
-    <footer class="container footer">
-      Off Track exists to recover momentum. Check the Calendar for updated dates or head to On
-      Track to see what is already moving.
+    <footer class="site-footer">
+      <img class="footer-mask" src="assets/67d2dd47cfe84bed1dce9542_ln4-footer-mask-desktop.svg" alt="Curved footer mask" />
+      <div class="page-width footer-inner">
+        <div class="footer-top">
+          <div>
+            <span class="kicker">Recovery lane</span>
+            <h2>Nothing hides in the shadows.</h2>
+            <p>See what's off course, what we're doing about it, and when it rejoins the main run.</p>
+          </div>
+          <div class="footer-actions">
+            <a class="btn primary" href="mailto:hello@example.com">Business enquiries</a>
+            <a class="btn" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" href="https://www.twitter.com" target="_blank" rel="noreferrer">Twitter</a>
+          </div>
+        </div>
+      </div>
     </footer>
-    <script src="script.js" defer></script>
+
+    <script src="script.js"></script>
   </body>
 </html>

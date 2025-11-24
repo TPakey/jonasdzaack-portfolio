@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>On Track · Jonas Dzaack</title>
-    <meta name="description" content="Active work, wins, and sprints that are on track." />
     <link rel="icon" href="assets/face.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +14,13 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="on-track">
+    <div class="sky-bg"></div>
+    <div class="loader-overlay" aria-hidden="true">
+      <div class="loader-orb" role="presentation"></div>
+    </div>
+
     <header class="site-header">
-      <div class="header-inner">
+      <div class="header-inner page-width">
         <a class="brand" href="index.html">
           <span class="brand-mark">JD</span>
           <span>Jonas Dzaack</span>
@@ -32,149 +36,95 @@
     </header>
 
     <main>
-      <section class="container hero">
-        <div>
-          <span class="hero-kicker">Execution lane</span>
-          <h1 class="hero-title">On Track: work that is moving with momentum.</h1>
-          <p class="hero-subtitle">
-            Every sprint listed here is shipping on schedule. Each card shows owners, health,
-            and why it matters. Check the calendar for timing and the Off Track page for anything
-            that needs a reset.
-          </p>
-          <div class="btn-row">
-            <a class="btn primary" href="calendar.html">View calendar</a>
-            <a class="btn" href="#wins">See recent wins</a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-image-shell">
-            <img src="assets/jonas-hero.png" alt="Jonas Dzaack helmet illustration" />
-            <span class="hero-badge">On Track</span>
-          </div>
-        </div>
-        <div class="hero-panel">
-          <div class="hero-meta">
-            <div class="meta-chip">
-              <div class="meta-label">Current sprint</div>
-              <div class="meta-value">Community Upgrade</div>
-            </div>
-            <div class="meta-chip">
-              <div class="meta-label">Health</div>
-              <div class="meta-value">On Track</div>
-            </div>
-            <div class="meta-chip">
-              <div class="meta-label">Reporting</div>
-              <div class="meta-value">Weekly summary</div>
+      <section class="section-shell">
+        <div class="page-width hero-grid">
+          <div>
+            <span class="kicker">Execution lane</span>
+            <h1>On Track · clear skies ahead</h1>
+            <p>Active sprints, fast feedback, and measurable progress logged every week.</p>
+            <div class="btn-row">
+              <a class="btn primary" href="calendar.html">View cadence</a>
+              <a class="btn" href="off-track.html">Need to reset?</a>
             </div>
           </div>
-          <p class="section-lead">
-            Design, operations, and app builds each have clear deliverables. Progress here is the
-            source of truth for what is going well.
-          </p>
-        </div>
-      </section>
-
-      <section class="container section" id="tracks">
-        <div class="section-header">
-          <h2 class="section-title">Active tracks</h2>
-          <p class="section-lead">Workstreams that are confidently shipping.</p>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <h3>Skool onboarding flow</h3>
-            <p>New community arc with rapid activation emails and a live cohort walkthrough.</p>
-            <div class="chip-row">
-              <span class="tag accent">Live</span>
-              <span class="tag">Community</span>
-            </div>
-          </article>
-          <article class="card">
-            <h3>FocusLimit app sprint</h3>
-            <p>Shipping a weekly build with usability fixes, reminders, and beta feedback calls.</p>
-            <div class="chip-row">
-              <span class="tag accent">Build</span>
-              <span class="tag alt">Apps</span>
-            </div>
-          </article>
-          <article class="card">
-            <h3>Operator playbook</h3>
-            <p>Documenting acquisition scripts, retention routines, and upsell checkpoints.</p>
-            <div class="chip-row">
-              <span class="tag accent">Systems</span>
-              <span class="tag">Ops</span>
-            </div>
-          </article>
-          <article class="card">
-            <h3>Client growth lab</h3>
-            <p>Weekly experiments with ads, offer tuning, and call-to-action optimizations.</p>
-            <div class="chip-row">
-              <span class="tag accent">Experiments</span>
-              <span class="tag">Acquisition</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="container section" id="wins">
-        <div class="section-header">
-          <h2 class="section-title">Recent wins</h2>
-          <p class="section-lead">A simple timeline to show momentum and celebrate delivery.</p>
-        </div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-date">Week 1</div>
-            <div class="timeline-content">
-              <h4>Activation emails live</h4>
-              <p>New onboarding flow opened with a 42% lift in first-session completion.</p>
+          <div class="portrait-card">
+            <div class="portrait-frame">
+              <img src="assets/jonas-hero.png" alt="Jonas portrait with sky" />
             </div>
           </div>
-          <div class="timeline-item">
-            <div class="timeline-date">Week 2</div>
-            <div class="timeline-content">
-              <h4>App beta shipped</h4>
-              <p>FocusLimit beta pushed to testers with reminders and session logging.</p>
+          <div class="stats-stack">
+            <div class="stat-card">
+              <span class="pill accent">This week</span>
+              <strong>Execution mode</strong>
+              <p>Shipping onboarding refinements and polishing tooling for feedback loops.</p>
             </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">Week 3</div>
-            <div class="timeline-content">
-              <h4>Community live call</h4>
-              <p>Hosted a cohort walkthrough that doubled retention for the new members.</p>
+            <div class="stat-card">
+              <span class="pill">Velocity</span>
+              <strong>3 key drops</strong>
+              <p>Two UX passes + one ops automation scheduled.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="container section" id="labs">
-        <div class="section-header">
-          <h2 class="section-title">Focus labs</h2>
-          <p class="section-lead">The small routines keeping delivery reliable.</p>
-        </div>
-        <div class="split-grid">
-          <div class="panel">
-            <h3>Operator cadence</h3>
-            <ul class="bullet-list">
-              <li>Weekly review with outcome metrics and scope checks.</li>
-              <li>Midweek QA for app builds and community automation.</li>
-              <li>Friday recap shared to Off Track if anything slips.</li>
-            </ul>
+      <section class="section-shell">
+        <div class="page-width">
+          <div class="section-header">
+            <div>
+              <span class="kicker">Highlights</span>
+              <h2>What is moving right now</h2>
+            </div>
+            <p>Lightweight cards echo the stats from the home hero so the system feels unified.</p>
           </div>
-          <div class="panel">
-            <h3>Quality checks</h3>
-            <ul class="bullet-list">
-              <li>Accessibility and copy pass before any release.</li>
-              <li>Test calls recorded for high-risk features.</li>
-              <li>Calendar anchors updated with real timelines.</li>
-            </ul>
+
+          <div class="split-panels">
+            <article class="panel">
+              <h3>Community onboarding</h3>
+              <p>Journey maps updated with new welcome moments and a tighter activation loop.</p>
+              <div class="btn-row">
+                <span class="pill accent">Live</span>
+                <span class="pill">Metrics: engagement</span>
+              </div>
+            </article>
+            <article class="panel">
+              <h3>Apps tooling</h3>
+              <p>QA gates plus weekly demos to keep feedback flowing without slowing release tempo.</p>
+              <div class="btn-row">
+                <span class="pill accent">Build</span>
+                <span class="pill warning">QA Window</span>
+              </div>
+            </article>
+            <article class="panel">
+              <h3>Ops automation</h3>
+              <p>Reducing manual syncs with small scripts that keep data clean across touchpoints.</p>
+              <div class="btn-row">
+                <span class="pill">In flight</span>
+                <span class="pill accent">Systems</span>
+              </div>
+            </article>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="container footer">
-      On Track holds the workstreams that are moving. See Off Track for recovery plans or
-      Calendar for scheduling.
+    <footer class="site-footer">
+      <img class="footer-mask" src="assets/67d2dd47cfe84bed1dce9542_ln4-footer-mask-desktop.svg" alt="Curved footer mask" />
+      <div class="page-width footer-inner">
+        <div class="footer-top">
+          <div>
+            <span class="kicker">Execution lane</span>
+            <h2>Stay on pace with the latest drops.</h2>
+            <p>Follow the weekly wins or reach out to collaborate on the next sprint.</p>
+          </div>
+          <div class="footer-actions">
+            <a class="btn primary" href="mailto:hello@example.com">Business enquiries</a>
+            <a class="btn" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" href="https://www.twitter.com" target="_blank" rel="noreferrer">Twitter</a>
+          </div>
+        </div>
+      </div>
     </footer>
-    <script src="script.js" defer></script>
+
+    <script src="script.js"></script>
   </body>
 </html>
