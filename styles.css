@@ -161,8 +161,26 @@ main {
   z-index: 1;
 }
 
-.section-shell {
+.section {
   padding: clamp(2.2rem, 4vw, 3.4rem) 0;
+}
+
+.section-sky {
+  position: relative;
+  background: linear-gradient(180deg, rgba(244, 248, 255, 0.94), #ffffff 72%);
+}
+
+.section-sky--top {
+  background: linear-gradient(180deg, rgba(244, 248, 255, 0.96) 0%, rgba(244, 248, 255, 0.92) 48%, #ffffff 100%);
+}
+
+.section-sky--bottom {
+  background: linear-gradient(180deg, #ffffff 0%, rgba(244, 248, 255, 0.9) 45%, rgba(244, 248, 255, 0.96) 100%);
+  margin-top: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+.section-white {
+  background: #ffffff;
 }
 
 .card {
@@ -462,8 +480,8 @@ p {
 }
 
 .site-footer {
-  margin-top: clamp(2rem, 4vw, 3rem);
-  background: linear-gradient(180deg, rgba(244, 248, 255, 0.94), var(--bg) 45%, var(--bg-highlight) 100%);
+  margin: 0;
+  background: transparent;
   border-top: 1px solid rgba(2, 21, 38, 0.08);
   position: relative;
 }
